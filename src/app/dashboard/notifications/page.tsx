@@ -2,14 +2,19 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
+type FormData = {
+  title: string;
+  message: string;
+};
+
 const Notifications = () => {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data: any) => console.log(data);
+  } = useForm<FormData>();
+  const onSubmit = (data: FormData) => console.log(data);
 
   console.log(watch("title")); // watch input value by passing the name of it
   return (

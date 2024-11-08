@@ -5,14 +5,21 @@ import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 
+type FormData = {
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+};
+
 const Register = () => {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data: any) => {
+  } = useForm<FormData>();
+  const onSubmit = (data: FormData) => {
     adminRegister(data.firstname, data.lastname, data.email, data.password);
   };
 
@@ -60,7 +67,7 @@ const Register = () => {
           {...register("password", { required: true })}
         />
         {/* errors will return when field validation fails  */}
-        {errors.exampleRequired && <span>This field is required</span>}
+        {errors.password && <span>This field is required</span>}
 
         <input
           className="bg-red-500 w-[13.75rem] rounded-4xl p-2.5 mx-auto mt-6"
