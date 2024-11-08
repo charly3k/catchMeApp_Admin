@@ -2,11 +2,11 @@ import UsersHeader from "@/components/Home/UsersHeader";
 import React from "react";
 
 const header = [
-  "first name",
-  "last name",
-  "email",
-  "profile pic",
-  "photos",
+  "Reported name",
+  "Reason for report",
+  "Date of report",
+  "Reportee",
+
   "actions",
 ];
 const usersData = [
@@ -57,10 +57,9 @@ const usersData = [
   },
 ];
 
-const Users = () => {
+const Reports = () => {
   return (
     <div className="py-6 pr-6">
-      <UsersHeader />
       <div className="bg-white rounded-3xl mx-auto p-6 my-6">
         {/* <table>
         <thead>
@@ -107,26 +106,11 @@ const Users = () => {
           </div>
           {usersData.map((user) => (
             <div className="flex flex-row justify-between mb-6" key={user.id}>
-              <div className="text-black w-2/12">{user.name}</div>
-              <div className="text-black w-2/12">{user.name}</div>
-              <div className="text-black w-2/12">{user.email}</div>
-              <div className="w-2/12">
-                <img
-                  className="text-black"
-                  src={user.profilePic}
-                  alt="profile pic"
-                />
-              </div>
-              <div className="w-2/12 flex flex-row">
-                {user.photos.map((photo, index) => (
-                  <img
-                    className="text-black"
-                    key={index}
-                    src={photo.url}
-                    //alt="photo"
-                  />
-                ))}
-              </div>
+              <div className="text-black w-2/12">{"Henry Richard"}</div>
+              <div className="text-black w-2/12">{"Inappropriate Content"}</div>
+              <div className="text-black w-2/12">{"20-Aug-24"}</div>
+              <div className="w-2/12 text-black">Temilade Mariam</div>
+
               <div className="text-black opacity-50 underline w-2/12">
                 {user.actions}
               </div>
@@ -138,4 +122,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Reports;

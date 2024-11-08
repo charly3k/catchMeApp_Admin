@@ -1,0 +1,1 @@
+export const apiUrl = "https://thecatchmeapp-12706a155832.herokuapp.com";

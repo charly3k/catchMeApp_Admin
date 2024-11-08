@@ -5,6 +5,7 @@ import Link from "next/link";
 import React, { use } from "react";
 import { raleway, dm_sans } from "@/app/ui/fonts";
 import { useRouter } from "next/navigation";
+import Logout from "@/assets/Logout";
 const sidebarContents = [
   {
     title: "users",
@@ -17,9 +18,9 @@ const sidebarContents = [
     link: "/swipes",
   },
   {
-    title: "blocks",
+    title: "reports",
     icon: "",
-    link: "/blocks",
+    link: "/reports",
   },
   {
     title: "notifications",
@@ -42,21 +43,29 @@ const Sidebar = () => {
   const pathname = usePathname();
   console.log(pathname);
   return (
-    <div className=" justify-between">
-      {sidebarContents.map((content) => (
-        <div className="p-30" key={content.title}>
-          <Link
-            className={`${dm_sans.className}   ${
-              pathname == "/dashboard" + content.link
-                ? "text-red-500"
-                : "text-black"
-            } text-lg `}
-            href={`/dashboard${content.link}`}
-          >
-            {content.title}
-          </Link>
-        </div>
-      ))}
+    <div className="">
+      <div className=" justify-between">
+        {sidebarContents.map((content) => (
+          <div className="p-30" key={content.title}>
+            <Link
+              className={`${dm_sans.className}   ${
+                pathname == "/dashboard" + content.link
+                  ? "text-red-500"
+                  : "text-black"
+              } text-lg `}
+              href={`/dashboard${content.link}`}
+            >
+              {content.title}
+            </Link>
+          </div>
+        ))}
+      </div>
+      <div className="flex justify-center ">
+        <Logout />{" "}
+        <Link href={"/"} className="text-slate-400 text-right ml-6">
+          Logout
+        </Link>
+      </div>
     </div>
   );
 };

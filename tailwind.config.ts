@@ -18,6 +18,15 @@ const config: Config = {
        padding: {
       30: "30px",
     },
+    width:{
+      '494':'30.875rem'
+    },
+    borderRadius:{
+      '4xl':'2rem'
+    },
+    height:{
+      '338':'21.125rem'
+    }
     
   },
   },

@@ -6,7 +6,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="flex-1 min-h-screen bg-lightWhite flex flex row w-screen">
+    <section className="flex-1 min-h-screen bg-lightWhite flex  w-screen">
       {/* Include shared UI here e.g. a header or sidebar */}
 
       <aside className=" bg-white mr-10">
