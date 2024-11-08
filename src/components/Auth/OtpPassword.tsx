@@ -12,7 +12,7 @@ const OtpPassword = () => {
   const {
     register,
     handleSubmit,
-    watch,
+
     formState: { errors },
   } = useForm<FormData>();
   const onSubmit = (data: FormData) => console.log(data);
