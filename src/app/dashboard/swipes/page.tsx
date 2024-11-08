@@ -1,4 +1,3 @@
-import UsersHeader from "@/components/Home/UsersHeader";
 import React from "react";
 
 const header = ["name", "type", "date", "profile swiped"];
