@@ -12,7 +12,7 @@ const Register = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     adminRegister(data.firstname, data.lastname, data.email, data.password);
   };
 

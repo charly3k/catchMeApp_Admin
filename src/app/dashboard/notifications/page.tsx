@@ -9,7 +9,7 @@ const Notifications = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data: any) => console.log(data);
 
   console.log(watch("title")); // watch input value by passing the name of it
   return (
