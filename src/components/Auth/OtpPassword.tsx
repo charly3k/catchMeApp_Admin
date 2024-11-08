@@ -4,16 +4,19 @@ import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 
+type FormData = {
+  otp: string;
+};
+
 const OtpPassword = () => {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+  } = useForm<FormData>();
+  const onSubmit = (data: FormData) => console.log(data);
 
-  console.log(watch("password")); // watch input value by passing the name of it
   return (
     <div className="flex flex-col  items-center h-screen justify-center">
       <CatchMe />
@@ -31,10 +34,10 @@ const OtpPassword = () => {
           className="rounded-3xl bg-lightWhite py-2.5 px-3.5  text-black"
           // defaultValue="test"
           placeholder="email"
-          {...register("email", { required: true })}
+          {...register("otp", { required: true })}
         />
         {/* errors will return when field validation fails  */}
-        {errors.email && (
+        {errors.otp && (
           <span className="text-black px-6">Email is required</span>
         )}
 

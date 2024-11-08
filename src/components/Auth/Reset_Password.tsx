@@ -4,16 +4,19 @@ import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 
+type FormData = {
+  email: string;
+};
+
 const Reset_Password = () => {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+  } = useForm<FormData>();
+  const onSubmit = (data: FormData) => console.log(data);
 
-  console.log(watch("password")); // watch input value by passing the name of it
   return (
     <div className="flex flex-col  items-center h-screen justify-center">
       <CatchMe />

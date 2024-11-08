@@ -4,14 +4,19 @@ import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 
+type FormData = {
+  password: string;
+  confirmPassword: string;
+};
+
 const NewPassword = () => {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+  } = useForm<FormData>();
+  const onSubmit = (data: FormData) => console.log(data);
 
   console.log(watch("password")); // watch input value by passing the name of it
   return (
@@ -28,7 +33,7 @@ const NewPassword = () => {
           className="rounded-3xl bg-lightWhite py-2.5 px-3.5  text-black"
           // defaultValue="test"
           placeholder="Password"
-          {...register("Password", { required: true })}
+          {...register("password", { required: true })}
         />
         {/* errors will return when field validation fails  */}
         {errors.password && (
