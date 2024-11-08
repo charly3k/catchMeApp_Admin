@@ -6,6 +6,11 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 
+type FormData = {
+  email: string;
+  password: string;
+};
+
 const Login = () => {
   const router = useRouter();
 
@@ -14,8 +19,8 @@ const Login = () => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => {
+  } = useForm<FormData>();
+  const onSubmit = (data: FormData) => {
     console.log(data);
     if (data) {
       router.push("/dashboard/users");
