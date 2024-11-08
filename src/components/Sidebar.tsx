@@ -2,9 +2,9 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import React, { use } from "react";
-import { raleway, dm_sans } from "@/app/ui/fonts";
-import { useRouter } from "next/navigation";
+
+import { dm_sans } from "@/app/ui/fonts";
+
 import Logout from "@/assets/Logout";
 const sidebarContents = [
   {
