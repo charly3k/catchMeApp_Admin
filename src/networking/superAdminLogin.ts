@@ -1,4 +1,4 @@
-import { Router } from "next/router";
+
 import { apiUrl } from "./apiUrl";
 
 export const superAdminLogin =async (email:string,password:string) => {
