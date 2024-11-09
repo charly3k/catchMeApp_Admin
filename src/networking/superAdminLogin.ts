@@ -16,6 +16,9 @@ export const superAdminLogin =async (email:string,password:string) => {
         
     })
 const result = await response.json();
+return result
+
+console.log(result)
 
     if(!response.ok){
 
