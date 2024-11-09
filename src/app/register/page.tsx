@@ -1,6 +1,7 @@
 "use client";
 import CatchMe from "@/assets/CatchMe";
 import { adminRegister } from "@/networking/adminRegister";
+import { superAdminRegister } from "@/networking/superAdminRegister";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -20,7 +21,12 @@ const Register = () => {
     formState: { errors },
   } = useForm<FormData>();
   const onSubmit = (data: FormData) => {
-    adminRegister(data.firstname, data.lastname, data.email, data.password);
+    superAdminRegister(
+      data.firstname,
+      data.lastname,
+      data.email,
+      data.password
+    );
   };
 
   console.log(watch("password")); // watch input value by passing the name of it

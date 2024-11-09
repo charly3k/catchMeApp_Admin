@@ -10,7 +10,9 @@ export const adminRegister= async(firstname:string,lastname:string,email:string,
         method:"POST",
         headers:{
             "Content-Type":"application/json",
+            
         },
+       // mode:'cors',
         body:JSON.stringify({
            firstname,
            lastname,
