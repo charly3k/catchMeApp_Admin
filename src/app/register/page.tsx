@@ -1,6 +1,6 @@
 "use client";
 import CatchMe from "@/assets/CatchMe";
-import { adminRegister } from "@/networking/adminRegister";
+
 import { superAdminRegister } from "@/networking/superAdminRegister";
 import Link from "next/link";
 import React from "react";
