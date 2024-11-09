@@ -24,6 +24,8 @@ const Login = () => {
   const onSubmit = (data: FormData) => {
     const result = superAdminLogin(data.email, data.password);
 
+    console.log(result);
+
     router.push("/dashboard/users");
   };
 
