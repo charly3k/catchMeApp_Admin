@@ -1,3 +1,4 @@
+import { Router } from "next/router";
 import { apiUrl } from "./apiUrl";
 
 export const superAdminLogin =async (email:string,password:string) => {
@@ -16,13 +17,17 @@ export const superAdminLogin =async (email:string,password:string) => {
         
     })
 const result = await response.json();
-return result
+
 
 console.log(result)
 
     if(!response.ok){
 
+        return
+
     }
+    
+    return result
         
     } catch (error) {
         console.log(error);

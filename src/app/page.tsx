@@ -22,7 +22,9 @@ const Login = () => {
     formState: { errors },
   } = useForm<FormData>();
   const onSubmit = (data: FormData) => {
-    superAdminLogin(data.email, data.password);
+    const result = superAdminLogin(data.email, data.password);
+
+    router.push("/dashboard/users");
   };
 
   console.log(watch("password")); // watch input value by passing the name of it
