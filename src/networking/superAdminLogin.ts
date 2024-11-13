@@ -3,7 +3,7 @@ import { apiUrl } from "./apiUrl";
 
 export const superAdminLogin =async (email:string,password:string) => {
     const cookies = new Cookies();
-    const authToken = cookies.get("authToken");
+
 
 
     try {

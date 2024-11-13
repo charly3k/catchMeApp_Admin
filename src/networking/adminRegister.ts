@@ -9,7 +9,7 @@ import Cookies from 'universal-cookie';
 export const adminRegister= async(firstname:string,lastname:string,email:string,password:string)=>{
      console.log({firstname,lastname,email,password})
     try {
-        const cookies = new Cookies();
+
    
   
      const response= await fetch(`${apiUrl}/admin/registration`,{
