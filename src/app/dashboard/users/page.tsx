@@ -1,5 +1,13 @@
+"use client";
 import UsersHeader from "@/components/Home/UsersHeader";
 import React from "react";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
+
+const authToken = cookies.get("authToken");
+
+console.log({ authToken });
 
 const header = [
   "first name",

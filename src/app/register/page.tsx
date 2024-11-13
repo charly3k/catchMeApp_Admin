@@ -1,8 +1,10 @@
 "use client";
 import CatchMe from "@/assets/CatchMe";
+import { adminRegister } from "@/networking/adminRegister";
 
-import { superAdminRegister } from "@/networking/superAdminRegister";
+/* import { superAdminRegister } from "@/networking/superAdminRegister"; */
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -14,6 +16,7 @@ type FormData = {
 };
 
 const Register = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -21,12 +24,18 @@ const Register = () => {
     formState: { errors },
   } = useForm<FormData>();
   const onSubmit = (data: FormData) => {
-    superAdminRegister(
-      data.firstname,
-      data.lastname,
-      data.email,
-      data.password
-    );
+    (() => {
+      const result = adminRegister(
+        data.firstname,
+        data.lastname,
+        data.email,
+        data.password
+      );
+      if (result) {
+        console.log(result);
+        router.push("/");
+      }
+    })();
   };
 
   console.log(watch("password")); // watch input value by passing the name of it

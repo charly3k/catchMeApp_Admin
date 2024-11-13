@@ -1,6 +1,7 @@
 "use client";
 import CatchMe from "@/assets/CatchMe";
-import { superAdminLogin } from "@/networking/superAdminLogin";
+import { adminLogin } from "@/networking/adminLogin";
+/* import { superAdminLogin } from "@/networking/superAdminLogin"; */
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -22,11 +23,14 @@ const Login = () => {
     formState: { errors },
   } = useForm<FormData>();
   const onSubmit = (data: FormData) => {
-    const result = superAdminLogin(data.email, data.password);
+    (async () => {
+      const result = await adminLogin(data.email, data.password);
 
-    console.log(result);
-
-    router.push("/dashboard/users");
+      if (result) {
+        console.log(result);
+        router.push("/dashboard/users");
+      }
+    })();
   };
 
   console.log(watch("password")); // watch input value by passing the name of it
