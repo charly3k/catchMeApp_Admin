@@ -42,6 +42,7 @@ const Register = () => {
         }
         setIsLoading(false);
       } catch (error) {
+        console.log(error);
         toast("an error occurred try again", {
           autoClose: 5000,
         });

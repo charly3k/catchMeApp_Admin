@@ -41,6 +41,7 @@ const Login = () => {
         toast("an error occurred try again", {
           autoClose: 5000,
         });
+        console.log(error);
         setIsLoading(false);
       }
     })();
