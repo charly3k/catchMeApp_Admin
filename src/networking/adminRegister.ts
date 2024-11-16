@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { apiUrl } from "./apiUrl"
 import Cookies from 'universal-cookie';
 
@@ -31,21 +32,30 @@ export const adminRegister= async(firstname:string,lastname:string,email:string,
            password
         }),
     })
-
+const result= await response.json();
     if(!response.ok){
+           toast(result.message,{
+            autoClose: 5000,
+            hideProgressBar: false,
+           });
         return
     }
 
 
 
 
-    const result= await response.json();
+    
 
-    console.log(result)
-    console.log({response})
+ 
+
+    return result
     
 } catch (error) {
     console.log(error)
+        toast('an error occurred try again',{
+            autoClose: 5000,
+            hideProgressBar: false,
+           });
     
 }
    

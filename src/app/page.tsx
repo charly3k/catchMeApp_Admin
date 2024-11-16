@@ -8,6 +8,9 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 
+import Loader from "@/components/Loader";
+import { toast } from "react-toastify";
+
 type FormData = {
   email: string;
   password: string;
@@ -15,6 +18,7 @@ type FormData = {
 
 const Login = () => {
   const router = useRouter();
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const {
     register,
@@ -24,22 +28,30 @@ const Login = () => {
   } = useForm<FormData>();
   const onSubmit = (data: FormData) => {
     (async () => {
-      const result = await adminLogin(data.email, data.password);
+      try {
+        setIsLoading(true);
+        const result = await adminLogin(data.email, data.password);
 
-      if (result) {
-        console.log(result);
-        router.push("/dashboard/users");
+        if (result) {
+          console.log(result);
+          router.push("/dashboard/users");
+        }
+        setIsLoading(false);
+      } catch (error) {
+        toast("an error occurred try again", {
+          autoClose: 5000,
+        });
+        setIsLoading(false);
       }
     })();
   };
 
   console.log(watch("password")); // watch input value by passing the name of it
 
-  console.log(errors);
-
   return (
     <div className="flex flex-col  items-center h-screen justify-center">
       <CatchMe />
+
       <p className="text-black opacity-50 mt-6">
         {" "}
         To access the CatchMeApp Dashboard
@@ -76,11 +88,13 @@ const Login = () => {
           Forgot password?
         </Link>
 
-        <input
-          className="bg-red-500 w-36 rounded-4xl p-2.5 mx-auto mt-6"
-          type="submit"
-          value={"Login"}
-        />
+        {/*       <input type="submit" value={"Login"} /> */}
+        <button
+          disabled={isLoading}
+          className="bg-red-500 w-36 rounded-4xl p-2.5 mx-auto mt-6 justify-center"
+        >
+          {isLoading ? <Loader /> : "  Login"}
+        </button>
       </form>
       <Link href={"/register"} className="text-red-500 text-center mt-6">
         Create an account

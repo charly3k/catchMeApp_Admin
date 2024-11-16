@@ -1,5 +1,6 @@
 "use client";
 import CatchMe from "@/assets/CatchMe";
+import Loader from "@/components/Loader";
 import { adminRegister } from "@/networking/adminRegister";
 
 /* import { superAdminRegister } from "@/networking/superAdminRegister"; */
@@ -7,6 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 type FormData = {
   firstname: string;
@@ -17,6 +19,7 @@ type FormData = {
 
 const Register = () => {
   const router = useRouter();
+  const [isLoading, setIsLoading] = React.useState(false);
   const {
     register,
     handleSubmit,
@@ -24,16 +27,26 @@ const Register = () => {
     formState: { errors },
   } = useForm<FormData>();
   const onSubmit = (data: FormData) => {
-    (() => {
-      const result = adminRegister(
-        data.firstname,
-        data.lastname,
-        data.email,
-        data.password
-      );
-      if (result) {
-        console.log(result);
-        router.push("/");
+    (async () => {
+      try {
+        setIsLoading(true);
+        const result = await adminRegister(
+          data.firstname,
+          data.lastname,
+          data.email,
+          data.password
+        );
+        if (result.status == 200 || result.status == 201) {
+          console.log(result);
+          router.push("/");
+        }
+        setIsLoading(false);
+      } catch (error) {
+        toast("an error occurred try again", {
+          autoClose: 5000,
+        });
+
+        setIsLoading(false);
       }
     })();
   };
@@ -84,11 +97,12 @@ const Register = () => {
         {/* errors will return when field validation fails  */}
         {errors.password && <span>This field is required</span>}
 
-        <input
-          className="bg-red-500 w-[13.75rem] rounded-4xl p-2.5 mx-auto mt-6"
-          type="submit"
-          value={"Create an account"}
-        />
+        <button
+          disabled={isLoading}
+          className="bg-red-500  rounded-4xl p-2.5 mx-auto mt-6 justify-center w-[10.375rem]"
+        >
+          {isLoading ? <Loader /> : "Create an account"}
+        </button>
       </form>
       <p className="text-center text-black mt-6">
         Already have an account?{" "}
