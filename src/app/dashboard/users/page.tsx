@@ -1,6 +1,8 @@
 "use client";
 import UsersHeader from "@/components/Home/UsersHeader";
-import React from "react";
+import { activeUsers } from "@/networking/activeUsers";
+import { totalUsers } from "@/networking/totalUsers";
+import React, { useEffect } from "react";
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
@@ -66,9 +68,26 @@ const usersData = [
 ];
 
 const Users = () => {
+  const [totalUsersData, setTotalUsersData] = React.useState([]);
+  const [activeUsersData, setActiveUsersData] = React.useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const allUsers = await totalUsers();
+      setTotalUsersData(allUsers.data);
+
+      const allActiveUsers = await activeUsers();
+
+      setActiveUsersData(allActiveUsers.data);
+    })();
+  }, []);
+
   return (
     <div className="py-6 pr-6">
-      <UsersHeader />
+      <UsersHeader
+        totalUsersData={totalUsersData}
+        activeUserData={activeUsersData}
+      />
       <div className="bg-white rounded-3xl mx-auto p-6 my-6">
         {/* <table>
         <thead>

@@ -1,16 +1,20 @@
 import React from "react";
 
-const UsersHeader = () => {
+const UsersHeader = ({ totalUsersData, activeUserData }: any) => {
   return (
     <div className="flex flex-row">
       <div className="bg-white rounded-3xl  w-60 py-6 px-6 items-center mr-6">
         <h4 className="text-black"> Total users</h4>
-        <p className="text-black opacity-50">100,000</p>
+        <p className="text-black opacity-50">
+          {totalUsersData.totalLast3Months}
+        </p>
       </div>
 
       <div className="bg-white rounded-3xl  w-60 py-6 px-6 items-center mr-6">
-        <h4 className="text-black"> Total users</h4>
-        <p className="text-black opacity-50">100,000</p>
+        <h4 className="text-black"> Monthly active users</h4>
+        <p className="text-black opacity-50">
+          {activeUserData.totalLast3Months}
+        </p>
       </div>
       <div className="bg-white rounded-3xl  w-60 py-6 px-6 items-center mr-6">
         <h4 className="text-black"> Total users</h4>
