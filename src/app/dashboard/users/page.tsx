@@ -68,8 +68,12 @@ const usersData = [
 ];
 
 const Users = () => {
-  const [totalUsersData, setTotalUsersData] = React.useState([]);
-  const [activeUsersData, setActiveUsersData] = React.useState([]);
+  const [totalUsersData, setTotalUsersData] = React.useState({
+    totalLast3Months: 0,
+  });
+  const [activeUsersData, setActiveUsersData] = React.useState({
+    totalLast3Months: 0,
+  });
 
   useEffect(() => {
     (async () => {
