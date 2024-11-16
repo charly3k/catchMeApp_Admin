@@ -23,6 +23,7 @@ export const activeUsers= async () => {
         console.log(result,response);
         return result;     
     } catch (error) {
+        console.error('Error:', error);
         
     }
 

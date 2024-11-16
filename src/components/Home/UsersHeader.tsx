@@ -1,6 +1,15 @@
 import React from "react";
 
-const UsersHeader = ({ totalUsersData, activeUserData }: any) => {
+type UsersHeaderProps = {
+  totalUsersData: {
+    totalLast3Months: number;
+  };
+  activeUserData: {
+    totalLast3Months: number;
+  };
+};
+
+const UsersHeader = ({ totalUsersData, activeUserData }: UsersHeaderProps) => {
   return (
     <div className="flex flex-row">
       <div className="bg-white rounded-3xl  w-60 py-6 px-6 items-center mr-6">
