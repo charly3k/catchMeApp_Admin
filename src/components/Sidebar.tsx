@@ -8,6 +8,11 @@ import { dm_sans } from "@/app/ui/fonts";
 import Logout from "@/assets/Logout";
 const sidebarContents = [
   {
+    title: "overview",
+    icon: "",
+    link: "/overview",
+  },
+  {
     title: "users",
     icon: "",
     link: "/users",
@@ -27,15 +32,21 @@ const sidebarContents = [
     icon: "",
     link: "/notifications",
   },
+
   {
-    title: "admin_profile",
-    icon: "",
-    link: "/admin_profile",
-  },
-  {
-    title: "deactivated_users",
+    title: "deactivated users",
     icon: "",
     link: "/deactivated_users",
+  },
+  {
+    title: "deleted users",
+    icon: "",
+    link: "/deleted_users",
+  },
+  {
+    title: "admin",
+    icon: "",
+    link: "/admin_profile",
   },
 ];
 
@@ -48,7 +59,7 @@ const Sidebar = () => {
         {sidebarContents.map((content) => (
           <div className="p-30" key={content.title}>
             <Link
-              className={`${dm_sans.className}   ${
+              className={`${dm_sans.className} capitalize  ${
                 pathname == "/dashboard" + content.link
                   ? "text-red-500"
                   : "text-black"
