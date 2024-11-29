@@ -7,7 +7,6 @@ import { Data } from "@/utils/data";
 
 import LineChart from "@/components/Chart";
 import { totalUsers } from "@/networking/totalUsers";
-import { useBoundStore } from "@/store/store";
 
 Chart.register(CategoryScale);
 
