@@ -2,8 +2,7 @@
 
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
-import { useEffect, useState } from "react";
-import { Data } from "@/utils/data";
+import { useEffect } from "react";
 
 /* import LineChart from "@/components/Chart"; */
 import { totalUsers } from "@/networking/totalUsers";
