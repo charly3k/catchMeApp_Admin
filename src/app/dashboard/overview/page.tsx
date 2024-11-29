@@ -5,12 +5,12 @@ import { CategoryScale } from "chart.js";
 import { useEffect, useState } from "react";
 import { Data } from "@/utils/data";
 
-import LineChart from "@/components/Chart";
+/* import LineChart from "@/components/Chart"; */
 import { totalUsers } from "@/networking/totalUsers";
 
 Chart.register(CategoryScale);
 
-const page = () => {
+const Page = () => {
   const fetchChartData = async () => {
     const result = await totalUsers();
 
@@ -21,7 +21,7 @@ const page = () => {
     fetchChartData();
   }, []);
 
-  const [chartData, setChartData] = useState({
+  const [chartData] = useState({
     labels: Data.map((data) => data.year),
     datasets: [
       {
@@ -43,9 +43,9 @@ const page = () => {
   return (
     <div className="App">
       <p className="text-black">Using Chart.js in React</p>
-      <LineChart chartData={chartData} />
+      {/* <LineChart chartData={chartData} /> */}
     </div>
   );
 };
 
-export default page;
+export default Page;

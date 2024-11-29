@@ -1,7 +1,16 @@
 import { StateCreator } from "zustand";
 
 export type ChartState = {
-    chartData: {};
+    chartData: {
+        labels: string[];
+        datasets: {
+            label: string;
+            data: number[];
+            backgroundColor: string[];
+            borderColor: string;
+            borderWidth: number;
+        }[];
+    };
     totalUsersThreeMonths: number;
     totalUsersSixMonths: number;
     totalUsersOneYear: number;
@@ -15,7 +24,16 @@ export type ChartState = {
 
   export  type ChartActions = {
 
-            setChartData: (data: {}) => void;
+            setChartData: (data: {
+                labels: string[];
+                datasets: {
+                    label: string;
+                    data: number[];
+                    backgroundColor: string[];
+                    borderColor: string;
+                    borderWidth: number;
+                }[];
+            }) => void;
             setTotalUsersThreeMonths: (data: number) => void;
             setTotalUsersSixMonths: (data: number) => void;
             setTotalUsersOneYear: (data: number) => void;
