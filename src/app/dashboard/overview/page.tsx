@@ -12,9 +12,6 @@ import { useBoundStore } from "@/store/store";
 Chart.register(CategoryScale);
 
 const page = () => {
-  const allTotalUsers = useBoundStore((state) => state.totalUsers);
-  const setTotalUsers = useBoundStore((state) => state.setTotalUsers);
-
   const fetchChartData = async () => {
     const result = await totalUsers();
 

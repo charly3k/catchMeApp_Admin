@@ -1,7 +1,7 @@
 import { StateCreator } from "zustand";
 
 export type ChartState = {
-    chartData: any;
+    chartData: {};
     totalUsersThreeMonths: number;
     totalUsersSixMonths: number;
     totalUsersOneYear: number;
@@ -15,7 +15,7 @@ export type ChartState = {
 
   export  type ChartActions = {
 
-            setChartData: (data: any) => void;
+            setChartData: (data: {}) => void;
             setTotalUsersThreeMonths: (data: number) => void;
             setTotalUsersSixMonths: (data: number) => void;
             setTotalUsersOneYear: (data: number) => void;
@@ -54,27 +54,27 @@ export type ChartState = {
 export const createChartSlice: StateCreator<ChartState & ChartActions> = (set) => ({
     ...initialState,
     setChartData: (data) => {
-        set((state) => ({
+        set(() => ({
             chartData: data,
         }));
     },
     setTotalUsersThreeMonths: (data) => {
-        set((state) => ({
+        set(() => ({
             totalUsersThreeMonths: data,
         }));
     },
     setTotalUsersSixMonths: (data) => {
-        set((state) => ({
+        set(() => ({
             totalUsersSixMonths: data,
         }));
     },
     setTotalUsersOneYear: (data) => {
-        set((state) => ({
+        set(() => ({
             totalUsersOneYear: data,
         }));
     },
     setTotalUsers: (data) => {
-        set((state) => ({
+        set(() => ({
             totalUsers: data,
         }));
     },
