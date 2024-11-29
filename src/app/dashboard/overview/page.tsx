@@ -21,7 +21,7 @@ const Page = () => {
     fetchChartData();
   }, []);
 
-  const [chartData] = useState({
+  /*   const [chartData] = useState({
     labels: Data.map((data) => data.year),
     datasets: [
       {
@@ -38,7 +38,7 @@ const Page = () => {
         borderWidth: 2,
       },
     ],
-  });
+  }); */
 
   return (
     <div className="App">
