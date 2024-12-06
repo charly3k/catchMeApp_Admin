@@ -3,7 +3,6 @@ import { usePathname } from "next/navigation";
 import React from "react";
 
 const UserDetails = () => {
-  const pathname = usePathname();
   return (
     <div className="w-[1179px]  p-12 bg-white rounded-3xl border border-black/25 flex-col justify-start items-start gap-12 inline-flex">
       <div className="justify-start items-start gap-[40.50px] inline-flex w-full">
