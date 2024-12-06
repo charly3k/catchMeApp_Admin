@@ -1,4 +1,8 @@
-import React from "react";
+"use client";
+
+import { getDeactivatedUsers } from "@/networking/getDeactivatedUsers";
+import { useBoundStore } from "@/store/store";
+import React, { useEffect } from "react";
 
 const header = [
   "first name",
@@ -57,6 +61,18 @@ const usersData = [
 ];
 
 const Deactivated_Users = () => {
+  const deactivtedUsers = useBoundStore((state) => state.deactivatedUsers);
+  const setDeactivatedUsers = useBoundStore(
+    (state) => state.setDeactivatedUsers
+  );
+
+  useEffect(() => {
+    (async () => {
+      const result = await getDeactivatedUsers();
+      setDeactivatedUsers(result.data);
+    })();
+  }, []);
+
   return (
     <div className="py-6 pr-6">
       <div className="bg-white rounded-3xl mx-auto p-6 my-6">
@@ -68,30 +84,31 @@ const Deactivated_Users = () => {
               </div>
             ))}
           </div>
-          {usersData.map((user) => (
+          {deactivtedUsers.map((user) => (
             <div className="flex flex-row justify-between mb-6" key={user.id}>
-              <div className="text-black w-2/12">{user.name}</div>
-              <div className="text-black w-2/12">{user.name}</div>
+              <div className="text-black w-2/12">{user.firstName}</div>
+              <div className="text-black w-2/12">{user.lastName}</div>
               <div className="text-black w-2/12">{user.email}</div>
               <div className="w-2/12">
                 <img
-                  className="text-black"
-                  src={user.profilePic}
+                  className="w-6 h-6 rounded-full"
+                  src={user.userPhoto ? user.userPhoto[0]?.imageUrl : ""}
                   alt="profile pic"
                 />
               </div>
               <div className="w-2/12 flex flex-row">
-                {user.photos.map((photo, index) => (
-                  <img
-                    className="text-black"
-                    key={index}
-                    src={photo.url}
-                    //alt="photo"
-                  />
-                ))}
+                {user.userPhoto &&
+                  user.userPhoto.map((photo, index) => (
+                    <img
+                      className="w-6 h-6 rounded-full"
+                      key={index}
+                      src={photo.imageUrl}
+                      //alt="photo"
+                    />
+                  ))}
               </div>
               <div className="text-black opacity-50 underline w-2/12">
-                {user.actions}
+                {"Reactivate"}
               </div>
             </div>
           ))}

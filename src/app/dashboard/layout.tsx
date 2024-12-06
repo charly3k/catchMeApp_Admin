@@ -9,7 +9,7 @@ export default function DashboardLayout({
     <section className="flex-1 min-h-screen bg-lightWhite flex  w-screen">
       {/* Include shared UI here e.g. a header or sidebar */}
 
-      <aside className=" bg-white mr-10">
+      <aside className=" bg-white mr-10 border border-grey">
         <Sidebar />
       </aside>
 

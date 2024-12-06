@@ -57,21 +57,22 @@ const Sidebar = () => {
     <div className="">
       <div className=" justify-between">
         {sidebarContents.map((content) => (
-          <div className="p-30" key={content.title}>
-            <Link
-              className={`${dm_sans.className} capitalize  ${
-                pathname == "/dashboard" + content.link
-                  ? "text-red-500"
-                  : "text-black"
-              } text-lg `}
-              href={`/dashboard${content.link}`}
-            >
-              {content.title}
-            </Link>
-          </div>
+          <Link
+            key={content.title}
+            className={`${
+              dm_sans.className
+            } capitalize text-black text-base font-bold font-['DM Sans'] leading-[30px] flex flex-col p-30 ${
+              pathname == "/dashboard" + content.link
+                ? "text-red-500"
+                : "text-black"
+            } text-lg `}
+            href={`/dashboard${content.link}`}
+          >
+            {content.title}
+          </Link>
         ))}
       </div>
-      <div className="flex justify-center ">
+      <div className="flex justify-center">
         <Logout />{" "}
         <Link href={"/"} className="text-slate-400 text-right ml-6">
           Logout

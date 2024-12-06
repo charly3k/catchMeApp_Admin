@@ -34,7 +34,7 @@ const Login = () => {
 
         if (result) {
           console.log(result);
-          router.push("/dashboard/users");
+          router.push("/dashboard/overview");
         }
         setIsLoading(false);
       } catch (error) {

@@ -13,6 +13,9 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
           'lightWhite': "#f9f9f9",
+          'folly':"#FF0A54",
+          'grey':'#979797'
+
      
       },
        padding: {
