@@ -50,7 +50,6 @@ const Page = () => {
         ? result.data.last6MonthsDetails
         : result.data.last3MonthsDetails;
 
-    console.log({ userDetails });
     return {
       labels:
         userDetails &&
@@ -80,7 +79,16 @@ const Page = () => {
     };
   };
 
-  const [chartData, setChartData] = useState({
+  const [chartData, setChartData] = useState<{
+    labels: string[];
+    datasets: {
+      label: string;
+      data: number[];
+      backgroundColor: string[];
+      borderColor: string;
+      borderWidth: number;
+    }[];
+  }>({
     labels: [],
     datasets: [
       {

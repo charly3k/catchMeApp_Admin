@@ -3,7 +3,7 @@ import { apiUrl } from "./apiUrl";
 import Cookies from 'universal-cookie';
 
 export const deactivateUser = async (userId: number,isUserDeactivated:boolean ) => {
-    console.log({ userId,isUserDeactivated });
+
     const cookies = new Cookies();
 
     try {
@@ -22,7 +22,7 @@ export const deactivateUser = async (userId: number,isUserDeactivated:boolean ) 
         const result = await response.json();
 
         if (!response.ok) {
-            console.log(response,result);
+        
               toast(result.message,{
             autoClose: 5000,
             hideProgressBar: false,
@@ -30,7 +30,7 @@ export const deactivateUser = async (userId: number,isUserDeactivated:boolean ) 
             return;
         }
 
-        console.log({result,response})
+      
 
          toast(result.message,{
             autoClose: 5000,

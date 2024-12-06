@@ -20,8 +20,6 @@ export const getDeactivatedUsers = async () => {
             });
             return;
         }
-
-        console.log({result,response})
         return result;
     }
     catch (error) {
