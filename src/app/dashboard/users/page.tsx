@@ -21,68 +21,10 @@ const header = [
   "photos",
   "actions",
 ];
-const usersData = [
-  {
-    id: 1,
-    name: "John",
-
-    email: "john@gamil.com",
-    profilePic: "https://randomuser.me/api/port",
-    photos: [
-      { url: "https://randomuser.me/api/port" },
-      { url: "https://randomuser.me/api/port" },
-    ],
-    actions: "Deactivate",
-  },
-  {
-    id: 2,
-    name: "Jane",
-    email: "jane@gamil.com",
-    profilePic: "https://randomuser.me/api/port",
-    photos: [
-      { url: "https://randomuser.me/api/port" },
-      { url: "https://randomuser.me/api/port" },
-    ],
-    actions: "Deactivate",
-  },
-  {
-    id: 3,
-    name: "Smith",
-    email: "john@gmail.com",
-    profilePic: "https://randomuser.me/api/port",
-    photos: [
-      { url: "https://randomuser.me/api/port" },
-      { url: "https://randomuser.me/api/port" },
-    ],
-    actions: "Deactivate",
-  },
-  {
-    id: 4,
-    name: "Jane",
-    email: "jane@gmail.com",
-    profilePic: "https://randomuser.me/api/port",
-    photos: [
-      { url: "https://randomuser.me/api/port" },
-      { url: "https://randomuser.me/api/port" },
-    ],
-    actions: "Deactivate",
-  },
-];
 
 const Users = () => {
   const allUsers = useBoundStore((state) => state.allUsers);
   const setAllUsers = useBoundStore((state) => state.setAllUsers);
-
-  /*  useEffect(() => {
-    (async () => {
-      const allUsers = await totalUsers();
-      setTotalUsersData(allUsers.data);
-
-      const allActiveUsers = await activeUsers();
-
-      setActiveUsersData(allActiveUsers.data);
-    })();
-  }, []); */
 
   useEffect(() => {
     (async () => {
