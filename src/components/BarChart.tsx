@@ -1,7 +1,20 @@
 // components/LineChart.js
 import React from "react";
 import { Bar } from "react-chartjs-2";
-function BarChart({ chartData }: any) {
+function BarChart({
+  chartData,
+}: {
+  chartData: {
+    labels: string[];
+    datasets: {
+      label: string;
+      data: number[];
+      backgroundColor: string[];
+      borderColor: string;
+      borderWidth: number;
+    }[];
+  };
+}) {
   return (
     <div className="chart-container w-full">
       <h2 className="text-black" style={{ textAlign: "center" }}>

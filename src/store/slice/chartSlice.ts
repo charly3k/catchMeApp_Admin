@@ -1,16 +1,7 @@
 import { StateCreator } from "zustand";
 
 export type ChartState = {
-    chartData: {
-        labels: string[];
-        datasets: {
-            label: string;
-            data: number[];
-            backgroundColor: string[];
-            borderColor: string;
-            borderWidth: number;
-        }[];
-    };
+  
     totalUsersThreeMonths: number;
     totalUsersSixMonths: number;
     totalUsersOneYear: number;
@@ -24,16 +15,6 @@ export type ChartState = {
 
   export  type ChartActions = {
 
-            setChartData: (data: {
-                labels: string[];
-                datasets: {
-                    label: string;
-                    data: number[];
-                    backgroundColor: string[];
-                    borderColor: string;
-                    borderWidth: number;
-                }[];
-            }) => void;
             setTotalUsersThreeMonths: (data: number) => void;
             setTotalUsersSixMonths: (data: number) => void;
             setTotalUsersOneYear: (data: number) => void;
@@ -46,18 +27,7 @@ export type ChartState = {
     }
 
     const initialState: ChartState = {
-        chartData: {
-            labels: [],
-            datasets: [
-                {
-                    label: "",
-                    data: [],
-                    backgroundColor: [],
-                    borderColor: "",
-                    borderWidth: 0,
-                },
-            ],
-        },
+     
         totalUsersThreeMonths: 0,
         totalUsersSixMonths: 0,
         totalUsersOneYear: 0,
@@ -71,11 +41,7 @@ export type ChartState = {
 
 export const createChartSlice: StateCreator<ChartState & ChartActions> = (set) => ({
     ...initialState,
-    setChartData: (data) => {
-        set(() => ({
-            chartData: data,
-        }));
-    },
+
     setTotalUsersThreeMonths: (data) => {
         set(() => ({
             totalUsersThreeMonths: data,
