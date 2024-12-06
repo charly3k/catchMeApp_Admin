@@ -1,7 +1,20 @@
 // components/LineChart.js
 import React from "react";
 import { Line } from "react-chartjs-2";
-function LineChart({ chartData }: any) {
+function LineChart({
+  chartData,
+}: {
+  chartData: {
+    labels: string[];
+    datasets: {
+      label: string;
+      data: number[];
+      backgroundColor: string[];
+      borderColor: string;
+      borderWidth: number;
+    }[];
+  };
+}) {
   return (
     <div className="chart-container">
       <h2 style={{ textAlign: "center" }}>Line Chart</h2>

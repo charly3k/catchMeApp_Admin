@@ -26,7 +26,7 @@ export const getAllUsers=async()=>{
         
         return result;
     } catch (error) {
-        
+        console.log(error);
     }
 
 }
