@@ -1,55 +1,6 @@
 "use client";
 import React from "react";
 
-const header = ["name", "type", "date", "profile swiped"];
-const usersData = [
-  {
-    id: 1,
-    name: "John",
-
-    email: "john@gamil.com",
-    profilePic: "https://randomuser.me/api/port",
-    photos: [
-      { url: "https://randomuser.me/api/port" },
-      { url: "https://randomuser.me/api/port" },
-    ],
-    actions: "Deactivate",
-  },
-  {
-    id: 2,
-    name: "Jane",
-    email: "jane@gamil.com",
-    profilePic: "https://randomuser.me/api/port",
-    photos: [
-      { url: "https://randomuser.me/api/port" },
-      { url: "https://randomuser.me/api/port" },
-    ],
-    actions: "Deactivate",
-  },
-  {
-    id: 3,
-    name: "Smith",
-    email: "john@gmail.com",
-    profilePic: "https://randomuser.me/api/port",
-    photos: [
-      { url: "https://randomuser.me/api/port" },
-      { url: "https://randomuser.me/api/port" },
-    ],
-    actions: "Deactivate",
-  },
-  {
-    id: 4,
-    name: "Jane",
-    email: "jane@gmail.com",
-    profilePic: "https://randomuser.me/api/port",
-    photos: [
-      { url: "https://randomuser.me/api/port" },
-      { url: "https://randomuser.me/api/port" },
-    ],
-    actions: "Deactivate",
-  },
-];
-
 const Swipes = () => {
   const [swipeCategories, setSwipeCategories] = React.useState<
     "likes" | "dislikes"

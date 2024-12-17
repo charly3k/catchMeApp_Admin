@@ -177,7 +177,10 @@ const UserDetails = ({ params }: { params: { id: string } }) => {
               {user &&
                 user.interests &&
                 user.interests.map((interest) => (
-                  <div className="px-3.5 py-2.5 bg-[#f9bec7] rounded-2xl justify-center items-center gap-2 flex">
+                  <div
+                    key={interest.id}
+                    className="px-3.5 py-2.5 bg-[#f9bec7] rounded-2xl justify-center items-center gap-2 flex"
+                  >
                     <div className="text-[#ff0a54] text-sm font-normal font-['DM Sans'] leading-[18px]">
                       {interest.interestName}
                     </div>
