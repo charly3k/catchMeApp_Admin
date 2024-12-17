@@ -2,7 +2,7 @@
 import { getDeletedUsers } from "@/networking/getDeletedUsers";
 import React, { useEffect } from "react";
 
-const page = () => {
+const Page = () => {
   const handleGetDeletedUsers = async () => {
     getDeletedUsers();
   };
@@ -462,4 +462,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

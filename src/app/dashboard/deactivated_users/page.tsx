@@ -77,6 +77,7 @@ const Deactivated_Users = () => {
           <div className="flex-col justify-start items-start gap-[25px] flex">
             {deactivtedUsers.map((user) => (
               <img
+                key={user.id}
                 className="w-6 h-6 rounded-full"
                 src={user.userPhoto ? user.userPhoto[0]?.imageUrl : ""}
               />
@@ -89,10 +90,13 @@ const Deactivated_Users = () => {
           </div>
           <div className="flex-col justify-start items-start gap-[25px] flex">
             {deactivtedUsers.map((user) => (
-              <div className="flex items-center gap-2">
+              <div key={user.id} className="flex items-center gap-2">
                 {user.userPhoto &&
                   user.userPhoto.map((photo, index) => (
-                    <div className="flex-col justify-start items-start gap-[25px] flex">
+                    <div
+                      key={user.id}
+                      className="flex-col justify-start items-start gap-[25px] flex"
+                    >
                       <div className="justify-start items-start gap-2 inline-flex">
                         <img
                           key={index}
