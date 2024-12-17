@@ -31,10 +31,6 @@ const Users = () => {
   const [numberOfElements, setNumberOfElements] = useState<number>(0);
   const [page, setPage] = useState<number>(1);
 
-  const totalUsers = allUsers.length;
-
-  console.log({ totalUsers });
-
   const handleGetUsers = async () => {
     if (!pageParams) return;
     const result = await getAllUsers(currentPage as number);
@@ -72,6 +68,10 @@ const Users = () => {
     }
     router.push(`/dashboard/users?page=${page}`);
   };
+
+  if (!allUsers) {
+    return <div>No users</div>;
+  }
 
   return (
     <div className="my-6">

@@ -28,6 +28,7 @@ export const adminLogin = async (email: string, password: string) => {
         }
 
         cookies.set('authToken', result.data.accessToken);
+        cookies.set('adminID', result.data.adminDetails.id)
         
 
         return result;

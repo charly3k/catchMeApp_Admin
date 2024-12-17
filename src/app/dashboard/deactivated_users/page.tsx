@@ -1,10 +1,11 @@
 "use client";
 
+import { deactivateUser } from "@/networking/deactivateUser";
 import { getDeactivatedUsers } from "@/networking/getDeactivatedUsers";
 import { useBoundStore } from "@/store/store";
 import React, { useEffect } from "react";
 
-const header = [
+/* const header = [
   "first name",
   "last name",
   "email",
@@ -12,7 +13,7 @@ const header = [
   "photos",
   "actions",
 ];
-
+ */
 const Deactivated_Users = () => {
   const deactivtedUsers = useBoundStore((state) => state.deactivatedUsers);
   const setDeactivatedUsers = useBoundStore(
@@ -28,41 +29,100 @@ const Deactivated_Users = () => {
 
   return (
     <div className="py-6 pr-6">
-      <div className="bg-white rounded-3xl mx-auto p-6 my-6">
-        <div className="">
-          <div className="flex flex-row justify-between mb-6">
-            {header.map((item) => (
-              <div className="text-red-400 w-2/12" key={item}>
-                {item}
+      <div className="w-[1179px] h-[685px] p-12 bg-white rounded-3xl border border-black/25 justify-start items-start gap-16 inline-flex overflow-y-auto">
+        <div className="flex-col justify-start items-start gap-[38px] inline-flex">
+          <div className="self-stretch text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+            First Name
+          </div>
+
+          {deactivtedUsers.map((user) => (
+            <div
+              key={user.id}
+              className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
+            >
+              {user.firstName}
+            </div>
+          ))}
+        </div>
+        <div className="flex-col justify-start items-start gap-[38px] inline-flex">
+          <div className="self-stretch text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+            Last Name
+          </div>
+          {deactivtedUsers.map((user) => (
+            <div
+              key={user.id}
+              className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
+            >
+              {user.lastName}
+            </div>
+          ))}
+        </div>
+        <div className="flex-col justify-start items-start gap-[38px] inline-flex">
+          <div className="self-stretch text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+            Email
+          </div>
+          {deactivtedUsers.map((user) => (
+            <div
+              key={user.id}
+              className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
+            >
+              {user.email}
+            </div>
+          ))}
+        </div>
+        <div className="flex-col justify-start items-start gap-[33px] inline-flex">
+          <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+            Profile picture
+          </div>
+          <div className="flex-col justify-start items-start gap-[25px] flex">
+            {deactivtedUsers.map((user) => (
+              <img
+                className="w-6 h-6 rounded-full"
+                src={user.userPhoto ? user.userPhoto[0]?.imageUrl : ""}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="flex-col justify-start items-start gap-[33px] inline-flex">
+          <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+            Photos
+          </div>
+          <div className="flex-col justify-start items-start gap-[25px] flex">
+            {deactivtedUsers.map((user) => (
+              <div className="flex items-center gap-2">
+                {user.userPhoto &&
+                  user.userPhoto.map((photo, index) => (
+                    <div className="flex-col justify-start items-start gap-[25px] flex">
+                      <div className="justify-start items-start gap-2 inline-flex">
+                        <img
+                          key={index}
+                          className="w-6 h-6 rounded-full"
+                          src={photo.imageUrl}
+                          alt={`Photo ${index}`}
+                        />
+                      </div>
+                    </div>
+                  ))}
               </div>
             ))}
           </div>
+        </div>
+        {/*  */}
+        <div className="flex-col justify-start items-start gap-[38px] inline-flex">
+          <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+            Actions
+          </div>
+
           {deactivtedUsers.map((user) => (
-            <div className="flex flex-row justify-between mb-6" key={user.id}>
-              <div className="text-black w-2/12">{user.firstName}</div>
-              <div className="text-black w-2/12">{user.lastName}</div>
-              <div className="text-black w-2/12">{user.email}</div>
-              <div className="w-2/12">
-                <img
-                  className="w-6 h-6 rounded-full"
-                  src={user.userPhoto ? user.userPhoto[0]?.imageUrl : ""}
-                  alt="profile pic"
-                />
-              </div>
-              <div className="w-2/12 flex flex-row">
-                {user.userPhoto &&
-                  user.userPhoto.map((photo, index) => (
-                    <img
-                      className="w-6 h-6 rounded-full"
-                      key={index}
-                      src={photo.imageUrl}
-                      //alt="photo"
-                    />
-                  ))}
-              </div>
-              <div className="text-black opacity-50 underline w-2/12">
-                {"Reactivate"}
-              </div>
+            <div key={user.id} className="flex items-center gap-6">
+              <button
+                onClick={async () => {
+                  await deactivateUser(user.id, !!user.isUserDeactivated);
+                }}
+                className="text-[#979797] text-base font-normal font-['DM Sans'] underline leading-[30px]"
+              >
+                {user.isUserDeactivated ? "Reactivate" : "Deactivate"}
+              </button>
             </div>
           ))}
         </div>
