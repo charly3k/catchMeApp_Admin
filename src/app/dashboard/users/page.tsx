@@ -10,15 +10,13 @@ import { Arrow } from "@/assets/Arrow";
 import { NextArrow } from "@/assets/Next";
 import { Suspense } from "react";
 
-// const header = [
-//   "first name",
-//   "last name",
-//   "email",
-//   "profile pic",
-//   "photos",
-//   "actions",
-// ];
-
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Users />
+    </Suspense>
+  );
+}
 const Users = () => {
   const allUsers = useBoundStore((state) => state.allUsers);
   const setAllUsers = useBoundStore((state) => state.setAllUsers);
@@ -76,193 +74,189 @@ const Users = () => {
   };
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <div className="my-6">
-        <div className="w-[1179px] h-[703px] p-12 bg-white rounded-3xl border border-black/25 inline-flex">
-          <div className="w-full h-full overflow-y-auto flex gap-16">
-            <div className="flex flex-col justify-start items-start gap-[38px]">
-              <h4 className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px] ">
-                First Name
+    <div className="my-6">
+      <div className="w-[1179px] h-[703px] p-12 bg-white rounded-3xl border border-black/25 inline-flex">
+        <div className="w-full h-full overflow-y-auto flex gap-16">
+          <div className="flex flex-col justify-start items-start gap-[38px]">
+            <h4 className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px] ">
+              First Name
+            </h4>
+            {allUsers.map((user) => (
+              <h4
+                onClick={() => router.push(`/dashboard/users/${user.id}`)}
+                key={user.id}
+                className="text-black text-base font-normal font-['DM Sans'] underline leading-[30px] cursor-pointer"
+              >
+                {user.firstName}
               </h4>
-              {allUsers.map((user) => (
-                <h4
-                  onClick={() => router.push(`/dashboard/users/${user.id}`)}
-                  key={user.id}
-                  className="text-black text-base font-normal font-['DM Sans'] underline leading-[30px] cursor-pointer"
-                >
-                  {user.firstName}
-                </h4>
-              ))}
-            </div>
-            <div className="flex flex-col justify-start items-start gap-[38px]">
-              <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
-                Last Name
-              </div>
-              {allUsers.map((user) => (
-                <p
-                  onClick={() => router.push(`/dashboard/users/${user.id}`)}
-                  key={user.id}
-                  className="text-black text-base font-normal font-['DM Sans'] underline leading-[30px] cursor-pointer"
-                >
-                  {user.lastName}
-                </p>
-              ))}
-            </div>
-            <div className="flex flex-col justify-start items-start gap-[38px]">
-              <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
-                Email
-              </div>
-              {allUsers.map((user) => (
-                <div
-                  key={user.id}
-                  className="text-black text-base font-normal font-['DM Sans'] leading-[30px]"
-                >
-                  {user.email}
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-col justify-start items-start gap-[38px]">
-              <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
-                Profile Picture
-              </div>
-              {allUsers.map((user) => (
-                <div key={user.id} className="flex items-center gap-2">
-                  <img
-                    className="w-6 h-6 rounded-full"
-                    src={user?.userPhoto ? user?.userPhoto[0]?.imageUrl : ""}
-                    alt="Profile"
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-col justify-start items-start gap-[38px]">
-              <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
-                Photos
-              </div>
-              {allUsers.map((user) => (
-                <div key={user.id} className="flex items-center gap-2">
-                  {user.userPhoto &&
-                    user.userPhoto.map((photo, index) => (
-                      <img
-                        key={index}
-                        className="w-6 h-6 rounded-full"
-                        src={photo.imageUrl}
-                        alt={`Photo ${index}`}
-                      />
-                    ))}
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-col justify-start items-start gap-[38px]">
-              <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
-                Actions
-              </div>
-              {allUsers.map((user) => (
-                <div key={user.id} className="flex items-center gap-6">
-                  <button
-                    onClick={async () => {
-                      await deactivateUser(user.id, !!user.isUserDeactivated);
-                    }}
-                    className="text-[#979797] text-base font-normal font-['DM Sans'] underline leading-[30px]"
-                  >
-                    {user.isUserDeactivated ? "Reactivate" : "Deactivate"}
-                  </button>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
-        </div>
-
-        {
-          //footer section
-        }
-        <div className="flex flex-row text-black justify-between  items-center  pt-6">
-          <p>
-            Page {pageParams} of {totalPages}
-          </p>
-
-          <div className="flex flex-col">
-            <p className="text-center">
-              {" "}
-              Showing {numberOfElements} of {totalElements} results
-            </p>
-            <div
-              style={{
-                //width: "100%",
-                //height: "100%",
-                justifyContent: "flex-start",
-                alignItems: "center",
-                gap: 16,
-                display: "inline-flex",
-              }}
-            >
-              <div
-                style={{
-                  color: "#979797",
-                  fontSize: 16,
-                  fontFamily: "DM Sans",
-                  fontWeight: "400",
-                  wordWrap: "break-word",
-                }}
+          <div className="flex flex-col justify-start items-start gap-[38px]">
+            <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+              Last Name
+            </div>
+            {allUsers.map((user) => (
+              <p
+                onClick={() => router.push(`/dashboard/users/${user.id}`)}
+                key={user.id}
+                className="text-black text-base font-normal font-['DM Sans'] underline leading-[30px] cursor-pointer"
               >
-                Go to page:
+                {user.lastName}
+              </p>
+            ))}
+          </div>
+          <div className="flex flex-col justify-start items-start gap-[38px]">
+            <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+              Email
+            </div>
+            {allUsers.map((user) => (
+              <div
+                key={user.id}
+                className="text-black text-base font-normal font-['DM Sans'] leading-[30px]"
+              >
+                {user.email}
               </div>
-              <div
-                style={{
-                  width: 106,
-                  height: 34,
-                  background: "white",
-                  borderRadius: 16,
-                  border: "0.50px rgba(0, 0, 0, 0.25) solid",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  display: "flex",
-                }}
-              >
-                <input
-                  value={page}
-                  onChange={(e) => setPage(Number(e.target.value))}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    // background: "white",
-                    borderRadius: 16,
-                    border: "0.50px rgba(0, 0, 0, 0.25) solid",
-
-                    textAlign: "center",
-                  }}
+            ))}
+          </div>
+          <div className="flex flex-col justify-start items-start gap-[38px]">
+            <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+              Profile Picture
+            </div>
+            {allUsers.map((user) => (
+              <div key={user.id} className="flex items-center gap-2">
+                <img
+                  className="w-6 h-6 rounded-full"
+                  src={user?.userPhoto ? user?.userPhoto[0]?.imageUrl : ""}
+                  alt="Profile"
                 />
               </div>
-              <button
-                onClick={goToPage}
-                style={{
-                  color: "#FF0A54",
-                  fontSize: 16,
-                  fontFamily: "DM Sans",
-                  fontWeight: "400",
-                  textDecoration: "underline",
-                  wordWrap: "break-word",
-                }}
-              >
-                Load page
-              </button>
-            </div>
+            ))}
           </div>
-
-          <div>
-            <p>
-              <button onClick={previousPage}>
-                <Arrow />
-              </button>
-              <button onClick={nextPage}>
-                <NextArrow />
-              </button>
-            </p>
+          <div className="flex flex-col justify-start items-start gap-[38px]">
+            <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+              Photos
+            </div>
+            {allUsers.map((user) => (
+              <div key={user.id} className="flex items-center gap-2">
+                {user.userPhoto &&
+                  user.userPhoto.map((photo, index) => (
+                    <img
+                      key={index}
+                      className="w-6 h-6 rounded-full"
+                      src={photo.imageUrl}
+                      alt={`Photo ${index}`}
+                    />
+                  ))}
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col justify-start items-start gap-[38px]">
+            <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+              Actions
+            </div>
+            {allUsers.map((user) => (
+              <div key={user.id} className="flex items-center gap-6">
+                <button
+                  onClick={async () => {
+                    await deactivateUser(user.id, !!user.isUserDeactivated);
+                  }}
+                  className="text-[#979797] text-base font-normal font-['DM Sans'] underline leading-[30px]"
+                >
+                  {user.isUserDeactivated ? "Reactivate" : "Deactivate"}
+                </button>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-    </Suspense>
+
+      {
+        //footer section
+      }
+      <div className="flex flex-row text-black justify-between  items-center  pt-6">
+        <p>
+          Page {pageParams} of {totalPages}
+        </p>
+
+        <div className="flex flex-col">
+          <p className="text-center">
+            {" "}
+            Showing {numberOfElements} of {totalElements} results
+          </p>
+          <div
+            style={{
+              //width: "100%",
+              //height: "100%",
+              justifyContent: "flex-start",
+              alignItems: "center",
+              gap: 16,
+              display: "inline-flex",
+            }}
+          >
+            <div
+              style={{
+                color: "#979797",
+                fontSize: 16,
+                fontFamily: "DM Sans",
+                fontWeight: "400",
+                wordWrap: "break-word",
+              }}
+            >
+              Go to page:
+            </div>
+            <div
+              style={{
+                width: 106,
+                height: 34,
+                background: "white",
+                borderRadius: 16,
+                border: "0.50px rgba(0, 0, 0, 0.25) solid",
+                justifyContent: "center",
+                alignItems: "center",
+                display: "flex",
+              }}
+            >
+              <input
+                value={page}
+                onChange={(e) => setPage(Number(e.target.value))}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  // background: "white",
+                  borderRadius: 16,
+                  border: "0.50px rgba(0, 0, 0, 0.25) solid",
+
+                  textAlign: "center",
+                }}
+              />
+            </div>
+            <button
+              onClick={goToPage}
+              style={{
+                color: "#FF0A54",
+                fontSize: 16,
+                fontFamily: "DM Sans",
+                fontWeight: "400",
+                textDecoration: "underline",
+                wordWrap: "break-word",
+              }}
+            >
+              Load page
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <p>
+            <button onClick={previousPage}>
+              <Arrow />
+            </button>
+            <button onClick={nextPage}>
+              <NextArrow />
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
-
-export default Users;
