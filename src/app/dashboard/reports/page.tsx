@@ -87,7 +87,10 @@ const Reports = () => {
 
           {reportedUsers &&
             reportedUsers.map((user) => (
-              <div className="justify-start items-start gap-6 inline-flex">
+              <div
+                key={user.reportId}
+                className="justify-start items-start gap-6 inline-flex"
+              >
                 <div className="text-[#979797] text-base font-normal font-['DM Sans'] underline leading-[30px]">
                   Deactivate user
                 </div>

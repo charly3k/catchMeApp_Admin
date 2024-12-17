@@ -9,7 +9,7 @@ const Swipes = () => {
     <div className="pt-6">
       <div className="gap-5 flex w-full justify-end">
         <button
-          //   onClick={() => setUsersCategories("totalUsers")}
+          onClick={() => setSwipeCategories("likes")}
           className={`${
             swipeCategories == "likes"
               ? "bg-folly text-white"
@@ -19,7 +19,7 @@ const Swipes = () => {
           Likes
         </button>
         <button
-          // onClick={() => setUsersCategories("activeUsers")}
+          onClick={() => setSwipeCategories("dislikes")}
           className={`${
             swipeCategories == "dislikes"
               ? "bg-folly text-white"
