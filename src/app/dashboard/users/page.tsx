@@ -1,96 +1,174 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { deactivateUser } from "@/networking/deactivateUser";
 import { getAllUsers } from "@/networking/getAllUsers";
 
 import { useBoundStore } from "@/store/store";
-import React, { useEffect } from "react";
-import Cookies from "universal-cookie";
+import React, { useEffect, useState } from "react";
 
-const cookies = new Cookies();
+import { Arrow } from "@/assets/Arrow";
+import { NextArrow } from "@/assets/Next";
 
-const authToken = cookies.get("authToken");
-
-console.log({ authToken });
-
-const header = [
-  "first name",
-  "last name",
-  "email",
-  "profile pic",
-  "photos",
-  "actions",
-];
+// const header = [
+//   "first name",
+//   "last name",
+//   "email",
+//   "profile pic",
+//   "photos",
+//   "actions",
+// ];
 
 const Users = () => {
   const allUsers = useBoundStore((state) => state.allUsers);
   const setAllUsers = useBoundStore((state) => state.setAllUsers);
 
-  useEffect(() => {
-    (async () => {
-      const result = await getAllUsers();
+  const pageParams = useSearchParams().get("page");
 
-      setAllUsers(result?.data);
-    })();
-  }, []);
+  const currentPage = pageParams ? Number(pageParams) - 1 : 0;
+
+  const [totalPages, setTotalPages] = useState<number>(0);
+
+  const [totalElements, setTotalElements] = useState<number>(0);
+  const [numberOfElements, setNumberOfElements] = useState<number>(0);
+  const [page, setPage] = useState<number>(1);
+
+  const totalUsers = allUsers.length;
+
+  console.log({ totalUsers });
+
+  const handleGetUsers = async () => {
+    if (!pageParams) return;
+    const result = await getAllUsers(currentPage as number);
+    console.log(result);
+
+    setAllUsers(result?.data?.content);
+    setTotalPages(result?.data?.totalPages);
+    //setPageNumber(result?.data?.number);
+    setNumberOfElements(result?.data?.numberOfElements);
+    setTotalElements(result?.data?.totalElements);
+  };
+
+  const nextPage = () => {
+    if (Number(pageParams) === totalPages) return;
+    router.push(`/dashboard/users?page=${(currentPage as number) + 2}`);
+  };
+
+  const previousPage = () => {
+    if (pageParams == "1") return;
+    router.push(`/dashboard/users?page=${currentPage}`);
+  };
+
+  useEffect(() => {
+    handleGetUsers();
+  }, [pageParams]);
 
   const router = useRouter();
 
+  const goToPage = () => {
+    if (Number(page) > totalPages) {
+      return;
+    }
+    if (Number(page) < 1) {
+      return;
+    }
+    router.push(`/dashboard/users?page=${page}`);
+  };
+
+  //console.log({ searchParams: searchParams && Number(searchParams)  });
+
   return (
-    <div className="py-6 pr-6">
-      {/*   <UsersHeader
-        totalUsersData={totalUsersData}
-        activeUserData={activeUsersData}
-      /> */}
-      <div className="bg-white rounded-3xl mx-auto p-6 my-6">
-        <div className="">
-          <div className="grid grid-cols-6 gap-4 mb-6">
-            {header.map((item) => (
-              <div className="text-red-400" key={item}>
-                {item}
+    <div className="my-6">
+      <div className="w-[1179px] h-[703px] p-12 bg-white rounded-3xl border border-black/25 inline-flex">
+        <div className="w-full h-full overflow-y-auto flex gap-16">
+          <div className="flex flex-col justify-start items-start gap-[38px]">
+            <h4 className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px] ">
+              First Name
+            </h4>
+            {allUsers.map((user) => (
+              <h4
+                onClick={() => router.push(`/dashboard/users/${user.id}`)}
+                key={user.id}
+                className="text-black text-base font-normal font-['DM Sans'] underline leading-[30px] cursor-pointer"
+              >
+                {user.firstName}
+              </h4>
+            ))}
+          </div>
+          <div className="flex flex-col justify-start items-start gap-[38px]">
+            <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+              Last Name
+            </div>
+            {allUsers.map((user) => (
+              <p
+                onClick={() => router.push(`/dashboard/users/${user.id}`)}
+                key={user.id}
+                className="text-black text-base font-normal font-['DM Sans'] underline leading-[30px] cursor-pointer"
+              >
+                {user.lastName}
+              </p>
+            ))}
+          </div>
+          <div className="flex flex-col justify-start items-start gap-[38px]">
+            <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+              Email
+            </div>
+            {allUsers.map((user) => (
+              <div
+                key={user.id}
+                className="text-black text-base font-normal font-['DM Sans'] leading-[30px]"
+              >
+                {user.email}
               </div>
             ))}
           </div>
-
-          <div className="h-[27rem] overflow-hidden">
-            {allUsers &&
-              allUsers.map((user) => (
-                <div
-                  onClick={() => router.push(`/dashboard/users/${user.id}`)}
-                  className="grid grid-cols-6 gap-4 mb-6 items-center"
-                  key={user.id}
-                >
-                  <div className="text-black">{user.firstName}</div>
-                  <div className="text-black">{user.lastName}</div>
-                  <div className="text-black overflow-hidden">{user.email}</div>
-                  <div className="">
+          <div className="flex flex-col justify-start items-start gap-[38px]">
+            <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+              Profile Picture
+            </div>
+            {allUsers.map((user) => (
+              <div key={user.id} className="flex items-center gap-2">
+                <img
+                  className="w-6 h-6 rounded-full"
+                  src={user?.userPhoto ? user?.userPhoto[0]?.imageUrl : ""}
+                  alt="Profile"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col justify-start items-start gap-[38px]">
+            <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+              Photos
+            </div>
+            {allUsers.map((user) => (
+              <div key={user.id} className="flex items-center gap-2">
+                {user.userPhoto &&
+                  user.userPhoto.map((photo, index) => (
                     <img
+                      key={index}
                       className="w-6 h-6 rounded-full"
-                      src={user?.userPhoto ? user.userPhoto[0]?.imageUrl : ""}
-                      alt="Profile Pic"
+                      src={photo.imageUrl}
+                      alt={`Photo ${index}`}
                     />
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {user?.userPhoto &&
-                      user.userPhoto.map((photo, index) => (
-                        <img
-                          className="w-6 h-6 rounded-full"
-                          key={index}
-                          src={photo.imageUrl}
-                          alt="Photo"
-                        />
-                      ))}
-                  </div>
-                  <button
-                    onClick={() =>
-                      deactivateUser(user.id, !user.isUserDeactivated)
-                    }
-                    className="text-black opacity-50 underline"
-                  >
-                    {user.isUserDeactivated ? "Reactivate" : "Deactivate"}
-                  </button>
-                </div>
-              ))}
+                  ))}
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col justify-start items-start gap-[38px]">
+            <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+              Actions
+            </div>
+            {allUsers.map((user) => (
+              <div key={user.id} className="flex items-center gap-6">
+                <button
+                  onClick={async () => {
+                    await deactivateUser(user.id, !!user.isUserDeactivated);
+                  }}
+                  className="text-[#979797] text-base font-normal font-['DM Sans'] underline leading-[30px]"
+                >
+                  {user.isUserDeactivated ? "Reactivate" : "Deactivate"}
+                </button>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -98,11 +176,16 @@ const Users = () => {
       {
         //footer section
       }
-      <div className="flex flex-row text-black justify-between">
-        <p>Page 1 of 1</p>
+      <div className="flex flex-row text-black justify-between  items-center  pt-6">
+        <p>
+          Page {pageParams} of {totalPages}
+        </p>
 
         <div className="flex flex-col">
-          <p className="text-center"> Showing 12 of 100,000 results</p>
+          <p className="text-center">
+            {" "}
+            Showing {numberOfElements} of {totalElements} results
+          </p>
           <div
             style={{
               //width: "100%",
@@ -136,20 +219,22 @@ const Users = () => {
                 display: "flex",
               }}
             >
-              <div
+              <input
+                value={page}
+                onChange={(e) => setPage(Number(e.target.value))}
                 style={{
-                  color: "black",
-                  fontSize: 14,
-                  fontFamily: "DM Sans",
-                  fontWeight: "400",
-                  lineHeight: 18,
-                  wordWrap: "break-word",
+                  width: "100%",
+                  height: "100%",
+                  // background: "white",
+                  borderRadius: 16,
+                  border: "0.50px rgba(0, 0, 0, 0.25) solid",
+
+                  textAlign: "center",
                 }}
-              >
-                20
-              </div>
+              />
             </div>
-            <div
+            <button
+              onClick={goToPage}
               style={{
                 color: "#FF0A54",
                 fontSize: 16,
@@ -160,14 +245,18 @@ const Users = () => {
               }}
             >
               Load page
-            </div>
+            </button>
           </div>
         </div>
 
         <div>
           <p>
-            <button>Previous</button>
-            <button>Next</button>
+            <button onClick={previousPage}>
+              <Arrow />
+            </button>
+            <button onClick={nextPage}>
+              <NextArrow />
+            </button>
           </p>
         </div>
       </div>

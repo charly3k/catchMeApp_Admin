@@ -14,7 +14,7 @@ export type UserProfile = {
   height: number | null; // Assuming height is in numeric format
   id: number;
   idealFirstDate: string | null;
-  interests: Array<{ id: number; name: string }> | null; // Adjust fields based on actual structure
+  interests: Array<{ id: number; interestName: string }> | null; // Adjust fields based on actual structure
   isActive: boolean;
   isProfileBoosted: boolean;
   isProfilePrivate: boolean;
@@ -44,3 +44,14 @@ export type UserProfile = {
   username: string;
   zodiacSign: string | null;
 };
+
+
+export type reportedUsers={
+  reportId:string,
+  reportedUserId:string
+  reportedUserName:string,
+  reportingUserId:string,
+  reportingUserName:string
+  reportDate:string,
+  reason:string
+}

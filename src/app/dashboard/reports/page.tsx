@@ -1,4 +1,7 @@
-import React from "react";
+"use client";
+import { getReportedUsers } from "@/networking/getReportedUsers";
+import { reportedUsers } from "@/types/types";
+import React, { useEffect, useState } from "react";
 
 const header = [
   "Reported name",
@@ -57,64 +60,95 @@ const usersData = [
 ];
 
 const Reports = () => {
+  const [reportedUsers, setReportedUsers] = useState<reportedUsers[]>([]);
+
+  const handleGetReportedUsers = async () => {
+    const result = await getReportedUsers(0);
+
+    console.log({ result });
+
+    setReportedUsers(result?.data?.content);
+  };
+
+  useEffect(() => {
+    handleGetReportedUsers();
+  }, []);
+  console.log(reportedUsers);
   return (
-    <div className="py-6 pr-6">
-      <div className="bg-white rounded-3xl mx-auto p-6 my-6">
-        {/* <table>
-        <thead>
-          <tr>
-            {header.map((item) => (
-              <th className="text-red-400" key={item}>
-                {item}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {usersData.map((user) => (
-            <tr key={user.id}>
-              <td className="text-black">{user.name}</td>
-              <td className="text-black">{user.email}</td>
-              <td>
-                <img
-                  className="text-black"
-                  src={user.profilePic}
-                  alt="profile pic"
-                />
-              </td>
-              <td className="text-black">
-                {user.photos.map((photo, index) => (
-                  <img key={index} src={photo.url} alt="photo" />
-                ))}
-              </td>
-              <td className="text-black opacity-50 underline">
-                {user.actions}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table> */}
-
-        <div className="">
-          <div className="flex flex-row justify-between mb-6">
-            {header.map((item) => (
-              <div className="text-red-400 w-2/12" key={item}>
-                {item}
-              </div>
-            ))}
+    <div className="py-6">
+      <div className="w-[1179px] h-[793px] p-12 bg-white rounded-3xl border border-black/25 justify-start items-start gap-28 inline-flex">
+        <div className="flex-col justify-start items-start gap-[38px] inline-flex">
+          <div className="self-stretch text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+            Reported name
           </div>
-          {usersData.map((user) => (
-            <div className="flex flex-row justify-between mb-6" key={user.id}>
-              <div className="text-black w-2/12">{"Henry Richard"}</div>
-              <div className="text-black w-2/12">{"Inappropriate Content"}</div>
-              <div className="text-black w-2/12">{"20-Aug-24"}</div>
-              <div className="w-2/12 text-black">Temilade Mariam</div>
 
-              <div className="text-black opacity-50 underline w-2/12">
-                {user.actions}
+          {reportedUsers &&
+            reportedUsers.map((user) => (
+              <div
+                key={user.reportId}
+                className="self-stretch text-black text-base font-normal font-['DM Sans'] leading-[30px]"
+              >
+                {user.reportedUserName}
               </div>
-            </div>
-          ))}
+            ))}
+        </div>
+        <div className="flex-col justify-start items-start gap-[38px] inline-flex">
+          <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+            Reason for report
+          </div>
+          {reportedUsers &&
+            reportedUsers.map((user) => (
+              <div
+                key={user.reportId}
+                className="self-stretch text-black text-base font-normal font-['DM Sans'] leading-[30px]"
+              >
+                {user.reason}
+              </div>
+            ))}
+        </div>
+        <div className="flex-col justify-start items-start gap-[38px] inline-flex">
+          <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+            Date of report
+          </div>
+
+          {reportedUsers &&
+            reportedUsers.map((user) => (
+              <div
+                key={user.reportId}
+                className="self-stretch text-black text-base font-normal font-['DM Sans'] leading-[30px]"
+              >
+                {user.reportDate}
+              </div>
+            ))}
+        </div>
+        <div className="flex-col justify-start items-start gap-[38px] inline-flex">
+          <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+            Reportee
+          </div>
+
+          {reportedUsers &&
+            reportedUsers.map((user) => (
+              <div
+                key={user.reportId}
+                className="self-stretch text-black text-base font-normal font-['DM Sans'] leading-[30px]"
+              >
+                {user.reportingUserName}
+              </div>
+            ))}
+        </div>
+        <div className="flex-col justify-start items-start gap-[38px] inline-flex">
+          <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+            Action
+          </div>
+
+          {reportedUsers &&
+            reportedUsers.map((user) => (
+              <div className="justify-start items-start gap-6 inline-flex">
+                <div className="text-[#979797] text-base font-normal font-['DM Sans'] underline leading-[30px]">
+                  Deactivate user
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     </div>

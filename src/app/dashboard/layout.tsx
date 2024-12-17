@@ -6,16 +6,16 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="flex-1 min-h-screen bg-lightWhite flex  w-screen">
-      {/* Include shared UI here e.g. a header or sidebar */}
-
-      <aside className=" bg-white mr-10 border border-grey">
+    <section className="flex min-h-screen bg-lightWhite w-screen">
+      {/* Fixed Sidebar */}
+      <aside className="bg-white border border-grey fixed top-0 left-0 h-screen w-[15.625rem]">
         <Sidebar />
       </aside>
 
-      <section className="w-full">
-        <div className="w-full">{children}</div>
-      </section>
+      {/* Main Content */}
+      <div className="flex-1 flex justify-center ">
+        <div className="w-full max-w-[900px]">{children}</div>
+      </div>
     </section>
   );
 }

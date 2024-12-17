@@ -15,7 +15,7 @@ const sidebarContents = [
   {
     title: "users",
     icon: "",
-    link: "/users",
+    link: "/users?page=1",
   },
   {
     title: "swipes",
@@ -54,7 +54,7 @@ const Sidebar = () => {
   const pathname = usePathname();
   console.log(pathname);
   return (
-    <div className="">
+    <div>
       <div className=" justify-between">
         {sidebarContents.map((content) => (
           <Link
