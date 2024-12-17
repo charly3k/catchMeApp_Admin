@@ -3,62 +3,6 @@ import { getReportedUsers } from "@/networking/getReportedUsers";
 import { reportedUsers } from "@/types/types";
 import React, { useEffect, useState } from "react";
 
-const header = [
-  "Reported name",
-  "Reason for report",
-  "Date of report",
-  "Reportee",
-
-  "actions",
-];
-const usersData = [
-  {
-    id: 1,
-    name: "John",
-
-    email: "john@gamil.com",
-    profilePic: "https://randomuser.me/api/port",
-    photos: [
-      { url: "https://randomuser.me/api/port" },
-      { url: "https://randomuser.me/api/port" },
-    ],
-    actions: "Deactivate",
-  },
-  {
-    id: 2,
-    name: "Jane",
-    email: "jane@gamil.com",
-    profilePic: "https://randomuser.me/api/port",
-    photos: [
-      { url: "https://randomuser.me/api/port" },
-      { url: "https://randomuser.me/api/port" },
-    ],
-    actions: "Deactivate",
-  },
-  {
-    id: 3,
-    name: "Smith",
-    email: "john@gmail.com",
-    profilePic: "https://randomuser.me/api/port",
-    photos: [
-      { url: "https://randomuser.me/api/port" },
-      { url: "https://randomuser.me/api/port" },
-    ],
-    actions: "Deactivate",
-  },
-  {
-    id: 4,
-    name: "Jane",
-    email: "jane@gmail.com",
-    profilePic: "https://randomuser.me/api/port",
-    photos: [
-      { url: "https://randomuser.me/api/port" },
-      { url: "https://randomuser.me/api/port" },
-    ],
-    actions: "Deactivate",
-  },
-];
-
 const Reports = () => {
   const [reportedUsers, setReportedUsers] = useState<reportedUsers[]>([]);
 
