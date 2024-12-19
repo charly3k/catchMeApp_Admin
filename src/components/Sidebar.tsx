@@ -46,7 +46,7 @@ const sidebarContents = [
   {
     title: "admin",
     icon: "",
-    link: "/admin_profile",
+    link: "/admin/profile",
   },
 ];
 

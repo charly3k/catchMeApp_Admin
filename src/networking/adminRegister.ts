@@ -10,7 +10,7 @@ import Cookies from 'universal-cookie';
 export const adminRegister= async(firstname:string,lastname:string,email:string,password:string)=>{
     const cookies = new Cookies();
     const authToken = cookies.get('authToken');
-     console.log({firstname,lastname,email,password})
+   
     try {
 
    
