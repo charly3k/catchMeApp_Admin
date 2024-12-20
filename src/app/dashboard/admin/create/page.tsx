@@ -15,7 +15,9 @@ const Page = () => {
     register,
     handleSubmit,
     //   watch,
-    formState: { errors },
+    formState: {
+      //errors
+    },
   } = useForm<FormData>();
   const onSubmit = (data: FormData) => {
     (async () => {
