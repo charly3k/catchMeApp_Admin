@@ -106,6 +106,7 @@ const Users = () => {
         autoClose: 5000,
         hideProgressBar: false,
       });
+      console.log(error);
       setIsLoading(false);
     }
   };

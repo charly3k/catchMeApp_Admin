@@ -3,9 +3,6 @@ import { ArrowBack } from "@/assets/ArrowBack";
 import React from "react";
 import { useForm } from "react-hook-form";
 
-import Loader from "@/components/Loader";
-import { toast } from "react-toastify";
-
 type FormData = {
   firstname: string;
   lastname: string;
@@ -17,7 +14,7 @@ const Page = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    //   watch,
     formState: { errors },
   } = useForm<FormData>();
   const onSubmit = (data: FormData) => {
@@ -31,7 +28,10 @@ const Page = () => {
         <div className="w-12 h-12 p-3 bg-white rounded-3xl border border-black/25 justify-center items-center flex overflow-hidden">
           <ArrowBack />
         </div>
-        <button className="px-[52px] py-5 bg-[#ff0a54] rounded-[32px] justify-center items-center gap-2.5 flex text-white text-base font-normal font-['DM Sans']">
+        <button
+          onClick={handleSubmit(onSubmit)}
+          className="px-[52px] py-5 bg-[#ff0a54] rounded-[32px] justify-center items-center gap-2.5 flex text-white text-base font-normal font-['DM Sans']"
+        >
           Save
         </button>
       </div>

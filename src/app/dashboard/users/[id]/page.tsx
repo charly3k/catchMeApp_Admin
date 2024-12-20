@@ -12,11 +12,11 @@ const UserDetails = ({ params }: { params: { id: string } }) => {
   const router = useRouter();
   const pathname = usePathname();
   const [user, SetUser] = useState<UserProfile>();
-  const displayDeleteModal = useBoundStore((state) => state.displayDeleteModal);
+
   const setDisplayDeleteModal = useBoundStore(
     (state) => state.setDisplayDeleteModal
   );
-  const deleteUserId = useBoundStore((state) => state.deleteUserId);
+
   const setDeleteUserId = useBoundStore((state) => state.setDeleteUserId);
 
   const userId = params.id;

@@ -32,7 +32,9 @@ const Page = () => {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: {
+      // errors
+    },
   } = useForm<FormData>();
   const onSubmit = (data: FormData) => {
     (async () => {
@@ -56,7 +58,7 @@ const Page = () => {
         toast("an error occurred try again", {
           autoClose: 5000,
         });
-
+        console.log(error);
         setIsLoading(false);
       }
     })();

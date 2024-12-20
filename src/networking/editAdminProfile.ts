@@ -37,11 +37,12 @@ export const editAdminProfile =async (email:string|null, firstname:string|null, 
             
         
     } catch (error) {
-         //console.log(error)
+         console.log(error)
         toast('an error occurred try again',{
             autoClose: 5000,
             hideProgressBar: false,
            });
+
         
     }
 
