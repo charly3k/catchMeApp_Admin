@@ -7,7 +7,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="flex min-h-screen bg-lightWhite w-screen">
+    <section className="flex min-h-screen bg-lightWhite ">
       {/* Fixed Sidebar */}
       <aside className="bg-white border border-grey fixed top-0 left-0 h-screen w-[15.625rem]">
         <Sidebar />
@@ -16,8 +16,8 @@ export default function DashboardLayout({
       <Modal text="Are you sure you want to delete this item?" />
 
       {/* Main Content */}
-      <div className="flex-1 flex justify-center ">
-        <div className="w-full max-w-[900px]">{children}</div>
+      <div className="flex-1 flex justify-center pl-[16.625rem]">
+        <div className="w-full ">{children}</div>
       </div>
     </section>
   );

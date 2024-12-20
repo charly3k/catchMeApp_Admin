@@ -3,7 +3,9 @@
 import { deactivateUser } from "@/networking/deactivateUser";
 import { getDeactivatedUsers } from "@/networking/getDeactivatedUsers";
 import { useBoundStore } from "@/store/store";
+import Link from "next/link";
 import React, { useEffect } from "react";
+import { toast } from "react-toastify";
 
 /* const header = [
   "first name",
@@ -20,12 +22,28 @@ const Deactivated_Users = () => {
     (state) => state.setDeactivatedUsers
   );
 
+  const handleGetDeativatedUsers = async () => {
+    const result = await getDeactivatedUsers();
+    setDeactivatedUsers(result.data);
+    console.log(result);
+  };
+
   useEffect(() => {
-    (async () => {
-      const result = await getDeactivatedUsers();
-      setDeactivatedUsers(result.data);
-    })();
+    handleGetDeativatedUsers();
   }, []);
+
+  const handleDeactivateUser = async (id: number, type: boolean) => {
+    const result = await deactivateUser(id, type);
+    if (result.status == 200) {
+      console.log(result);
+
+      handleGetDeativatedUsers(); // Reload data after deactivation
+    } else {
+      toast(result.message, {
+        autoClose: 5000,
+      });
+    }
+  };
 
   return (
     <div className="py-6 pr-6">
@@ -36,12 +54,13 @@ const Deactivated_Users = () => {
           </div>
 
           {deactivtedUsers.map((user) => (
-            <div
+            <Link
+              href={`/dashboard/users/${user.id}`}
               key={user.id}
               className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
             >
               {user.firstName}
-            </div>
+            </Link>
           ))}
         </div>
         <div className="flex-col justify-start items-start gap-[38px] inline-flex">
@@ -49,12 +68,13 @@ const Deactivated_Users = () => {
             Last Name
           </div>
           {deactivtedUsers.map((user) => (
-            <div
+            <Link
+              href={`/dashboard/users/${user.id}`}
               key={user.id}
               className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
             >
               {user.lastName}
-            </div>
+            </Link>
           ))}
         </div>
         <div className="flex-col justify-start items-start gap-[38px] inline-flex">
@@ -62,12 +82,13 @@ const Deactivated_Users = () => {
             Email
           </div>
           {deactivtedUsers.map((user) => (
-            <div
+            <Link
+              href={`/dashboard/users/${user.id}`}
               key={user.id}
               className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
             >
               {user.email}
-            </div>
+            </Link>
           ))}
         </div>
         <div className="flex-col justify-start items-start gap-[33px] inline-flex">
@@ -121,7 +142,10 @@ const Deactivated_Users = () => {
             <div key={user.id} className="flex items-center gap-6">
               <button
                 onClick={async () => {
-                  await deactivateUser(user.id, !!user.isUserDeactivated);
+                  await handleDeactivateUser(
+                    user.id,
+                    user.isUserDeactivated ? false : true
+                  );
                 }}
                 className="text-[#979797] text-base font-normal font-['DM Sans'] underline leading-[30px]"
               >

@@ -9,6 +9,8 @@ import React, { useEffect, useState } from "react";
 import { Arrow } from "@/assets/Arrow";
 import { NextArrow } from "@/assets/Next";
 import { Suspense } from "react";
+import { toast } from "react-toastify";
+import Loader from "@/components/Loader";
 
 export default function Page() {
   return (
@@ -30,6 +32,7 @@ const Users = () => {
   const [totalElements, setTotalElements] = useState<number>(0);
   const [numberOfElements, setNumberOfElements] = useState<number>(0);
   const [page, setPage] = useState<number>(1);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleGetUsers = async () => {
     if (!pageParams) return;
@@ -42,6 +45,17 @@ const Users = () => {
     setNumberOfElements(result?.data?.numberOfElements);
     setTotalElements(result?.data?.totalElements);
   };
+
+  /*   const handleDeactivateUser = async (id: number, type: boolean) => {
+    const result = await deactivateUser(id, type);
+    if (result.status == 200) {
+      await handleGetUsers(); // Reload data after deactivation
+    } else {
+      toast(result.message, {
+        autoClose: 5000,
+      });
+    }
+  }; */
 
   const nextPage = () => {
     if (Number(pageParams) === totalPages) return;
@@ -73,8 +87,32 @@ const Users = () => {
     return <div>No users</div>;
   }
 
+  const handleDeactivateUser = async (id: number, type: boolean) => {
+    try {
+      setIsLoading(true);
+      const result = await deactivateUser(id, type);
+      if (result.status == 200) {
+        await handleGetUsers();
+        setIsLoading(false);
+      } else {
+        toast(result.message, {
+          autoClose: 5000,
+          hideProgressBar: false,
+        });
+        setIsLoading(false);
+      }
+    } catch (error) {
+      toast("an error occurred try again", {
+        autoClose: 5000,
+        hideProgressBar: false,
+      });
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="my-6">
+      {isLoading && <Loader />}
       <div className="w-[1179px] h-[703px] p-12 bg-white rounded-3xl border border-black/25 inline-flex">
         <div className="w-full h-full overflow-y-auto flex gap-16">
           <div className="flex flex-col justify-start items-start gap-[38px]">
@@ -157,8 +195,13 @@ const Users = () => {
             {allUsers.map((user) => (
               <div key={user.id} className="flex items-center gap-6">
                 <button
-                  onClick={async () => {
-                    await deactivateUser(user.id, !!user.isUserDeactivated);
+                  disabled={isLoading}
+                  onClick={() => {
+                    handleDeactivateUser(
+                      user.id,
+                      user.isUserDeactivated ? false : true
+                    );
+                    //router.refresh();
                   }}
                   className="text-[#979797] text-base font-normal font-['DM Sans'] underline leading-[30px]"
                 >
@@ -217,6 +260,8 @@ const Users = () => {
               }}
             >
               <input
+                className="opacity-50"
+                placeholder="1"
                 value={page}
                 onChange={(e) => setPage(Number(e.target.value))}
                 style={{

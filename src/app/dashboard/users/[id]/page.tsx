@@ -6,11 +6,18 @@ import { useRouter, usePathname } from "next/navigation";
 import { UserProfile } from "@/types/types";
 import { Redo } from "@/assets/Redo";
 import { ArrowBack } from "@/assets/ArrowBack";
+import { useBoundStore } from "@/store/store";
 
 const UserDetails = ({ params }: { params: { id: string } }) => {
   const router = useRouter();
   const pathname = usePathname();
   const [user, SetUser] = useState<UserProfile>();
+  const displayDeleteModal = useBoundStore((state) => state.displayDeleteModal);
+  const setDisplayDeleteModal = useBoundStore(
+    (state) => state.setDisplayDeleteModal
+  );
+  const deleteUserId = useBoundStore((state) => state.deleteUserId);
+  const setDeleteUserId = useBoundStore((state) => state.setDeleteUserId);
 
   const userId = params.id;
   console.log({ pathname });
@@ -29,9 +36,14 @@ const UserDetails = ({ params }: { params: { id: string } }) => {
     return <div>Loading...</div>;
   }
 
+  const openModal = () => {
+    setDeleteUserId(userId);
+    setDisplayDeleteModal(true);
+  };
+
   return (
-    <div className="pt-6">
-      <div className="flex  items-center justify-between">
+    <div className="pt-6 pr-6">
+      <div className="flex  items-center justify-between ">
         <div className="flex items-center gap-6">
           <button
             onClick={() => router.back()}
@@ -43,7 +55,7 @@ const UserDetails = ({ params }: { params: { id: string } }) => {
             User details
           </h4>
 
-          <div className="h-[34px] px-6 bg-white rounded-2xl border border-black/25 justify-center items-center inline-flex">
+          <div className="py-1 px-6 bg-white rounded-2xl border border-black/25 justify-center items-center inline-flex">
             <div className="justify-start items-center gap-2 flex">
               <div className="text-[#ff0a54] text-base font-normal font-['DM Sans']">
                 View audit trail
@@ -53,24 +65,24 @@ const UserDetails = ({ params }: { params: { id: string } }) => {
           </div>
         </div>
 
-        <div className="h-[46px] flex-col justify-center items-end gap-6 inline-flex">
+        <div className=" flex-col justify-center items-end gap-6 inline-flex">
           <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
             Actions
           </div>
           <div className="justify-start items-start gap-6 inline-flex">
-            <div className="text-black text-base font-bold font-['DM Sans'] underline leading-[30px]">
-              Edit
-            </div>
-            <div className="text-black text-base font-normal font-['DM Sans'] underline leading-[30px]">
+            <button className="text-black text-base font-normal font-['DM Sans'] underline leading-[30px] z-10">
               Chat
-            </div>
-            <div className="text-[#979797] text-base font-normal font-['DM Sans'] underline leading-[30px]">
+            </button>
+            <button
+              onClick={openModal}
+              className="text-[#979797] text-base font-normal font-['DM Sans'] underline leading-[30px] z-10"
+            >
               Delete
-            </div>
+            </button>
           </div>
         </div>
       </div>
-      <div className="w-[1179px]  p-12 bg-white rounded-3xl border border-black/25 flex-col justify-start items-start gap-12 inline-flex  mt-6">
+      <div className="w-full p-12 bg-white rounded-3xl border border-black/25 flex-col justify-start items-start gap-12 inline-flex  mt-6 overflow-y-auto pb-6">
         <div className="justify-start items-start gap-[40.50px] inline-flex w-full">
           <div className="w-[119px] flex-col justify-start items-start gap-6 inline-flex">
             <div className="self-stretch text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
@@ -173,7 +185,7 @@ const UserDetails = ({ params }: { params: { id: string } }) => {
             <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
               Interests
             </div>
-            <div className="self-stretch h-20 justify-start items-start gap-2 flex flex-wrap">
+            <div className="self-stretch  justify-start items-start gap-2 flex flex-row flex-wrap">
               {user &&
                 user.interests &&
                 user.interests.map((interest) => (

@@ -87,14 +87,12 @@ const Reports = () => {
 
           {reportedUsers &&
             reportedUsers.map((user) => (
-              <div
+              <button
                 key={user.reportId}
-                className="justify-start items-start gap-6 inline-flex"
+                className="justify-start items-start inline-flex text-[#979797] text-base font-normal font-['DM Sans'] underline leading-[30px]"
               >
-                <div className="text-[#979797] text-base font-normal font-['DM Sans'] underline leading-[30px]">
-                  Deactivate user
-                </div>
-              </div>
+                Deactivate user
+              </button>
             ))}
         </div>
       </div>

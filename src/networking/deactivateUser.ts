@@ -32,10 +32,11 @@ export const deactivateUser = async (userId: number,isUserDeactivated:boolean ) 
 
       
 
-         toast(result.message,{
+         toast(result.data,{
             autoClose: 5000,
             hideProgressBar: false,
            });
+          // console.log(result);
         return result;
         
     } catch (error) {
