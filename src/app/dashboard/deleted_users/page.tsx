@@ -37,7 +37,10 @@ const Page = () => {
           {deletedUsers &&
             deletedUsers.map((item) => {
               return (
-                <div className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]">
+                <div
+                  key={item.id}
+                  className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
+                >
                   {item.firstName}
                 </div>
               );
@@ -51,7 +54,10 @@ const Page = () => {
           {deletedUsers &&
             deletedUsers.map((item) => {
               return (
-                <div className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]">
+                <div
+                  key={item.id}
+                  className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
+                >
                   {item.lastName}
                 </div>
               );
@@ -64,7 +70,10 @@ const Page = () => {
           {deletedUsers &&
             deletedUsers.map((item) => {
               return (
-                <div className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]">
+                <div
+                  key={item.id}
+                  className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
+                >
                   {item.email}
                 </div>
               );
@@ -79,6 +88,7 @@ const Page = () => {
               deletedUsers.map((item) => {
                 return (
                   <img
+                    key={item.id}
                     className="w-6 h-6 rounded-full"
                     src={item?.userPhoto ? item?.userPhoto[0]?.imageUrl : ""}
                     alt="image"
@@ -124,6 +134,7 @@ const Page = () => {
             deletedUsers.map((item) => {
               return (
                 <button
+                  key={item.id}
                   onClick={() => handleDeleteUser(item.id.toString())}
                   className="justify-start items-start gap-6 inline-flex text-black text-base font-bold font-['DM Sans'] underline leading-[30px]"
                 >
