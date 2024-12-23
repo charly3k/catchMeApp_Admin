@@ -1,17 +1,33 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
+  const pathname = usePathname();
+  const adminProfile = pathname === "/dashboard/admin/profile";
+  const allAdmins = pathname === "/dashboard/admin/profile/all";
   return (
     <div className="py-6 px-6">
       {" "}
       <div className="flex">
-        <button className=" text-white rounded-4xl py-2.5 px-3.5 mr-3.5 bg-red-500">
+        <Link
+          href={"/dashboard/admin/profile"}
+          className={` rounded-4xl py-2.5 px-3.5 mr-3.5 ${
+            adminProfile ? `bg-red-500 text-white` : `bg-white text-slate-400`
+          }`}
+        >
           your Profile
-        </button>
-        <button className="bg-white text-slate-400 rounded-4xl py-2.5 px-3.5">
+        </Link>
+        <Link
+          href={"/dashboard/admin/profile/all"}
+          className={`${
+            allAdmins ? "bg-red-500 text-white" : "bg-white text-slate-400"
+          } rounded-4xl py-2.5 px-3.5`}
+        >
           Other admins
-        </button>
+        </Link>
       </div>
       <div>{children}</div>
       <Link

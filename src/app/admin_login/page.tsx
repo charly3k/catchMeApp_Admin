@@ -10,8 +10,6 @@ import { useForm } from "react-hook-form";
 
 import Loader from "@/components/Loader";
 import { toast } from "react-toastify";
-import { superAdminLogin } from "@/networking/superAdminLogin";
-import Cookies from "universal-cookie";
 
 type FormData = {
   email: string;
@@ -21,13 +19,6 @@ type FormData = {
 const Login = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = React.useState(false);
-  const cookies = new Cookies();
-
-  const authToken = cookies.get("authToken");
-  const adminID = cookies.get("adminID");
-  const adminRole = cookies.get("adminRole");
-
-  console.log({ authToken, adminID, adminRole });
 
   const {
     register,
@@ -39,7 +30,7 @@ const Login = () => {
     (async () => {
       try {
         setIsLoading(true);
-        const result = await superAdminLogin(data.email, data.password);
+        const result = await adminLogin(data.email, data.password);
 
         if (result) {
           console.log(result);
@@ -110,8 +101,8 @@ const Login = () => {
         <Link href={"/register"} className="text-red-500 text-center mt-6 mr-6">
           Create an account
         </Link>
-        <Link href={"/admin_login"} className="text-red-500 text-center mt-6">
-          login as normal admin
+        <Link href={"/"} className="text-red-500 text-center mt-6">
+          login as super admin
         </Link>
       </div>
     </div>

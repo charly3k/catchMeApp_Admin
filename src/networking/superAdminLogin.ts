@@ -36,6 +36,9 @@ console.log(result)
     }
 
       cookies.set('authToken', result.data.accessToken);
+       cookies.set('adminID', result.data.adminDetails.id)
+
+       cookies.set('adminRole', result.data.adminDetails.access)
     
     return result
         

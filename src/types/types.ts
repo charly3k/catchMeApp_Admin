@@ -55,3 +55,13 @@ export type reportedUsers={
   reportDate:string,
   reason:string
 }
+
+export type AdminProfileType={
+  access:'ADMIN'|'SUPER_ADMIN'
+  defaultPassword:null|string
+  email:string
+  firstname:string
+  id:string
+  isBlocked:boolean
+  lastname:string
+}

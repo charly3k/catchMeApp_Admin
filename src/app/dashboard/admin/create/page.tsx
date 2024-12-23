@@ -1,6 +1,9 @@
 "use client";
 import { ArrowBack } from "@/assets/ArrowBack";
-import React from "react";
+import Loader from "@/components/Loader";
+import { adminRegister } from "@/networking/adminRegister";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 type FormData = {
@@ -11,6 +14,9 @@ type FormData = {
 };
 
 const Page = () => {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const {
     register,
     handleSubmit,
@@ -21,20 +27,40 @@ const Page = () => {
   } = useForm<FormData>();
   const onSubmit = (data: FormData) => {
     (async () => {
-      console.log(data);
+      try {
+        setIsLoading(true);
+        const result = await adminRegister(
+          data.firstname,
+          data.lastname,
+          data.email,
+          data.password
+        );
+
+        if (result.status == 200 || result.status == 201) {
+          console.log(result);
+          router.push("/dashboard/admin/profile");
+        }
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+        setIsLoading(false);
+      }
     })();
   };
   return (
-    <div className="py-6 px-6">
+    <form className="py-6 px-6">
       <div className="flex flex-row justify-between items-center w-full">
-        <div className="w-12 h-12 p-3 bg-white rounded-3xl border border-black/25 justify-center items-center flex overflow-hidden">
+        <button
+          onClick={() => router.back()}
+          className="w-12 h-12 p-3 bg-white rounded-3xl border border-black/25 justify-center items-center flex overflow-hidden"
+        >
           <ArrowBack />
-        </div>
+        </button>
         <button
           onClick={handleSubmit(onSubmit)}
           className="px-[52px] py-5 bg-[#ff0a54] rounded-[32px] justify-center items-center gap-2.5 flex text-white text-base font-normal font-['DM Sans']"
         >
-          Save
+          {isLoading ? <Loader /> : "Save"}
         </button>
       </div>
 
@@ -68,7 +94,7 @@ const Page = () => {
             Email
           </div>
           <input
-            className="rounded-3xl bg-lightWhite py-2.5 px-3.5 mb-10 text-black h-[54px] pl-4 pr-[274px] bg-white rounded-3xl border border-black/25 justify-start items-center inline-flex overflow-hidden"
+            className="rounded-3xl bg-lightWhite py-2.5 px-3.5 mb-10 text-black h-[54px] pl-4 pr-4 w-full bg-white rounded-3xl border border-black/25 justify-start items-center inline-flex overflow-hidden"
             // defaultValue="test"
             placeholder="email"
             {...register("email")}
@@ -97,7 +123,7 @@ const Page = () => {
           />
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 

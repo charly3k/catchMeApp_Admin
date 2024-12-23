@@ -1,7 +1,9 @@
 "use client";
 
 import { getAdminProfile } from "@/networking/getAdminProfile";
+import { getSuperAdminProfile } from "@/networking/getSuperAdminProfile";
 import { useBoundStore } from "@/store/store";
+import { AdminProfileType } from "@/types/types";
 import Link from "next/link";
 
 import React, { useEffect, useState } from "react";
@@ -68,14 +70,13 @@ const cookies = new Cookies();
 const Admin_Profile = () => {
   const setDisplayModal = useBoundStore((state) => state.setDisplayDeleteModal);
   const adminId = cookies.get("adminID");
-  const [adminProfile, setAdminProfile] = useState<{
-    firstname: string;
-    lastname: string;
-    email: string;
-    defaultPassword: string | null;
-  }>();
+  const adminRole = cookies.get("adminRole");
+  const [adminProfile, setAdminProfile] = useState<AdminProfileType>();
   const handleGetAdminProfile = async () => {
-    const result = await getAdminProfile();
+    const result =
+      adminRole == "SUPER_ADMIN"
+        ? await getSuperAdminProfile()
+        : await getAdminProfile();
 
     if (result) {
       setAdminProfile(result.data);
