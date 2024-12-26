@@ -2,14 +2,12 @@
 import { ArrowBack } from "@/assets/ArrowBack";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
+import { useRouter,useParams } from "next/navigation";
 import Loader from "@/components/Loader";
 import { toast } from "react-toastify";
 import { getAdminProfile } from "@/networking/getAdminProfile";
 import Cookies from "universal-cookie";
 import { editAdminProfile } from "@/networking/editAdminProfile";
-import { getSuperAdminProfile } from "@/networking/getSuperAdminProfile";
-import { editSuperAdminProfile } from "@/networking/editSuperAdminProfile";
 
 type FormData = {
   firstname: string;
@@ -17,14 +15,15 @@ type FormData = {
   email: string;
   password: string;
 };
-const cookies = new Cookies();
+
 
 const Page = () => {
-  const adminRole= cookies.get('adminRole')
-  const adminId =   cookies.get("adminID");
+  
   const [isLoading, setIsLoading] = React.useState(false);
   const router = useRouter();
-  
+  const { admin } :{admin:string}= useParams();
+
+ 
 
   const [adminProfile, setAdminProfile] = useState<{
     firstname: string;
@@ -44,18 +43,12 @@ const Page = () => {
     (async () => {
       try {
         setIsLoading(true);
-        const result =  adminRole=='SUPER_ADMIN'? await editSuperAdminProfile(
+        const result = await editAdminProfile(
           data.email,
           data.firstname,
           data.lastname,
           data.password,
-          adminId
-        ): await editAdminProfile(
-          data.email,
-          data.firstname,
-          data.lastname,
-          data.password,
-          adminId
+          admin
         );
 
         if (result.status == 200 || result.status == 201) {
@@ -74,7 +67,7 @@ const Page = () => {
     })();
   };
   const handleGetAdminProfile = async () => {
-    const result = adminRole=='SUPER_ADMIN'?  await  getSuperAdminProfile(adminId): await getAdminProfile(adminId);
+    const result = await getAdminProfile(admin);
 
     if (result) {
       setAdminProfile(result.data);
@@ -84,7 +77,7 @@ const Page = () => {
   console.log(watch("firstname")); // watch input value by passing the name of it
   useEffect(() => {
     handleGetAdminProfile();
-  }, [adminId]);
+  }, [admin]);
 
   console.log(adminProfile);
 
@@ -92,7 +85,7 @@ const Page = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="py-6 px-6">
       <div className="flex flex-row justify-between items-center w-full">
         <button
-        type="button"
+           type="button"
           onClick={() => router.back()}
           className="w-12 h-12 p-3 bg-white rounded-3xl border border-black/25 justify-center items-center flex overflow-hidden"
         >

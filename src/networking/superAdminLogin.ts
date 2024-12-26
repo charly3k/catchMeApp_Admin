@@ -1,5 +1,6 @@
 import Cookies from 'universal-cookie';
 import { apiUrl } from "./apiUrl";
+import { toast } from 'react-toastify';
 
 export const superAdminLogin =async (email:string,password:string) => {
     const cookies = new Cookies();
@@ -30,7 +31,10 @@ const result = await response.json();
 console.log(result)
 
     if(!response.ok){
-
+        toast(result.message,{
+            autoClose: 5000,
+            hideProgressBar: false,
+        })
         return
 
     }
@@ -39,6 +43,11 @@ console.log(result)
        cookies.set('adminID', result.data.adminDetails.id)
 
        cookies.set('adminRole', result.data.adminDetails.access)
+
+            toast(result.message,{
+            autoClose: 5000,
+            hideProgressBar: false,
+        })
     
     return result
         

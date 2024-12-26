@@ -3,9 +3,9 @@ import { apiUrl } from "./apiUrl"
 
 const cookies = new Cookies();
 
-export const getSuperAdminProfile = async () => {
+export const getSuperAdminProfile = async (adminId:string) => {
     const authToken = cookies.get('authToken');
-            const adminId= cookies.get('adminID')
+           // const adminId= cookies.get('adminID')
     try {
         const response = await fetch(`${apiUrl}/super/admin/${adminId}`, {
             method: 'GET',

@@ -9,83 +9,41 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
 
-/* 
-const header = [
-  "first name",
-  "last name",
-  "email",
-  "profile pic",
-  "photos",
-  "actions",
-];
-const usersData = [
-  {
-    id: 1,
-    name: "John",
 
-    email: "john@gamil.com",
-    profilePic: "https://randomuser.me/api/port",
-    photos: [
-      { url: "https://randomuser.me/api/port" },
-      { url: "https://randomuser.me/api/port" },
-    ],
-    actions: "Deactivate",
-  },
-  {
-    id: 2,
-    name: "Jane",
-    email: "jane@gamil.com",
-    profilePic: "https://randomuser.me/api/port",
-    photos: [
-      { url: "https://randomuser.me/api/port" },
-      { url: "https://randomuser.me/api/port" },
-    ],
-    actions: "Deactivate",
-  },
-  {
-    id: 3,
-    name: "Smith",
-    email: "john@gmail.com",
-    profilePic: "https://randomuser.me/api/port",
-    photos: [
-      { url: "https://randomuser.me/api/port" },
-      { url: "https://randomuser.me/api/port" },
-    ],
-    actions: "Deactivate",
-  },
-  {
-    id: 4,
-    name: "Jane",
-    email: "jane@gmail.com",
-    profilePic: "https://randomuser.me/api/port",
-    photos: [
-      { url: "https://randomuser.me/api/port" },
-      { url: "https://randomuser.me/api/port" },
-    ],
-    actions: "Deactivate",
-  },
-]; */
 const cookies = new Cookies();
 
 const Admin_Profile = () => {
-  const setDisplayModal = useBoundStore((state) => state.setDisplayDeleteModal);
+
+ const setIsDeleteAdminModalVisible = useBoundStore((state) => state.setIsDeleteAdminModalVisible);
+ const setDeleteAdminId = useBoundStore((state) => state.setDeleteAdminId);
+
+
+
+
   const adminId = cookies.get("adminID");
   const adminRole = cookies.get("adminRole");
   const [adminProfile, setAdminProfile] = useState<AdminProfileType>();
   const handleGetAdminProfile = async () => {
     const result =
       adminRole == "SUPER_ADMIN"
-        ? await getSuperAdminProfile()
-        : await getAdminProfile();
+        ? await getSuperAdminProfile(adminId)
+        : await getAdminProfile(adminId);
 
     if (result) {
       setAdminProfile(result.data);
     }
   };
 
+  const  openDeleteAdminModal = () => {
+    setIsDeleteAdminModalVisible(true);
+    setDeleteAdminId(adminId);
+  }
+
   useEffect(() => {
     handleGetAdminProfile();
   }, [adminId]);
+
+  console.log({adminRole})
 
   return (
     <>
@@ -133,12 +91,7 @@ const Admin_Profile = () => {
             >
               Edit
             </Link>
-            <button
-              onClick={() => setDisplayModal(true)}
-              className="text-[#979797] text-base font-bold font-['DM Sans'] underline leading-[30px]"
-            >
-              Delete
-            </button>
+           
           </div>
         </div>
       </div>

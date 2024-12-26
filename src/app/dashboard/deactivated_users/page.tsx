@@ -7,15 +7,7 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { toast } from "react-toastify";
 
-/* const header = [
-  "first name",
-  "last name",
-  "email",
-  "profile pic",
-  "photos",
-  "actions",
-];
- */
+
 const Deactivated_Users = () => {
   const deactivtedUsers = useBoundStore((state) => state.deactivatedUsers);
   const setDeactivatedUsers = useBoundStore(
@@ -27,6 +19,13 @@ const Deactivated_Users = () => {
     setDeactivatedUsers(result.data);
     console.log(result);
   };
+
+
+    const setDisplayDeleteModal = useBoundStore(
+      (state) => state.setDisplayDeleteModal
+    );
+  
+    const setDeleteUserId = useBoundStore((state) => state.setDeleteUserId);
 
   useEffect(() => {
     handleGetDeativatedUsers();
@@ -43,6 +42,11 @@ const Deactivated_Users = () => {
         autoClose: 5000,
       });
     }
+  };
+
+    const openModal = (userId:string) => {
+    setDeleteUserId(userId);
+    setDisplayDeleteModal(true);
   };
 
   return (
@@ -140,6 +144,7 @@ const Deactivated_Users = () => {
 
           {deactivtedUsers.map((user) => (
             <div key={user.id} className="flex items-center gap-6">
+         
               <button
                 onClick={async () => {
                   await handleDeactivateUser(
@@ -151,6 +156,17 @@ const Deactivated_Users = () => {
               >
                 {user.isUserDeactivated ? "Reactivate" : "Deactivate"}
               </button>
+
+                  <button
+                onClick={async () => {
+                  openModal(user.id.toString());
+                }}
+                className="text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
+              >
+               Delete
+              </button>
+
+
             </div>
           ))}
         </div>

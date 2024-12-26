@@ -6,28 +6,27 @@ import { useRouter, usePathname } from "next/navigation";
 import { UserProfile } from "@/types/types";
 import { Redo } from "@/assets/Redo";
 import { ArrowBack } from "@/assets/ArrowBack";
-import { useBoundStore } from "@/store/store";
+import { deactivateUser } from "@/networking/deactivateUser";
+import { toast } from "react-toastify";
 
 const UserDetails = ({ params }: { params: { id: string } }) => {
+   const [isLoading, setIsLoading] = useState<boolean>(false);
+  
   const router = useRouter();
   const pathname = usePathname();
   const [user, SetUser] = useState<UserProfile>();
 
-  const setDisplayDeleteModal = useBoundStore(
-    (state) => state.setDisplayDeleteModal
-  );
-
-  const setDeleteUserId = useBoundStore((state) => state.setDeleteUserId);
 
   const userId = params.id;
   console.log({ pathname });
 
-  useEffect(() => {
-    (async () => {
-      const result = await getUser(userId);
+  const handleGetUser=async()=>{
+    const result = await getUser(userId);
+    SetUser(result.data);
+  }
 
-      SetUser(result.data);
-    })();
+  useEffect(() => {
+    handleGetUser();
   }, [userId]);
 
   console.log({ user });
@@ -36,10 +35,30 @@ const UserDetails = ({ params }: { params: { id: string } }) => {
     return <div>Loading...</div>;
   }
 
-  const openModal = () => {
-    setDeleteUserId(userId);
-    setDisplayDeleteModal(true);
-  };
+
+   const handleDeactivateUser = async (id: number, type: boolean) => {
+      try {
+        setIsLoading(true);
+        const result = await deactivateUser(id, type);
+        if (result.status == 200) {
+          await handleGetUser();
+          setIsLoading(false);
+        } else {
+          toast(result.message, {
+            autoClose: 5000,
+            hideProgressBar: false,
+          });
+          setIsLoading(false);
+        }
+      } catch (error) {
+        toast("an error occurred try again", {
+          autoClose: 5000,
+          hideProgressBar: false,
+        });
+        console.log(error);
+        setIsLoading(false);
+      }
+    };
 
   return (
     <div className="pt-6 pr-6">
@@ -73,12 +92,22 @@ const UserDetails = ({ params }: { params: { id: string } }) => {
             <button className="text-black text-base font-normal font-['DM Sans'] underline leading-[30px] z-10">
               Chat
             </button>
-            <button
-              onClick={openModal}
-              className="text-[#979797] text-base font-normal font-['DM Sans'] underline leading-[30px] z-10"
-            >
-              Delete
-            </button>
+
+    
+               <button
+                  disabled={isLoading}
+                  onClick={() => {
+                    handleDeactivateUser(
+                      user.id,
+                      user.isUserDeactivated ? false : true
+                    );
+                    //router.refresh();
+                  }}
+                  className="text-[#979797] text-base font-normal font-['DM Sans'] underline leading-[30px]"
+                >
+                  {user.isUserDeactivated ? "Reactivate" : "Deactivate"}
+                </button>
+            
           </div>
         </div>
       </div>

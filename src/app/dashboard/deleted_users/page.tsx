@@ -3,8 +3,11 @@ import { deleteUser } from "@/networking/deleteUser";
 import { getDeletedUsers } from "@/networking/getDeletedUsers";
 import { UserProfile } from "@/types/types";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Page = () => {
+    const router = useRouter();
   const [deletedUsers, setDeletedUsers] = useState<UserProfile[]>();
   const handleGetDeletedUsers = async () => {
     const result = await getDeletedUsers();
@@ -37,12 +40,13 @@ const Page = () => {
           {deletedUsers &&
             deletedUsers.map((item) => {
               return (
-                <div
+                <Link
+                  href={`/dashboard/users/${item.id}`}
                   key={item.id}
                   className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
                 >
                   {item.firstName}
-                </div>
+                </Link>
               );
             })}
         </div>
@@ -54,12 +58,13 @@ const Page = () => {
           {deletedUsers &&
             deletedUsers.map((item) => {
               return (
-                <div
+                <Link 
+                href={`/dashboard/users/${item.id}`}
                   key={item.id}
                   className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
                 >
                   {item.lastName}
-                </div>
+                </Link>
               );
             })}
         </div>
@@ -70,12 +75,13 @@ const Page = () => {
           {deletedUsers &&
             deletedUsers.map((item) => {
               return (
-                <div
+                <Link
+                 href={`/dashboard/users/${item.id}`}
                   key={item.id}
                   className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
                 >
                   {item.email}
-                </div>
+                </Link>
               );
             })}
         </div>

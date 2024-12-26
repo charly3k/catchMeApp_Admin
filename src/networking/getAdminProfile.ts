@@ -3,8 +3,8 @@ import { apiUrl } from "./apiUrl"
 
 const cookies = new Cookies();
             const authToken = cookies.get('authToken');
-            const adminId= cookies.get('adminID')
-export const getAdminProfile=async()=>{
+           // const adminId= cookies.get('adminID')
+export const getAdminProfile=async(adminId:string)=>{
 
     try {
         const response= await fetch(`${apiUrl}/admin/${adminId}`,{

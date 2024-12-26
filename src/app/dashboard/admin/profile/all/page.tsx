@@ -2,6 +2,8 @@
 import { getAllAdmins } from "@/networking/getAllAdmins";
 import { AdminProfileType } from "@/types/types";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useBoundStore } from "@/store/store";
 
 const Page = () => {
   const [allAdmins, setAllAdmins] = useState<AdminProfileType[]>();
@@ -13,9 +15,22 @@ const Page = () => {
 
     setAllAdmins(result.data);
   };
+
+
+const setDisplayDeleteModal = useBoundStore((state) => state.setIsDeleteAdminModalVisible);
+
+  const setDeleteUserId = useBoundStore((state) => state.setDeleteAdminId);
+
+    const openModal = (userId:string) => {
+    setDeleteUserId(userId);
+    setDisplayDeleteModal(true);
+  };
+
   useEffect(() => {
     handleGetAllAdmins();
   }, []);
+
+  const router = useRouter();
   return (
     <div className="h-[352px] p-12 bg-white rounded-3xl border border-black/25 justify-start items-start gap-16 inline-flex overflow-y-auto mt-6">
       <div className="flex-col justify-start items-start gap-[38px] inline-flex">
@@ -87,12 +102,12 @@ const Page = () => {
         {allAdmins?.map((item) => {
           return (
             <div key={item.id} className="justify-start items-start gap-6 inline-flex">
-              <div className="text-black text-base font-bold font-['DM Sans'] underline leading-[30px]">
+              <button onClick={()=>router.push(`/dashboard/admin/edit/${item.id}`)} className="text-black text-base font-bold font-['DM Sans'] underline leading-[30px]">
                 Edit
-              </div>
-              <div className="text-[#979797] text-base font-bold font-['DM Sans'] underline leading-[30px]">
+              </button>
+              <button onClick={()=>openModal(item.id)} className="text-[#979797] text-base font-bold font-['DM Sans'] underline leading-[30px]">
                 Delete
-              </div>
+              </button>
             </div>
           );
         })}
