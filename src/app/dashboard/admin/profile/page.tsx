@@ -14,9 +14,6 @@ const cookies = new Cookies();
 
 const Admin_Profile = () => {
 
- const setIsDeleteAdminModalVisible = useBoundStore((state) => state.setIsDeleteAdminModalVisible);
- const setDeleteAdminId = useBoundStore((state) => state.setDeleteAdminId);
-
 
 
 
