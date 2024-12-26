@@ -73,7 +73,7 @@ const Page = () => {
 
         {allAdmins?.map((item) => {
           return (
-            <div className="text-black text-base font-normal font-['DM Sans'] leading-[30px]">
+            <div key={item.id} className="text-black text-base font-normal font-['DM Sans'] leading-[30px]">
               •••••••••••••••••
             </div>
           );
@@ -86,7 +86,7 @@ const Page = () => {
 
         {allAdmins?.map((item) => {
           return (
-            <div className="justify-start items-start gap-6 inline-flex">
+            <div key={item.id} className="justify-start items-start gap-6 inline-flex">
               <div className="text-black text-base font-bold font-['DM Sans'] underline leading-[30px]">
                 Edit
               </div>

@@ -1,6 +1,6 @@
 "use client";
 import CatchMe from "@/assets/CatchMe";
-import { adminLogin } from "@/networking/adminLogin";
+
 /* import { superAdminLogin } from "@/networking/superAdminLogin"; */
 
 import Link from "next/link";
