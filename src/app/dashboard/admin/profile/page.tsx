@@ -2,7 +2,7 @@
 
 import { getAdminProfile } from "@/networking/getAdminProfile";
 import { getSuperAdminProfile } from "@/networking/getSuperAdminProfile";
-import { useBoundStore } from "@/store/store";
+
 import { AdminProfileType } from "@/types/types";
 import Link from "next/link";
 
