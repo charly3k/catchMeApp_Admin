@@ -34,10 +34,6 @@ const Admin_Profile = () => {
     }
   };
 
-  const  openDeleteAdminModal = () => {
-    setIsDeleteAdminModalVisible(true);
-    setDeleteAdminId(adminId);
-  }
 
   useEffect(() => {
     handleGetAdminProfile();

@@ -3,11 +3,11 @@ import { deleteUser } from "@/networking/deleteUser";
 import { getDeletedUsers } from "@/networking/getDeletedUsers";
 import { UserProfile } from "@/types/types";
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+
 import Link from "next/link";
 
 const Page = () => {
-    const router = useRouter();
+  
   const [deletedUsers, setDeletedUsers] = useState<UserProfile[]>();
   const handleGetDeletedUsers = async () => {
     const result = await getDeletedUsers();

@@ -6,7 +6,6 @@ import { useRouter,useParams } from "next/navigation";
 import Loader from "@/components/Loader";
 import { toast } from "react-toastify";
 import { getAdminProfile } from "@/networking/getAdminProfile";
-import Cookies from "universal-cookie";
 import { editAdminProfile } from "@/networking/editAdminProfile";
 
 type FormData = {
