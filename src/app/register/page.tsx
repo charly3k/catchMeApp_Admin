@@ -1,7 +1,8 @@
 "use client";
 import CatchMe from "@/assets/CatchMe";
 import Loader from "@/components/Loader";
-import { adminRegister } from "@/networking/adminRegister";
+
+import { superAdminRegister } from "@/networking/superAdminRegister";
 
 /* import { superAdminRegister } from "@/networking/superAdminRegister"; */
 import Link from "next/link";
@@ -30,7 +31,7 @@ const Register = () => {
     (async () => {
       try {
         setIsLoading(true);
-        const result = await adminRegister(
+        const result = await superAdminRegister(
           data.firstname,
           data.lastname,
           data.email,

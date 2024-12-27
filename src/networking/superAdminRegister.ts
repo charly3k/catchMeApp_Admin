@@ -17,7 +17,7 @@ export const superAdminRegister = async (firstname: string, lastname: string, em
         })
         const result = await response.json();
         console.log(result)
-        console.log({ response })
+    return result;
     } catch (error) {
         console.log(error)
     }
