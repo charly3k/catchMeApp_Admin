@@ -161,8 +161,8 @@ const refreshChartData = async () => {
         
            
               {
-                swipesDetails.map((item) => (
-                  <div className="text-black text-base font-normal font-['DM Sans'] leading-[30px]">
+                swipesDetails.map((item,index) => (
+                  <div key={index} className="text-black text-base font-normal font-['DM Sans'] leading-[30px]">
                     {item.month}
                   </div>
                   
@@ -179,8 +179,8 @@ const refreshChartData = async () => {
            
 
             {
-              swipesDetails.map((item) => (
-                <div className="text-black text-base font-normal font-['DM Sans'] leading-[30px]">
+              swipesDetails.map((item,index) => (
+                <div key={index} className="text-black text-base font-normal font-['DM Sans'] leading-[30px]">
                   {item.usersStats}
                 </div>
               ))
