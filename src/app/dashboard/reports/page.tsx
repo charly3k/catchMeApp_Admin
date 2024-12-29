@@ -17,10 +17,14 @@ const Reports = () => {
   useEffect(() => {
     handleGetReportedUsers();
   }, []);
+
+  /*   const handleDeactivateUser = async (userId: number) => {
+   const result = await deactivateUser( userId);
+  } */
   console.log(reportedUsers);
   return (
     <div className="py-6">
-      <div className="w-[1179px] h-[793px] p-12 bg-white rounded-3xl border border-black/25 justify-start items-start gap-28 inline-flex">
+      <div className=" p-12 bg-white rounded-3xl border border-black/25 justify-start items-start gap-28 inline-flex">
         <div className="flex-col justify-start items-start gap-[38px] inline-flex">
           <div className="self-stretch text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
             Reported name
