@@ -73,7 +73,7 @@ const Sidebar = () => {
           </Link>
         ))}
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center py-2.5">
         <Logout />{" "}
         <Link
           onClick={logout}
