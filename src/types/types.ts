@@ -45,23 +45,31 @@ export type UserProfile = {
   zodiacSign: string | null;
 };
 
+export type reportedUsers = {
+  reportId: string;
+  reportedUserId: string;
+  reportedUserName: string;
+  reportingUserId: string;
+  reportingUserName: string;
+  reportDate: string;
+  reason: string;
+};
 
-export type reportedUsers={
-  reportId:string,
-  reportedUserId:string
-  reportedUserName:string,
-  reportingUserId:string,
-  reportingUserName:string
-  reportDate:string,
-  reason:string
-}
+export type AdminProfileType = {
+  access: "ADMIN" | "SUPER_ADMIN";
+  defaultPassword: null | string;
+  email: string;
+  firstname: string;
+  id: string;
+  isBlocked: boolean;
+  lastname: string;
+};
 
-export type AdminProfileType={
-  access:'ADMIN'|'SUPER_ADMIN'
-  defaultPassword:null|string
-  email:string
-  firstname:string
-  id:string
-  isBlocked:boolean
-  lastname:string
-}
+export type userAuditTrail = {
+  userId: string;
+  date: string;
+  email: string;
+  photos: string[];
+  school: string;
+  schoolEmail: string;
+};

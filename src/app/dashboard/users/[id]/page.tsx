@@ -72,14 +72,19 @@ const UserDetails = ({ params }: { params: { id: string } }) => {
             User details
           </h4>
 
-          <div className="py-1 px-6 bg-white rounded-2xl border border-black/25 justify-center items-center inline-flex">
+          <button
+            onClick={() => {
+              router.push(`/dashboard/users/audit_trail/${params.id}`);
+            }}
+            className="py-1 px-6 bg-white rounded-2xl border border-black/25 justify-center items-center inline-flex"
+          >
             <div className="justify-start items-center gap-2 flex">
               <div className="text-[#ff0a54] text-base font-normal font-['DM Sans']">
                 View audit trail
               </div>
               <Redo />
             </div>
-          </div>
+          </button>
         </div>
 
         <div className=" flex-col justify-center items-end gap-6 inline-flex">
