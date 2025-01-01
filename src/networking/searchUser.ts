@@ -38,5 +38,6 @@ export const searchUser = async (name: string, page: number) => {
       pauseOnHover: true,
       draggable: true,
     });
+    console.error(error);
   }
 };
