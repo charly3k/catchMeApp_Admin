@@ -11,6 +11,8 @@ import { NextArrow } from "@/assets/Next";
 import { Suspense } from "react";
 import { toast } from "react-toastify";
 import Loader from "@/components/Loader";
+import { searchUser } from "@/networking/searchUser";
+import { Search } from "@/assets/Search";
 
 export default function Page() {
   return (
@@ -22,6 +24,7 @@ export default function Page() {
 const Users = () => {
   const allUsers = useBoundStore((state) => state.allUsers);
   const setAllUsers = useBoundStore((state) => state.setAllUsers);
+  const [search, setSearch] = useState<string>("");
 
   const pageParams = useSearchParams().get("page");
 
@@ -111,10 +114,44 @@ const Users = () => {
     }
   };
 
+  const handleSearch = async () => {
+    try {
+      if (search === "") return;
+      const result = await searchUser(search, currentPage);
+
+      if (!result || result.status !== 200) return;
+      setAllUsers(result?.data?.content);
+      setTotalPages(result?.data?.totalPages);
+      //setPageNumber(result?.data?.number);
+      setNumberOfElements(result?.data?.numberOfElements);
+      setTotalElements(result?.data?.totalElements);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="my-6">
       {isLoading && <Loader />}
-      <div className="w-[1179px] h-[703px] p-12 bg-white rounded-3xl border border-black/25 inline-flex">
+
+      <div className="w-[36.68rem]   flex justify-between items-center bg-white rounded-3xl border border-black/25 mb-6">
+        <input
+          placeholder="search for a user"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onBlur={() => {
+            if (search === "") {
+              handleGetUsers();
+            }
+          }}
+          type="text"
+          className="w-11/12 py-3 rounded-3xl px-6 text-black text-base font-normal font-['DM Sans'] leading-[30px] border-none"
+        />
+        <button onClick={handleSearch} className="px-6">
+          <Search />
+        </button>
+      </div>
+      <div className="w-[73.69rem] h-[703px] p-12 bg-white rounded-3xl border border-black/25 inline-flex">
         <div className="w-full h-full overflow-y-auto flex gap-16">
           <div className="flex flex-col justify-start items-start gap-[38px]">
             <h4 className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px] ">
