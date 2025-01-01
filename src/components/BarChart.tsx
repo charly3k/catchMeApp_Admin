@@ -18,7 +18,7 @@ function BarChart({
   return (
     <div className="chart-container w-full">
       <h2 className="text-black" style={{ textAlign: "center" }}>
-        Line Chart
+        Chart
       </h2>
       <Bar
         data={chartData}
