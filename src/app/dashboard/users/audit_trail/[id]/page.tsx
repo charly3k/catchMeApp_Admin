@@ -6,7 +6,7 @@ import { ArrowBack } from "@/assets/ArrowBack";
 import { viewAuditTrail } from "@/networking/viewAuditTrail";
 import { userAuditTrail } from "@/types/types";
 
-const page = () => {
+const Page = () => {
   const { id }: { id: string } = useParams();
   const [userAuditTrail, setUserAuditTrail] = useState<userAuditTrail[]>();
 
@@ -159,4 +159,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
