@@ -70,7 +70,7 @@ const Page = () => {
         </p>
         <form
           ref={form}
-          className=" flex flex-col  pt-4 px-6 rounded-3xl mt-6  "
+          className=" flex flex-col  pt-4 px-6 rounded-3xl mt-6 mb-2"
           onSubmit={handleSubmit(onSubmit)}
         >
           {/* register your input into the hook by invoking the "register" function */}
