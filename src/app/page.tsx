@@ -62,7 +62,7 @@ const Page = () => {
         </h1>
         <p className="text-black  ">
           {" "}
-          Have a question or need help with something? We're here to help.
+          Have a question or need help with something? We are here to help.
         </p>{" "}
         <p className="text-black opacity-50 ">
           Please provide your name, email and a message to help us understand
