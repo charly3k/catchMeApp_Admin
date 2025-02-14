@@ -1,13 +1,26 @@
+"use client";
 import DeleteAdminModal from "@/components/DeleteAdminModal";
 import IncreaseLimitModal from "@/components/IncreaseLimitModal";
 import Modal from "@/components/Modal";
 import Sidebar from "@/components/Sidebar";
+import { useEffect } from "react";
+import Cookies from "universal-cookie";
 
 export default function DashboardLayout({
   children, // will be a page or nested layout
 }: {
   children: React.ReactNode;
 }) {
+  const cookies = new Cookies();
+
+  const authToken = cookies.get("authToken");
+  useEffect(() => {
+    if (!authToken) {
+      window.location.href = "/";
+    }
+  }, []);
+
+  if (!authToken) return null;
   return (
     <section className="flex min-h-screen bg-lightWhite ">
       {/* Fixed Sidebar */}

@@ -1,121 +1,137 @@
 "use client";
+
 import CatchMe from "@/assets/CatchMe";
-
-/* import { superAdminLogin } from "@/networking/superAdminLogin"; */
-
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
-
-import Loader from "@/components/Loader";
+import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
-import { superAdminLogin } from "@/networking/superAdminLogin";
-import Cookies from "universal-cookie";
 
 type FormData = {
+  from_name: string;
   email: string;
-  password: string;
+  message: string;
 };
 
-const Login = () => {
-  const router = useRouter();
-  const [isLoading, setIsLoading] = React.useState(false);
-  const cookies = new Cookies();
-
-  const authToken = cookies.get("authToken");
-  const adminID = cookies.get("adminID");
-  const adminRole = cookies.get("adminRole");
-
-  console.log({ authToken, adminID, adminRole });
+const Page = () => {
+  const form = useRef<HTMLFormElement | null>(null);
 
   const {
     register,
     handleSubmit,
-    watch,
+
     formState: { errors },
   } = useForm<FormData>();
-  const onSubmit = (data: FormData) => {
-    (async () => {
-      try {
-        setIsLoading(true);
-        const result = await superAdminLogin(data.email, data.password);
 
-        if (result) {
-          console.log(result);
-          router.push("/dashboard/overview");
+  const sendEmail = () => {
+    if (form.current === null) return;
+    emailjs
+      .sendForm("service_weie647", "template_auwn9pl", form.current, {
+        publicKey: "bWVVYdxTEetSdjn0t",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          toast("Message sent successfully", {
+            autoClose: 5000,
+          });
+          if (form.current) {
+            form.current.reset();
+          }
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+          toast("An error occurred, try again", {
+            autoClose: 5000,
+          });
         }
-        setIsLoading(false);
-      } catch (error) {
-        toast("an error occurred try again", {
-          autoClose: 5000,
-        });
-        console.log(error);
-        setIsLoading(false);
-      }
-    })();
+      );
   };
 
-  console.log(watch("password")); // watch input value by passing the name of it
-
+  const onSubmit = (data: FormData) => {
+    console.log(data);
+    sendEmail();
+  };
   return (
-    <div className="flex flex-col  items-center h-screen justify-center">
+    <div className="flex flex-col  items-center  px-6">
       <CatchMe />
 
-      <p className="text-black opacity-50 mt-6">
-        {" "}
-        To access the CatchMeApp Dashboard
-      </p>
-      <h1 className="text-black text-2xl">Login to your account</h1>
-      <form
-        className="bg-white flex flex-col w-494 border border-slate-200 pt-10 px-6 rounded-3xl mt-6 min-h-[21.125rem]"
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        {/* register your input into the hook by invoking the "register" function */}
-        <input
-          className="rounded-3xl bg-lightWhite py-2.5 px-3.5  text-black"
-          // defaultValue="test"
-          placeholder="email"
-          {...register("email", { required: true })}
-        />
-        {/* errors will return when field validation fails  */}
-        {errors.email && (
-          <span className="text-black px-6">Email is required</span>
-        )}
-
-        {/* include validation with required or other standard HTML validation rules */}
-        <input
-          placeholder="password"
-          className="bg-lightWhite py-2.5 px-3.5 rounded-3xl my-6 text-black"
-          {...register("password", { required: true })}
-        />
-        {/* errors will return when field validation fails  */}
-        {errors.password && (
-          <span className="text-black px-6">Password is required</span>
-        )}
-
-        <Link href={"#"} className="text-red-500 text-right">
-          Forgot password?
-        </Link>
-
-        {/*       <input type="submit" value={"Login"} /> */}
-        <button
-          disabled={isLoading}
-          className="bg-red-500 w-36 rounded-4xl p-2.5 mx-auto mt-6 justify-center"
+      <div className="py-6">
+        <h1 className="text-black text-2xl text-center mb-4">
+          {" "}
+          Request Support{" "}
+        </h1>
+        <p className="text-black  ">
+          {" "}
+          Have a question or need help with something? We're here to help.
+        </p>{" "}
+        <p className="text-black opacity-50 ">
+          Please provide your name, email and a message to help us understand
+          your request
+        </p>
+        <form
+          ref={form}
+          className=" flex flex-col  pt-4 px-6 rounded-3xl mt-6  "
+          onSubmit={handleSubmit(onSubmit)}
         >
-          {isLoading ? <Loader /> : "  Login"}
-        </button>
-      </form>
-      <div className="flex flex-row justify-between items-center">
-        <Link href={"/register"} className="text-red-500 text-center mt-6 mr-6">
-          Create an account
-        </Link>
-        <Link href={"/admin_login"} className="text-red-500 text-center mt-6">
-          login as normal admin
-        </Link>
+          {/* register your input into the hook by invoking the "register" function */}
+
+          <div className="  sm:flex-row flex gap-4 sm:justify-between flex-col mb-10">
+            <div className="flex flex-col">
+              <input
+                className="rounded-3xl bg-lightWhite py-2.5 px-3.5  text-black bg-white border border-slate-200"
+                // defaultValue="test"
+                placeholder="name"
+                {...register("from_name", { required: true })}
+              />
+              {errors.from_name && (
+                <p className="text-black">This field is required</p>
+              )}
+            </div>
+
+            <div className="flex flex-col mb-10">
+              <input
+                className="rounded-3xl bg-lightWhite py-2.5 px-3.5  text-black bg-white border border-slate-200"
+                // defaultValue="test"
+                placeholder="email"
+                {...register("email", { required: true })}
+              />
+              {errors.email && (
+                <p className="text-black">This field is required</p>
+              )}
+            </div>
+          </div>
+
+          {/* include validation with required or other standard HTML validation rules */}
+          <textarea
+            placeholder="message"
+            className="bg-lightWhite py-2.5 px-3.5 rounded-3xl mb-6 text-black bg-white border border-slate-200 h-[8.125rem]"
+            {...register("message", { required: true })}
+          />
+          {/* errors will return when field validation fails  */}
+          {errors.message && (
+            <p className="text-black">This field is required</p>
+          )}
+
+          <input
+            className="bg-red-500 w-full rounded-4xl p-2.5 mx-auto mt-6"
+            type="submit"
+            value={"Send Message"}
+          />
+        </form>
+        <p className="text-black">
+          You can also reach us at{" "}
+          <a href="mailto:support@thecatchmeapp.co" className="text-red-500">
+            CatchMeApp Support{" "}
+          </a>{" "}
+          or{" "}
+          <a href="mailto:info@thecatchmeapp.co" className="text-red-500">
+            CatchMeApp info{" "}
+          </a>
+        </p>
       </div>
+      {/*      <Footer /> */}
     </div>
   );
 };
 
-export default Login;
+export default Page;
