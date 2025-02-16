@@ -4,31 +4,26 @@ import { faPlay, faAppleAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Conclusion = () => {
   return (
-    <div className="md:px-40 px-5  flex flex-col gap-10  relative ">
+    <div className="md:px-40 px-5  flex flex-col gap-10   relative  ">
       <div className="absolute inset-0 bg-hero-conv bg-cover bg-center opacity-50">
         {" "}
       </div>
       <div className="relative z-10 p-10  justify-between gap-20 flex flex-col">
         <h4 className="font-raleway text-3xl text-black ">
-          Make friends and build meaningful connections
+          WHY YOU SHOULD USE CATCHMEAPP AS A STUDENT
         </h4>
         <p className="font-dmSans text-black ">
-          Find Love Anywhere with CatchMeApp Love and connection can happen
-          anywhere, and CatchMeApp makes student dating easier than ever.
-          Whether you are walking to class, studying at the library, or hanging
-          out with friends, you can match with like-minded students anytime,
-          anywhere. Our mobile app ensures that meeting your perfect match fits
-          seamlessly into your busy student life. With an easy-to-use interface,
-          CatchMeApp lets you browse profiles, send messages, and connect with
-          other students right from your phone. Our smart filters help you find
-          matches based on your school, course of study, or shared interests,
-          making every connection more meaningful. Plus, you will receive
-          instant notifications when you get a new match or message, so you
-          never miss an opportunity to spark something special. New to student
-          dating apps? No worries! CatchMeApp is designed to be simple, fun, and
-          stress-free, so you can start matching and chatting in no time. Best
-          of all, joining is free! Do not wait—your next great connection is
-          just a swipe away.
+          CatchMeApp makes connection with other students easy and convenient.
+          With smart filters, instant notifications, and a simple interface, it
+          helps you connect with like-minded students anytime, anywhere.
+          CatchMeApp's Discovery Page makes connecting with potential matches
+          effortless. Browse by school, academic level, or course of study to
+          find students who share your interests. With filters for real-time
+          engagement and active users, every interaction is intentional and
+          tailored to your preferences. Enjoy CatchMeApp completely free! All
+          features are accessible once your account is verified, no
+          subscriptions or in-app purchases required. Start connecting and
+          exploring without any hidden costs!
         </p>
 
         <div className="flex flex-col lg:flex-row w-full gap-10 justify-center">

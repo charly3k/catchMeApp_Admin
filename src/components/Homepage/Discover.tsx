@@ -7,7 +7,7 @@ const Discover = () => {
       <Fade triggerOnce direction="left" damping={2} className=" lg:w-2/4">
         <div className=" flex flex-col gap-10  items-center w-full  justify-flex-end">
           <h4 className="font-raleway text-3xl text-black ">
-            Find love on our Discovery page
+            Browse other students on our discovery page
           </h4>
           <p className="font-dmSans text-black">
             CatchMeApp Discovery Page makes it easier than ever for students to
@@ -38,10 +38,10 @@ const Discover = () => {
         className="xl:w-2/4 h-screen"
       >
         <div className="w-full flex-row flex justify-evenly h-full">
-          <img src="/img/swipe.png" style={{ height: "80%" }} alt="" />
+          <img src="/img/discover.png" style={{ height: "80%" }} alt="" />
           <img
             className="hidden xl:block"
-            src="/img/swipe.png"
+            src="/img/discover-two.png"
             style={{ height: "80%" }}
             alt=""
           />

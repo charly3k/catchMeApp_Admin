@@ -4,13 +4,13 @@ import { faPlay, faAppleAlt } from "@fortawesome/free-solid-svg-icons";
 import CatchMe from "@/assets/CatchMe";
 const Hero = () => {
   return (
-    <div className="font-raleway text-black">
+    <div className="font-raleway w-full text-black">
       {/* Main Wrapper */}
-      <div className="h-screen w-screen relative flex flex-row">
+      <div className="h-screen w-full relative flex flex-row">
         {/* Background Wrapper  or left side content*/}
         <div className="w-full xl:w-3/4 h-full xl:rounded-e-full relative overflow-hidden">
           {/* Background Image with Opacity */}
-          <div className="absolute inset-0 bg-hero bg-cover bg-center opacity-70"></div>
+          <div className="absolute inset-0 bg-hero bg-cover bg-center after:absolute after:inset-0 after:bg-black after:opacity-50"></div>
 
           {/* Inner Content (Full Opacity) */}
           <div className="relative z-10 p-10 text-white justify-between gap-20 flex flex-col">
@@ -24,15 +24,15 @@ const Hero = () => {
             </p>
 
             <p className="text-2xl font-dmSans">
-              Find your Value Match and build a relationship that is as
-              meaningful as your shared values.
+              Find your value match and build a connection, friendship, or
+              relationship with someone who has similar shared value as you
             </p>
           </div>
         </div>
 
         {/* Right Side Content */}
-        <div className="hidden xl:block xl:w-1/4 relative">
-          <div className="flex justify-between p-10 flex flex-col w-full gap-10">
+        <div className="hidden flex flex-col justify-between  xl:block xl:w-1/4 relative">
+          <div className="flex justify-between p-10 flex flex-col w-full gap-10 ">
             <div className="flex flex-row bg-white py-2.5 px-3.5 rounded-4xl justify-around shadow-lg shadow-black/50">
               <FontAwesomeIcon
                 style={{ width: 48, height: 48 }}
@@ -55,11 +55,11 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative overflow-hidden">
+          <div className="overflow-hidden  absolute bottom-0 w-full">
             <img
-              className="rounded-full opacity-50 "
+              className="rounded-full opacity-50  z-10"
               src="/img/hero-girl.jpg"
-              style={{ width: 210, height: 210 }}
+              style={{ width: 250, height: 250 }}
               alt="img"
             />
           </div>
