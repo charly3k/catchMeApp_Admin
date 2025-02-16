@@ -4,7 +4,7 @@ const Summary = () => {
   return (
     <div className="pt-20 pb-32 px-10 xl:px-32">
       <h4 className="font-raleway text-3xl text-black">
-        What's on CatchMeApp?
+        What will you find on CatchMeApp?
       </h4>
 
       <div className="flex flex-col gap-4 sm:gap-0 sm:flex-row justify-evenly mt-10 ">

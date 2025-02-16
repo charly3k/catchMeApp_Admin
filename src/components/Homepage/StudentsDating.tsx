@@ -5,7 +5,7 @@ const StudentsDating = () => {
     <div className="md:px-40 px-10  py-20 flex flex-col gap-10  items-center   justify-flex-end">
       <h4 className="font-raleway text-3xl text-black ">
         Dating as a student - Life as a student could be stressful but dating as
-        a student shouldn't be stressful
+        a student should not be stressful
       </h4>
       <p className="font-dmSans text-black">
         Dating as a student should be exciting and fulfilling, not another

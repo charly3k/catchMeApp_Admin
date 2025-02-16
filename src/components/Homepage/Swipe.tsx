@@ -27,7 +27,7 @@ const Swipe = () => {
             every recommendation aligns with what you're looking for. Once you
             find a match, start chatting instantly with our built-in messaging
             system and take the next step in building a meaningful connection.
-            Whether you’re looking for love, friendship, or just great
+            Whether you are looking for love, friendship, or just great
             conversations, CatchMeApp makes it easy to connect in a way that
             feels right for you!
           </p>
