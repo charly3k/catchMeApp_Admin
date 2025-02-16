@@ -1,6 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faAppleAlt } from "@fortawesome/free-solid-svg-icons";
+
 import Hero from "@/components/Homepage/Hero";
 import Summary from "@/components/Homepage/Summary";
 import Swipe from "@/components/Homepage/Swipe";

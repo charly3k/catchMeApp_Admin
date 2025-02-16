@@ -27,18 +27,18 @@ const Match = () => {
           </h4>
           <p className="font-dmSans text-black">
             CatchMeApp is a dating app built exclusively for students, making it
-            easy to connect, match, and chat with like-minded peers. Whether
-            you're looking for a romantic relationship, a study partner, or just
+            easy to connect, match, and chat with like-minded peers. Whether you
+            are looking for a romantic relationship, a study partner, or just
             someone to share meaningful conversations with, our platform helps
             you find your ideal match based on values, interests, and
-            personality. With our smart matching algorithm, you’ll be paired
+            personality. With our smart matching algorithm, you will be paired
             with other students who share your passions and goals, ensuring more
             meaningful connections. Once matched, you can start chatting
             instantly using our seamless messaging system, designed to keep
             conversations engaging and natural. CatchMeApp is more than just a
-            dating app—it’s a space where students can meet new people in a safe
-            and friendly environment. Join today and start making connections
-            that matter!
+            dating app—it is a space where students can meet new people in a
+            safe and friendly environment. Join today and start making
+            connections that matter!
           </p>
         </div>
       </Fade>

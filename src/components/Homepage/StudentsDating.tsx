@@ -11,13 +11,13 @@ const StudentsDating = () => {
         Dating as a student should be exciting and fulfilling, not another
         source of stress. With academic deadlines, exams, and social
         commitments, student life can already feel overwhelming, but finding
-        meaningful connections shouldn’t add to that pressure. CatchMeApp is
+        meaningful connections should not add to that pressure. CatchMeApp is
         designed to make dating easy, enjoyable, and stress-free by connecting
         students in a way that fits seamlessly into their busy lives. Our
         platform eliminates the hassle of traditional dating by offering smart
         matching, personalized discovery features, and instant chat options,
         making it simple to meet people who share your interests and values.
-        Whether you're looking for a serious relationship, a casual connection,
+        Whether you are looking for a serious relationship, a casual connection,
         or just someone to talk to, CatchMeApp ensures that dating as a student
         is fun, effortless, and rewarding. With a supportive community of
         like-minded students, you can focus on building genuine connections

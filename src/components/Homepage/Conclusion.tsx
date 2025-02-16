@@ -22,13 +22,13 @@ const Conclusion = () => {
           CatchMeApp lets you browse profiles, send messages, and connect with
           other students right from your phone. Our smart filters help you find
           matches based on your school, course of study, or shared interests,
-          making every connection more meaningful. Plus, you'll receive instant
-          notifications when you get a new match or message, so you never miss
-          an opportunity to spark something special. New to student dating apps?
-          No worries! CatchMeApp is designed to be simple, fun, and stress-free,
-          so you can start matching and chatting in no time. Best of all,
-          joining is free! Don’t wait—your next great connection is just a swipe
-          away.
+          making every connection more meaningful. Plus, you will receive
+          instant notifications when you get a new match or message, so you
+          never miss an opportunity to spark something special. New to student
+          dating apps? No worries! CatchMeApp is designed to be simple, fun, and
+          stress-free, so you can start matching and chatting in no time. Best
+          of all, joining is free! Do not wait—your next great connection is
+          just a swipe away.
         </p>
 
         <div className="flex flex-col lg:flex-row w-full gap-10 justify-center">

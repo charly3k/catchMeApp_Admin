@@ -24,7 +24,7 @@ const Hero = () => {
             </p>
 
             <p className="text-2xl font-dmSans">
-              Find your Value Match and build a relationship that's as
+              Find your Value Match and build a relationship that is as
               meaningful as your shared values.
             </p>
           </div>
