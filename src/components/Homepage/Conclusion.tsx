@@ -16,7 +16,7 @@ const Conclusion = () => {
           CatchMeApp makes connection with other students easy and convenient.
           With smart filters, instant notifications, and a simple interface, it
           helps you connect with like-minded students anytime, anywhere.
-          CatchMeApp's Discovery Page makes connecting with potential matches
+          CatchMeApp Discovery Page makes connecting with potential matches
           effortless. Browse by school, academic level, or course of study to
           find students who share your interests. With filters for real-time
           engagement and active users, every interaction is intentional and
