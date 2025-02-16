@@ -24,7 +24,7 @@ const Swipe = () => {
             who catch your interest. Want more control over your matches? Our
             advanced filters allow you to customize your search based on factors
             like location, academic interests, or shared hobbies, ensuring that
-            every recommendation aligns with what you're looking for. Once you
+            every recommendation aligns with what you are looking for. Once you
             find a match, start chatting instantly with our built-in messaging
             system and take the next step in building a meaningful connection.
             Whether you are looking for love, friendship, or just great
