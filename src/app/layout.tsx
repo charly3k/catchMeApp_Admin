@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+/* import localFont from "next/font/local"; */
 import { Raleway, DM_Sans } from "next/font/google";
 import "./globals.css";
 import ToastComponent from "@/components/ToastComponent";

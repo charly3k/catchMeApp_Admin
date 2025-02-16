@@ -15,7 +15,7 @@ const Conclusion = () => {
         <p className="font-dmSans text-black ">
           Find Love Anywhere with CatchMeApp Love and connection can happen
           anywhere, and CatchMeApp makes student dating easier than ever.
-          Whether you're walking to class, studying at the library, or hanging
+          Whether you are walking to class, studying at the library, or hanging
           out with friends, you can match with like-minded students anytime,
           anywhere. Our mobile app ensures that meeting your perfect match fits
           seamlessly into your busy student life. With an easy-to-use interface,
