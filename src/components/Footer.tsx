@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const socialMedia = [
@@ -16,50 +17,55 @@ const socialMedia = [
 ];
 const Footer = ({}) => {
   return (
-    <div className="space-y-4">
-      <div className="space-y-2">
-        <p className="font-bold">Community</p>
+    <div
+      className="flex flex-col gap-4 sm:gap-0 sm:flex-row justify-evenly bg-[#333] 
+    pl-10 sm:pl-0 py-5
+    "
+    >
+      <div className="flex flex-col gap-2">
+        <h4 className="font-raleway text-white">Community</h4>
         {socialMedia.map((item, index) => (
-          <p
+          <a
+            target="_blank"
+            href={item.url}
             key={index}
             // onClick={() => openLinks(item.url)}
-            className="text-blue-500 cursor-pointer hover:underline"
+            className="text-white font-dmSans cursor-pointer hover:underline"
           >
             {item.name}
-          </p>
+          </a>
         ))}
       </div>
 
-      <div className="space-y-2">
-        <p className="font-bold">Safety</p>
-        <p
+      <div className="flex flex-col gap-2">
+        <h4 className="font-raleway text-white">Safety</h4>
+        <Link
+          target="_blank"
+          href="/support"
           // onClick={moveToFAQS}
-          className="text-blue-500 cursor-pointer hover:underline"
+          className="text-white font-dmSans cursor-pointer hover:underline"
         >
-          FAQS
-        </p>
+          Support
+        </Link>
       </div>
 
-      <div className="space-y-2">
-        <p className="font-bold">Legal</p>
-        <p
-          //  onClick={moveToPrivacyPolicy}
-          className="text-blue-500 cursor-pointer hover:underline"
-        >
-          Privacy Policy
-        </p>
-        <p
+      <div className="flex flex-col gap-2">
+        <h4 className="font-raleway text-white ">Contact</h4>
+
+        <a
+          href="mailto:support@thecatchmeapp.co"
           // onClick={moveToCommunityGuidelines}
-          className="text-blue-500 cursor-pointer hover:underline"
+          className="text-white font-dmSans cursor-pointer hover:underline"
         >
-          Community Guidelines
-        </p>
-        <p
-          //  onClick={moveToTerms}
-          className="text-blue-500 cursor-pointer hover:underline"
+          CatchMe Info
+        </a>
+        <a
+          href="mailto:support@thecatchmeapp.co"
+          // onClick={moveToCommunityGuidelines}
+          className="text-white font-dmSans cursor-pointer hover:underline"
         >
-          Terms and Conditions
-        </p>
+          CatchMe support
+        </a>
       </div>
     </div>
   );

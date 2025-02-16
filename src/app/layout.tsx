@@ -1,8 +1,22 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Raleway, DM_Sans } from "next/font/google";
 import "./globals.css";
 import ToastComponent from "@/components/ToastComponent";
 
+const raleway = Raleway({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-raleway",
+  weight: "700",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-dmSans",
+  weight: "400",
+});
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -35,7 +49,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-lightWhite`}
+        className={`${raleway.variable} ${dmSans.variable} antialiased bg-lightWhite`}
       >
         <ToastComponent />
         {children}
