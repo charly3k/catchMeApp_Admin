@@ -1,1 +1,1 @@
-export const apiUrl = "https://thecatchmeapp-12706a155832.herokuapp.com";
+export const apiUrl = process.env.NEXT_PUBLIC_API_URL;
