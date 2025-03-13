@@ -101,7 +101,10 @@ const Login = () => {
         <Link href={"/register"} className="text-red-500 text-center mt-6 mr-6">
           Create an account
         </Link>
-        <Link href={"/login"} className="text-red-500 text-center mt-6">
+        <Link
+          href={"/admin_auth/login"}
+          className="text-red-500 text-center mt-6"
+        >
           login as super admin
         </Link>
       </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faAppleAlt } from "@fortawesome/free-solid-svg-icons";
 import CatchMe from "@/assets/CatchMe";
+import Link from "next/link";
 const Hero = () => {
   return (
     <div className="font-raleway w-full text-black">
@@ -43,16 +44,20 @@ const Hero = () => {
                 <p>Google Play</p>
               </div>
             </div>
-            <div className="flex flex-row bg-white py-2.5 px-3.5 rounded-4xl justify-around shadow-lg shadow-black/50">
+            <Link
+              target="_blank"
+              href={"https://apps.apple.com/gb/app/thecatchmeapp/id6738162941"}
+              className="flex flex-row bg-white py-2.5 px-3.5 rounded-4xl justify-around shadow-lg shadow-black/50"
+            >
               <FontAwesomeIcon
                 style={{ width: 48, height: 48 }}
                 icon={faAppleAlt}
               />
               <div className="flex flex-col">
                 <p className="font-dmSans">available on</p>
-                <p>App stote</p>
+                <p>App store</p>
               </div>
-            </div>
+            </Link>
           </div>
 
           <div className="overflow-hidden  absolute bottom-0 w-full">

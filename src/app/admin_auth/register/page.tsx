@@ -39,7 +39,7 @@ const Register = () => {
         );
         if (result.status == 200 || result.status == 201) {
           console.log(result);
-          router.push("/");
+          router.push("/admin_auth/login");
         }
         setIsLoading(false);
       } catch (error) {
@@ -108,7 +108,7 @@ const Register = () => {
       </form>
       <p className="text-center text-black mt-6">
         Already have an account?{" "}
-        <Link href={"/"} className="text-red-500 ">
+        <Link href={"/admin_auth/login"} className="text-red-500 ">
           Login{" "}
         </Link>
       </p>

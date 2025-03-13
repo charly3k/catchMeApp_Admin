@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faAppleAlt } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 const Conclusion = () => {
   return (
@@ -37,7 +38,11 @@ const Conclusion = () => {
               <p className="font-raleway text-black">Google Play</p>
             </div>
           </div>
-          <div className="flex flex-row bg-white py-2.5 px-3.5 gap-7 rounded-4xl justify-around shadow-lg shadow-black/50 self-center md:self-start">
+          <Link
+            target="_blank"
+            href={"https://apps.apple.com/gb/app/thecatchmeapp/id6738162941"}
+            className="flex flex-row bg-white py-2.5 px-3.5 gap-7 rounded-4xl justify-around shadow-lg shadow-black/50 self-center md:self-start"
+          >
             <FontAwesomeIcon
               style={{ width: 48, height: 48, color: "black" }}
               icon={faAppleAlt}
@@ -46,7 +51,7 @@ const Conclusion = () => {
               <p className="font-dmSans text-black">available on</p>
               <p className="font-raleway text-black">App store</p>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

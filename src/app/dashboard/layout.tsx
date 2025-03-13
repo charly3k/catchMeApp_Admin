@@ -16,9 +16,9 @@ export default function DashboardLayout({
   const authToken = cookies.get("authToken");
   useEffect(() => {
     if (!authToken) {
-      window.location.href = "/";
+      window.location.href = "/admin_auth/login";
     }
-  }, []);
+  }, [authToken]);
 
   if (!authToken) return null;
   return (

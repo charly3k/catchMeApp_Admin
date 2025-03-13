@@ -77,7 +77,7 @@ const Sidebar = () => {
         <Logout />{" "}
         <Link
           onClick={logout}
-          href={"/login"}
+          href={"/admin_auth/login"}
           className="text-slate-400 text-right ml-6"
         >
           Logout
