@@ -34,7 +34,13 @@ const Hero = () => {
         {/* Right Side Content */}
         <div className="hidden flex flex-col justify-between  xl:block xl:w-1/4 relative">
           <div className="flex justify-between p-10 flex flex-col w-full gap-10 ">
-            <div className="flex flex-row bg-white py-2.5 px-3.5 rounded-4xl justify-around shadow-lg shadow-black/50">
+            <Link
+              href={
+                "https://play.google.com/store/apps/details?id=com.boogie2k.catchmeappfrontend"
+              }
+              target="_blank"
+              className="flex flex-row bg-white py-2.5 px-3.5 rounded-4xl justify-around shadow-lg shadow-black/50"
+            >
               <FontAwesomeIcon
                 style={{ width: 48, height: 48 }}
                 icon={faPlay}
@@ -43,7 +49,7 @@ const Hero = () => {
                 <p className="font-dmSans">available on</p>
                 <p>Google Play</p>
               </div>
-            </div>
+            </Link>
             <Link
               target="_blank"
               href={"https://apps.apple.com/gb/app/thecatchmeapp/id6738162941"}
