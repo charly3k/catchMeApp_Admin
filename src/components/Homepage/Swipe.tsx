@@ -4,7 +4,7 @@ import { Fade } from "react-awesome-reveal";
 const Swipe = () => {
   return (
     <div className="flex flex-col lg:flex-row px-10 lg:px-0 lg:pl-40 gap-10">
-      <Fade triggerOnce direction="left" damping={2} className=" lg:w-2/4  ">
+      <Fade triggerOnce direction="up" damping={2} className=" lg:w-2/4  ">
         <div className="flex flex-col  gap-10  items-center justify-flex-end">
           <h4 className="font-raleway text-3xl text-black ">
             Student Community app where students can connect with each other
@@ -33,7 +33,7 @@ const Swipe = () => {
 
       <Fade
         triggerOnce
-        direction="right"
+        direction="up"
         damping={2}
         className=" xl:w-2/4 h-screen"
       >

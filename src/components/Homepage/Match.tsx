@@ -6,7 +6,7 @@ const Match = () => {
     <div className="flex flex-col lg:flex-row lg:px-0 px-10  gap-10 lg:pl-10">
       <Fade
         triggerOnce
-        direction="left"
+        direction="up"
         damping={2}
         className=" xl:w-2/4  lg:h-screen"
       >
@@ -20,7 +20,7 @@ const Match = () => {
           />
         </div>
       </Fade>
-      <Fade triggerOnce direction="right" damping={2} className=" lg:w-2/4  ">
+      <Fade triggerOnce direction="up" damping={2} className=" lg:w-2/4  ">
         <div className=" flex flex-col gap-10  items-center w-full  justify-flex-end">
           <h4 className="font-raleway text-3xl text-black ">
             Match and chat with students

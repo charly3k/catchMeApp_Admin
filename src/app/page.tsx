@@ -23,10 +23,10 @@ const Page = () => {
       <Match />
       <Discover />
 
-      <Fade triggerOnce damping={2} direction="left">
+      <Fade triggerOnce damping={2} direction="up">
         <StudentsDating />
       </Fade>
-      <Fade triggerOnce damping={2} direction="right">
+      <Fade triggerOnce damping={2} direction="up">
         <Friendship />
       </Fade>
 
