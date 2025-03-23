@@ -3,7 +3,7 @@ import DeleteAdminModal from "@/components/DeleteAdminModal";
 import IncreaseLimitModal from "@/components/IncreaseLimitModal";
 import Modal from "@/components/Modal";
 import Sidebar from "@/components/Sidebar";
-import { useEffect } from "react";
+//import { useEffect } from "react";
 import Cookies from "universal-cookie";
 
 export default function DashboardLayout({
