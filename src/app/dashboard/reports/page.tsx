@@ -36,7 +36,9 @@ const Reports = () => {
                 key={user.reportId}
                 className="self-stretch text-black text-base font-normal font-['DM Sans'] leading-[30px]"
               >
-                {user.reportedUserName}
+                {user.reportedUserName
+                  ? user.reportedUserName
+                  : "reported user"}
               </div>
             ))}
         </div>
@@ -80,7 +82,9 @@ const Reports = () => {
                 key={user.reportId}
                 className="self-stretch text-black text-base font-normal font-['DM Sans'] leading-[30px]"
               >
-                {user.reportingUserName}
+                {user.reportingUserName
+                  ? user.reportingUserName
+                  : "reporting user"}
               </div>
             ))}
         </div>

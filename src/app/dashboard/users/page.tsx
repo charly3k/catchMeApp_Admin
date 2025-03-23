@@ -163,7 +163,7 @@ const Users = () => {
                 key={user.id}
                 className="text-black text-base font-normal font-['DM Sans'] underline leading-[30px] cursor-pointer"
               >
-                {user.firstName}
+                {user.firstName ? user.firstName : "firstname"}
               </h4>
             ))}
           </div>
@@ -177,7 +177,7 @@ const Users = () => {
                 key={user.id}
                 className="text-black text-base font-normal font-['DM Sans'] underline leading-[30px] cursor-pointer"
               >
-                {user.lastName}
+                {user.lastName ? user.lastName : "lastname"}
               </p>
             ))}
           </div>

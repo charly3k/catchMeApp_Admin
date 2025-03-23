@@ -7,7 +7,6 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 const Page = () => {
-  
   const [deletedUsers, setDeletedUsers] = useState<UserProfile[]>();
   const handleGetDeletedUsers = async () => {
     const result = await getDeletedUsers();
@@ -45,7 +44,7 @@ const Page = () => {
                   key={item.id}
                   className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
                 >
-                  {item.firstName}
+                  {item.firstName ? item.firstName : "firstname"}
                 </Link>
               );
             })}
@@ -58,12 +57,12 @@ const Page = () => {
           {deletedUsers &&
             deletedUsers.map((item) => {
               return (
-                <Link 
-                href={`/dashboard/users/${item.id}`}
+                <Link
+                  href={`/dashboard/users/${item.id}`}
                   key={item.id}
                   className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
                 >
-                  {item.lastName}
+                  {item.lastName ? item.lastName : "lastname"}
                 </Link>
               );
             })}
@@ -76,7 +75,7 @@ const Page = () => {
             deletedUsers.map((item) => {
               return (
                 <Link
-                 href={`/dashboard/users/${item.id}`}
+                  href={`/dashboard/users/${item.id}`}
                   key={item.id}
                   className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
                 >

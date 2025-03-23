@@ -7,7 +7,6 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { toast } from "react-toastify";
 
-
 const Deactivated_Users = () => {
   const deactivtedUsers = useBoundStore((state) => state.deactivatedUsers);
   const setDeactivatedUsers = useBoundStore(
@@ -20,12 +19,11 @@ const Deactivated_Users = () => {
     console.log(result);
   };
 
+  const setDisplayDeleteModal = useBoundStore(
+    (state) => state.setDisplayDeleteModal
+  );
 
-    const setDisplayDeleteModal = useBoundStore(
-      (state) => state.setDisplayDeleteModal
-    );
-  
-    const setDeleteUserId = useBoundStore((state) => state.setDeleteUserId);
+  const setDeleteUserId = useBoundStore((state) => state.setDeleteUserId);
 
   useEffect(() => {
     handleGetDeativatedUsers();
@@ -44,7 +42,7 @@ const Deactivated_Users = () => {
     }
   };
 
-    const openModal = (userId:string) => {
+  const openModal = (userId: string) => {
     setDeleteUserId(userId);
     setDisplayDeleteModal(true);
   };
@@ -63,7 +61,7 @@ const Deactivated_Users = () => {
               key={user.id}
               className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
             >
-              {user.firstName}
+              {user.firstName ? user.firstName : "firstname"}
             </Link>
           ))}
         </div>
@@ -77,7 +75,7 @@ const Deactivated_Users = () => {
               key={user.id}
               className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
             >
-              {user.lastName}
+              {user.lastName ? user.lastName : "lastname"}
             </Link>
           ))}
         </div>
@@ -144,7 +142,6 @@ const Deactivated_Users = () => {
 
           {deactivtedUsers.map((user) => (
             <div key={user.id} className="flex items-center gap-6">
-         
               <button
                 onClick={async () => {
                   await handleDeactivateUser(
@@ -157,16 +154,14 @@ const Deactivated_Users = () => {
                 {user.isUserDeactivated ? "Reactivate" : "Deactivate"}
               </button>
 
-                  <button
+              <button
                 onClick={async () => {
                   openModal(user.id.toString());
                 }}
                 className="text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
               >
-               Delete
+                Delete
               </button>
-
-
             </div>
           ))}
         </div>
