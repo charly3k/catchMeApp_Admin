@@ -1,5 +1,6 @@
 export type UserProfile = {
   access: "FREE_SUBSCRIBER" | "PAID_SUBSCRIBER"; // Assuming there might be other access levels
+  createdDate: string;
   courseOfStudy: string | null;
   currentAge: string | null;
   currentCity: string | null;

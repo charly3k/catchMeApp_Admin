@@ -51,6 +51,7 @@ const Page = () => {
     <form className="py-6 px-6">
       <div className="flex flex-row justify-between items-center w-full">
         <button
+          type="button"
           onClick={() => router.back()}
           className="w-12 h-12 p-3 bg-white rounded-3xl border border-black/25 justify-center items-center flex overflow-hidden"
         >

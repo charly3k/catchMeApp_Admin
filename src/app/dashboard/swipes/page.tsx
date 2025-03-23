@@ -33,16 +33,38 @@ const Swipes = () => {
         ? await getTotalDislikesSixMonths()
         : await getTotalDislikesThreeMonths();
 
-    const userDetails =
+    let userDetails =
       swipesTimeline == "1YR"
         ? result.data.lastYearDetails
         : swipesTimeline == "6M"
         ? result.data.last6MonthsDetails
         : result.data.last3MonthsDetails;
 
-    // return userDetails
+    if (userDetails) {
+      // to arrange the chart
+      const monthOrder = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
 
-    // remove the comment statement below
+      userDetails = userDetails.sort(
+        (a: { month: string }, b: { month: string }) => {
+          const monthA = a.month.split(" ")[0]; // Extract the month name (e.g., "March")
+          const monthB = b.month.split(" ")[0]; // Extract the month name (e.g., "February")
+          return monthOrder.indexOf(monthA) - monthOrder.indexOf(monthB); // Compare based on predefined order
+        }
+      );
+    }
 
     return {
       labels:
@@ -53,7 +75,7 @@ const Swipes = () => {
         ),
       datasets: [
         {
-          label: "Users Gained",
+          label: "swipes",
           data:
             userDetails &&
             userDetails.map(

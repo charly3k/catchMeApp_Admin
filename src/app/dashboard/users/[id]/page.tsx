@@ -122,7 +122,7 @@ const UserDetails = ({ params }: { params: { id: string } }) => {
               {user.firstName}
             </div>
           </div>
-          <div className="w-[119px] flex-col justify-start items-start gap-6 inline-flex">
+          <div className=" flex-col justify-start items-start gap-6 inline-flex">
             <div className="self-stretch text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
               Last Name
             </div>
@@ -130,7 +130,7 @@ const UserDetails = ({ params }: { params: { id: string } }) => {
               {user.lastName}
             </div>
           </div>
-          <div className="w-[147px] flex-col justify-start items-start gap-6 inline-flex">
+          <div className=" flex-col justify-start items-start gap-6 inline-flex">
             <div className="self-stretch text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
               Email
             </div>
@@ -138,7 +138,7 @@ const UserDetails = ({ params }: { params: { id: string } }) => {
               {user.email}
             </div>
           </div>
-          <div className="w-[147px] flex-col justify-start items-start gap-6 inline-flex">
+          <div className=" flex-col justify-start items-start gap-6 inline-flex">
             <div className="self-stretch text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
               School email
             </div>
@@ -148,15 +148,15 @@ const UserDetails = ({ params }: { params: { id: string } }) => {
           </div>
         </div>
         <div className="justify-start items-start gap-[41px] inline-flex">
-          <div className="w-[119px] flex-col justify-start items-start gap-6 inline-flex">
+          <div className=" flex-col justify-start items-start gap-6 inline-flex">
             <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
               Creation date
             </div>
             <div className="text-black text-base font-normal font-['DM Sans']">
-              20-Oct-24
+              {user.createdDate}
             </div>
           </div>
-          <div className="w-[186px] flex-col justify-start items-start gap-6 inline-flex">
+          <div className=" flex-col justify-start items-start gap-6 inline-flex">
             <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
               Course of study
             </div>
@@ -185,7 +185,7 @@ const UserDetails = ({ params }: { params: { id: string } }) => {
           </div>
         </div>
         <div className="justify-start items-start gap-[44.20px] inline-flex">
-          <div className="w-[275px] flex-col justify-start items-start gap-6 inline-flex">
+          <div className=" flex-col justify-start items-start gap-6 inline-flex">
             <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
               Bio
             </div>
@@ -197,21 +197,21 @@ const UserDetails = ({ params }: { params: { id: string } }) => {
             <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
               My perfect first date idea
             </div>
-            <div className="w-[275px] text-black/75 text-base font-normal font-['DM Sans']">
+            <div className=" text-black/75 text-base font-normal font-['DM Sans']">
               {user.idealFirstDate}
             </div>
           </div>
-          <div className="w-[198px] flex-col justify-start items-start gap-6 inline-flex">
+          <div className=" flex-col justify-start items-start gap-6 inline-flex">
             <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
               Fun fact about me...
             </div>
-            <div className="w-[275px] text-black/75 text-base font-normal font-['DM Sans']">
+            <div className=" text-black/75 text-base font-normal font-['DM Sans']">
               {user.funFactAboutYou}
             </div>
           </div>
         </div>
-        <div className="flex">
-          <div className="w-[319px]  h-[115px] flex-col justify-start items-start gap-6 ">
+        <div className="flex gap-6">
+          <div className="  flex-col justify-start items-start gap-6 ">
             <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
               Interests
             </div>
@@ -235,7 +235,7 @@ const UserDetails = ({ params }: { params: { id: string } }) => {
             <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
               Basics
             </div>
-            <div className="self-stretch h-20 justify-start items-start gap-2 flex flex-wrap">
+            <div className="self-stretch justify-start items-start gap-2 flex flex-wrap">
               {user.height && (
                 <div className="px-3.5 py-2.5 bg-[#f9bec7] rounded-2xl justify-center items-center gap-2 flex">
                   <div className="text-[#ff0a54] text-sm font-normal font-['DM Sans'] leading-[18px]">

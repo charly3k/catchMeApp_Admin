@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 
 import Loader from "@/components/Loader";
 import { toast } from "react-toastify";
+import Cookies from "universal-cookie";
 
 type FormData = {
   email: string;
@@ -19,7 +20,10 @@ type FormData = {
 const Login = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = React.useState(false);
+  const cookies = new Cookies();
+  const authToken = cookies.get("authToken");
 
+  console.log({ authToken, l: "kk" });
   const {
     register,
     handleSubmit,

@@ -14,13 +14,16 @@ export default function DashboardLayout({
   const cookies = new Cookies();
 
   const authToken = cookies.get("authToken");
-  useEffect(() => {
+
+  console.log({ authToken });
+  /*   useEffect(() => {
     if (!authToken) {
       window.location.href = "/admin_auth/login";
+      console.log({ authToken });
     }
-  }, [authToken]);
+  }, [authToken]); */
 
-  if (!authToken) return null;
+  //if (!authToken) return null;
   return (
     <section className="flex min-h-screen bg-lightWhite ">
       {/* Fixed Sidebar */}

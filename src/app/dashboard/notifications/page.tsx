@@ -1,4 +1,5 @@
 "use client";
+import { generalEmailNotifications } from "@/networking/generalEmailNotifications";
 import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -14,7 +15,9 @@ const Notifications = () => {
     watch,
     formState: { errors },
   } = useForm<FormData>();
-  const onSubmit = (data: FormData) => console.log(data);
+  const onSubmit = (data: FormData) => {
+    generalEmailNotifications(data.title, data.message);
+  };
 
   console.log(watch("title")); // watch input value by passing the name of it
   return (

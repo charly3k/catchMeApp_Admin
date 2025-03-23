@@ -1,8 +1,11 @@
+"use client";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faAppleAlt } from "@fortawesome/free-solid-svg-icons";
 import CatchMe from "@/assets/CatchMe";
 import Link from "next/link";
+import { TypeAnimation } from "react-type-animation";
+import { heroTexts } from "@/app/data";
 const Hero = () => {
   return (
     <div className="font-raleway w-full text-black">
@@ -23,11 +26,18 @@ const Hero = () => {
             <p className="text-6xl font-raleway">
               Fill the empty space in your Heart
             </p>
-
-            <p className="text-2xl font-dmSans">
+            {/* 
+            <p className="">
               Find your value match and build a connection, friendship, or
               relationship with someone who has similar shared value as you
-            </p>
+            </p> */}
+            <TypeAnimation
+              className="text-2xl font-dmSans"
+              sequence={heroTexts}
+              speed={50}
+              style={{ fontSize: "1em" }}
+              repeat={Infinity}
+            />
           </div>
         </div>
 

@@ -43,13 +43,38 @@ const Page = () => {
         ? await activeUsersSixMonths()
         : await activeUsersThreeMonths();
 
-    const userDetails =
+    let userDetails =
       usersTimeline == "1YR"
         ? result.data.lastYearDetails
         : usersTimeline == "6M"
         ? result.data.last6MonthsDetails
         : result.data.last3MonthsDetails;
 
+    if (userDetails) {
+      // to arrange the chart
+      const monthOrder = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+
+      userDetails = userDetails.sort(
+        (a: { month: string }, b: { month: string }) => {
+          const monthA = a.month.split(" ")[0]; // Extract the month name (e.g., "March")
+          const monthB = b.month.split(" ")[0]; // Extract the month name (e.g., "February")
+          return monthOrder.indexOf(monthA) - monthOrder.indexOf(monthB); // Compare based on predefined order
+        }
+      );
+    }
     return {
       labels:
         userDetails &&
