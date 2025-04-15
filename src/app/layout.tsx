@@ -29,8 +29,12 @@ const geistMono = localFont({
 }); */
 
 export const metadata: Metadata = {
-  title: "CatchMeApp",
-  description: "theCatchMeApp",
+  title: {
+    default: "TheCatchMeApp",
+    template: "%s | TheCatchMeApp",
+  },
+  description: ` Find your value match and build a connection, friendship, or
+              relationship with someone who has similar shared value as you`,
 };
 
 export default function RootLayout({

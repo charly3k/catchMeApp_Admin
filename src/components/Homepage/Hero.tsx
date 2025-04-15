@@ -6,6 +6,7 @@ import CatchMe from "@/assets/CatchMe";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { heroTexts } from "@/app/data";
+import Image from "next/image";
 const Hero = () => {
   return (
     <div className="font-raleway w-full text-black">
@@ -77,10 +78,12 @@ const Hero = () => {
           </div>
 
           <div className="overflow-hidden  absolute bottom-0 w-full">
-            <img
+            <Image
               className="rounded-full opacity-50  z-10"
               src="/img/hero-girl.jpg"
-              style={{ width: 250, height: 250 }}
+              width={250}
+              height={250}
+              // style={{ width: 250, height: 250 }}
               alt="img"
             />
           </div>

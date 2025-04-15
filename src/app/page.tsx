@@ -10,6 +10,7 @@ import Friendship from "@/components/Homepage/Friendship";
 import Conclusion from "@/components/Homepage/Conclusion";
 import { Fade } from "react-awesome-reveal";
 import Footer from "@/components/Footer";
+
 const Page = () => {
   return (
     <div>

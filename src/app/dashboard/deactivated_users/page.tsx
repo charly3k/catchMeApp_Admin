@@ -3,7 +3,8 @@
 import { deactivateUser } from "@/networking/deactivateUser";
 import { getDeactivatedUsers } from "@/networking/getDeactivatedUsers";
 import { useBoundStore } from "@/store/store";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 import React, { useEffect } from "react";
 import { toast } from "react-toastify";
 
@@ -12,6 +13,8 @@ const Deactivated_Users = () => {
   const setDeactivatedUsers = useBoundStore(
     (state) => state.setDeactivatedUsers
   );
+
+  const router = useRouter();
 
   const handleGetDeativatedUsers = async () => {
     const result = await getDeactivatedUsers();
@@ -49,123 +52,96 @@ const Deactivated_Users = () => {
 
   return (
     <div className="py-6 pr-6">
-      <div className="w-[1179px] h-[685px] p-12 bg-white rounded-3xl border border-black/25 justify-start items-start gap-16 inline-flex overflow-y-auto">
-        <div className="flex-col justify-start items-start gap-[38px] inline-flex">
-          <div className="self-stretch text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
-            First Name
-          </div>
-
+      <table className=" h-screen overflow-y-auto py-2.5 bg-white rounded-3xl px-10 w-full  ">
+        <thead>
+          <tr>
+            <th className="text-[#ff0a54] text-base font-normal font-['DM Sans'] ">
+              First Name
+            </th>
+            <th className="text-[#ff0a54] text-base font-normal font-['DM Sans'] ">
+              Last Name
+            </th>
+            <th className="text-[#ff0a54] text-base font-normal font-['DM Sans'] ">
+              Email
+            </th>
+            <th className="text-[#ff0a54] text-base font-normal font-['DM Sans'] ">
+              Profile Picture
+            </th>
+            <th className="text-[#ff0a54] text-base font-normal font-['DM Sans'] ">
+              Photos
+            </th>
+            <th className="text-[#ff0a54] text-base font-normal font-['DM Sans'] ">
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody>
           {deactivtedUsers.map((user) => (
-            <Link
-              href={`/dashboard/users/${user.id}`}
-              key={user.id}
-              className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
-            >
-              {user.firstName ? user.firstName : "firstname"}
-            </Link>
-          ))}
-        </div>
-        <div className="flex-col justify-start items-start gap-[38px] inline-flex">
-          <div className="self-stretch text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
-            Last Name
-          </div>
-          {deactivtedUsers.map((user) => (
-            <Link
-              href={`/dashboard/users/${user.id}`}
-              key={user.id}
-              className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
-            >
-              {user.lastName ? user.lastName : "lastname"}
-            </Link>
-          ))}
-        </div>
-        <div className="flex-col justify-start items-start gap-[38px] inline-flex">
-          <div className="self-stretch text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
-            Email
-          </div>
-          {deactivtedUsers.map((user) => (
-            <Link
-              href={`/dashboard/users/${user.id}`}
-              key={user.id}
-              className="self-stretch text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
-            >
-              {user.email}
-            </Link>
-          ))}
-        </div>
-        <div className="flex-col justify-start items-start gap-[33px] inline-flex">
-          <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
-            Profile picture
-          </div>
-          <div className="flex-col justify-start items-start gap-[25px] flex">
-            {deactivtedUsers.map((user) => (
-              <img
-                key={user.id}
-                className="w-6 h-6 rounded-full"
-                src={user.userPhoto ? user.userPhoto[0]?.imageUrl : ""}
-              />
-            ))}
-          </div>
-        </div>
-        <div className="flex-col justify-start items-start gap-[33px] inline-flex">
-          <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
-            Photos
-          </div>
-          <div className="flex-col justify-start items-start gap-[25px] flex">
-            {deactivtedUsers.map((user) => (
-              <div key={user.id} className="flex items-center gap-2">
-                {user.userPhoto &&
-                  user.userPhoto.map((photo, index) => (
-                    <div
-                      key={user.id}
-                      className="flex-col justify-start items-start gap-[25px] flex"
-                    >
-                      <div className="justify-start items-start gap-2 inline-flex">
-                        <img
-                          key={index}
-                          className="w-6 h-6 rounded-full"
-                          src={photo.imageUrl}
-                          alt={`Photo ${index}`}
-                        />
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            ))}
-          </div>
-        </div>
-        {/*  */}
-        <div className="flex-col justify-start items-start gap-[38px] inline-flex">
-          <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
-            Actions
-          </div>
-
-          {deactivtedUsers.map((user) => (
-            <div key={user.id} className="flex items-center gap-6">
-              <button
-                onClick={async () => {
-                  await handleDeactivateUser(
-                    user.id,
-                    user.isUserDeactivated ? false : true
-                  );
+            <tr className="hover:bg-gray-100" key={user.id}>
+              <td
+                onClick={() => {
+                  router.push(`/dashboard/users/${user.id}`);
                 }}
-                className="text-[#979797] text-base font-normal font-['DM Sans'] underline leading-[30px]"
+                className="text-black text-base font-normal font-['DM Sans']  px-3 py-3 text-left underline cursor-pointer"
               >
-                {user.isUserDeactivated ? "Reactivate" : "Deactivate"}
-              </button>
-
-              <button
-                onClick={async () => {
-                  openModal(user.id.toString());
+                {user.firstName}
+              </td>
+              <td
+                onClick={() => {
+                  router.push(`/dashboard/users/${user.id}`);
                 }}
-                className="text-black text-base font-normal font-['DM Sans'] underline leading-[30px]"
+                className="text-black text-base font-normal font-['DM Sans']  px-3 py-3 text-left underline cursor-pointer"
               >
-                Delete
-              </button>
-            </div>
+                {user.lastName}
+              </td>
+              <td
+                onClick={() => {
+                  router.push(`/dashboard/users/${user.id}`);
+                }}
+                className="text-black text-base font-normal font-['DM Sans']  px-3 py-3 text-left underline cursor-pointer"
+              >
+                {user.email}
+              </td>
+              <td className="px-3 py-3 text-left">
+                <img
+                  src={user?.userPhoto ? user?.userPhoto[0]?.imageUrl : ""}
+                  alt="Profile"
+                  className="w-10 h-10 rounded-full"
+                />
+              </td>
+              <td className="flex items-center gap-4 px-3 py-6">
+                {user?.userPhoto?.map((photo, index) => (
+                  <img
+                    key={index}
+                    src={photo.imageUrl}
+                    alt={`Photo ${index}`}
+                    className="w-10 h-10 rounded-full"
+                  />
+                ))}
+              </td>
+              <td className="gap-4 px-3 py-6">
+                <button
+                  onClick={() =>
+                    handleDeactivateUser(
+                      user.id,
+                      user.isUserDeactivated ? false : true
+                    )
+                  }
+                  className="text-[#979797] text-base font-normal font-['DM Sans'] underline "
+                >
+                  {user.isUserDeactivated ? "Reactivate" : "Deactivate"}
+                </button>
+                <button
+                  className="text-[#979797] text-base text-black font-normal font-['DM Sans'] underline "
+                  onClick={() => openModal(user.id.toString())}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
           ))}
-        </div>
-      </div>
+        </tbody>
+      </table>
     </div>
   );
 };

@@ -131,7 +131,7 @@ const Users = () => {
   };
 
   return (
-    <div className="my-6">
+    <div className="my-6 pr-6">
       {isLoading && <Loader />}
 
       <div className="w-[36.68rem]   flex justify-between items-center bg-white rounded-3xl border border-black/25 mb-6">
@@ -151,87 +151,76 @@ const Users = () => {
           <Search />
         </button>
       </div>
-      <div className="w-[73.69rem] h-[703px] p-12 bg-white rounded-3xl border border-black/25 inline-flex">
-        <div className="w-full h-full overflow-y-auto flex gap-16">
-          <div className="flex flex-col justify-start items-start gap-[38px]">
-            <h4 className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px] ">
+
+      <table className=" h-screen overflow-y-auto py-2.5 bg-white rounded-3xl px-10 w-full  ">
+        <thead>
+          <tr>
+            <th className="text-[#ff0a54] text-base font-normal font-['DM Sans'] p-3 text-left">
               First Name
-            </h4>
-            {allUsers.map((user) => (
-              <h4
-                onClick={() => router.push(`/dashboard/users/${user.id}`)}
-                key={user.id}
-                className="text-black text-base font-normal font-['DM Sans'] underline leading-[30px] cursor-pointer"
-              >
-                {user.firstName ? user.firstName : "firstname"}
-              </h4>
-            ))}
-          </div>
-          <div className="flex flex-col justify-start items-start gap-[38px]">
-            <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
+            </th>
+            <th className="text-[#ff0a54] text-base font-normal font-['DM Sans'] p-3 text-left">
               Last Name
-            </div>
-            {allUsers.map((user) => (
-              <p
+            </th>
+            <th className="text-[#ff0a54] text-base font-normal font-['DM Sans'] p-3 text-left">
+              Email
+            </th>
+            <th className="text-[#ff0a54] text-base font-normal font-['DM Sans'] p-3 text-left">
+              Profile Picture
+            </th>
+            <th className="text-[#ff0a54] text-base font-normal font-['DM Sans'] p-3 text-left">
+              Photos
+            </th>
+            <th className="text-[#ff0a54] text-base font-normal font-['DM Sans'] p-3 text-left">
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody className="gap-6">
+          {allUsers.map((user) => (
+            <tr
+              onClick={() => router.push(`/dashboard/users/${user.id}`)}
+              className="hover:bg-gray-100 cursor-pointer "
+              key={user.id}
+            >
+              <td
                 onClick={() => router.push(`/dashboard/users/${user.id}`)}
                 key={user.id}
-                className="text-black text-base font-normal font-['DM Sans'] underline leading-[30px] cursor-pointer"
+                className="text-black text-base font-normal font-['DM Sans']  px-3 py-3 text-left"
               >
-                {user.lastName ? user.lastName : "lastname"}
-              </p>
-            ))}
-          </div>
-          <div className="flex flex-col justify-start items-start gap-[38px]">
-            <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
-              Email
-            </div>
-            {allUsers.map((user) => (
-              <div
+                {user.firstName}
+              </td>
+              <td
+                onClick={() => router.push(`/dashboard/users/${user.id}`)}
                 key={user.id}
-                className="text-black text-base font-normal font-['DM Sans'] leading-[30px]"
+                className="text-black text-base font-normal font-['DM Sans'] px-3 py-3 text-left"
+              >
+                {user.lastName}
+              </td>
+              <td
+                onClick={() => router.push(`/dashboard/users/${user.id}`)}
+                key={user.id}
+                className="text-black text-base font-normal font-['DM Sans'] px-3 py-3 text-left"
               >
                 {user.email}
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-col justify-start items-start gap-[38px]">
-            <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
-              Profile Picture
-            </div>
-            {allUsers.map((user) => (
-              <div key={user.id} className="flex items-center gap-2">
+              </td>
+              <td className="px-3 py-3 text-left">
                 <img
-                  className="w-6 h-6 rounded-full"
                   src={user?.userPhoto ? user?.userPhoto[0]?.imageUrl : ""}
                   alt="Profile"
+                  className="w-10 h-10 rounded-full"
                 />
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-col justify-start items-start gap-[38px]">
-            <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
-              Photos
-            </div>
-            {allUsers.map((user) => (
-              <div key={user.id} className="flex items-center gap-2">
-                {user.userPhoto &&
-                  user.userPhoto.map((photo, index) => (
-                    <img
-                      key={index}
-                      className="w-6 h-6 rounded-full"
-                      src={photo.imageUrl}
-                      alt={`Photo ${index}`}
-                    />
-                  ))}
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-col justify-start items-start gap-[38px]">
-            <div className="text-[#ff0a54] text-base font-normal font-['DM Sans'] leading-[30px]">
-              Actions
-            </div>
-            {allUsers.map((user) => (
-              <div key={user.id} className="flex items-center gap-6">
+              </td>
+              <td className="flex items-center gap-4 px-3 py-6">
+                {user?.userPhoto?.map((photo, index) => (
+                  <img
+                    key={index}
+                    src={photo.imageUrl}
+                    alt={`Photo ${index}`}
+                    className="w-10 h-10 rounded-full"
+                  />
+                ))}
+              </td>
+              <td className="px-3 py-3 text-left">
                 <button
                   disabled={isLoading}
                   onClick={() => {
@@ -239,17 +228,16 @@ const Users = () => {
                       user.id,
                       user.isUserDeactivated ? false : true
                     );
-                    //router.refresh();
                   }}
-                  className="text-[#979797] text-base font-normal font-['DM Sans'] underline leading-[30px]"
+                  className="text-[#979797] text-base font-normal font-['DM Sans'] underline "
                 >
                   {user.isUserDeactivated ? "Reactivate" : "Deactivate"}
                 </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
       {
         //footer section
