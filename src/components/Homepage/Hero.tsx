@@ -2,7 +2,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faAppleAlt } from "@fortawesome/free-solid-svg-icons";
-import CatchMe from "@/assets/CatchMe";
+//import CatchMe from "@/assets/CatchMe";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { heroTexts } from "@/app/data";
@@ -20,7 +20,7 @@ const Hero = () => {
           {/* Inner Content (Full Opacity) */}
           <div className="relative z-10 p-10 text-white justify-between gap-20 flex flex-col">
             <div className="flex flex-row items-center 4">
-              <CatchMe />
+              {/*     <CatchMe /> */}
               <h1 className="text-4xl font-raleway text-folly">CatchMeApp</h1>
             </div>
 

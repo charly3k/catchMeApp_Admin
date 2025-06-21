@@ -1,7 +1,7 @@
 "use client";
 
 import { getUser } from "@/networking/getUser";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, use } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { UserProfile } from "@/types/types";
 import { Redo } from "@/assets/Redo";
@@ -9,7 +9,8 @@ import { ArrowBack } from "@/assets/ArrowBack";
 import { deactivateUser } from "@/networking/deactivateUser";
 import { toast } from "react-toastify";
 
-const UserDetails = ({ params }: { params: { id: string } }) => {
+const UserDetails = (props: { params: Promise<{ id: string }> }) => {
+  const params = use(props.params);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const router = useRouter();
