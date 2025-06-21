@@ -1,6 +1,9 @@
+import CatchMe from "@/assets/CatchMe";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { faAppleAlt, faPlay } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Download,
   Mail,
@@ -10,6 +13,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function CatchMeAppGuide() {
   return (
@@ -20,9 +24,13 @@ export default function CatchMeAppGuide() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
             CREATE YOUR ACCOUNT ON
           </h1>
-          <h2 className="text-5xl md:text-6xl font-extrabold mb-8 bg-gradient-to-r from-[#ff0a54] to-[#ff0a54]/80 bg-clip-text text-transparent">
-            THECATCHMEAPP
-          </h2>
+          <div className="flex items-center mb-8 justify-center">
+            <CatchMe />{" "}
+            <h2 className="text-5xl md:text-6xl font-extrabold  bg-gradient-to-r from-[#ff0a54] to-[#ff0a54]/80 bg-clip-text text-transparent">
+              THECATCHMEAPP
+            </h2>
+          </div>
+
           <div className="w-24 h-1 bg-[#ff0a54] mx-auto rounded-full"></div>
         </div>
 
@@ -134,6 +142,18 @@ export default function CatchMeAppGuide() {
                     or use your Apple ID or Google Account to sign up (if
                     available)
                   </li>
+                  <div className="flex justify-center">
+                    <div className="relative">
+                      <Image
+                        src="/img/get-started/IMG_6965.webp"
+                        alt="Email verification process showing inbox with verification code"
+                        width={400}
+                        height={300}
+                        className="rounded-lg border-2 border-[#ff0a54]/20 shadow-lg"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#ff0a54]/10 to-transparent rounded-lg"></div>
+                    </div>
+                  </div>
                 </ul>
               </CardContent>
             </Card>
@@ -168,7 +188,7 @@ export default function CatchMeAppGuide() {
                 <div className="flex justify-center">
                   <div className="relative">
                     <Image
-                      src="/placeholder.svg?height=300&width=400"
+                      src="/img/get-started/IMG_6966.webp"
                       alt="Email verification process showing inbox with verification code"
                       width={400}
                       height={300}
@@ -198,6 +218,18 @@ export default function CatchMeAppGuide() {
                     <div className="w-2 h-2 border-2 border-[#ff0a54] rounded-full"></div>
                     Date of birth
                   </li>
+                  <div className="flex justify-center">
+                    <div className="relative">
+                      <Image
+                        src="/img/get-started/IMG_6967.webp"
+                        alt="Email verification process showing inbox with verification code"
+                        width={400}
+                        height={300}
+                        className="rounded-lg border-2 border-[#ff0a54]/20 shadow-lg"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#ff0a54]/10 to-transparent rounded-lg"></div>
+                    </div>
+                  </div>
                   <li className="flex items-start gap-2">
                     <div className="w-2 h-2 border-2 border-[#ff0a54] rounded-full mt-2"></div>
                     <span>
@@ -208,36 +240,61 @@ export default function CatchMeAppGuide() {
                       according to our terms and conditions)
                     </span>
                   </li>
+
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 border-2 border-[#ff0a54] rounded-full"></div>
                     Select your Gender
                   </li>
+                  <div className="flex justify-center">
+                    <div className="relative">
+                      <Image
+                        src="/img/get-started/IMG_6969.webp"
+                        alt="Email verification process showing inbox with verification code"
+                        width={400}
+                        height={300}
+                        className="rounded-lg border-2 border-[#ff0a54]/20 shadow-lg"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#ff0a54]/10 to-transparent rounded-lg"></div>
+                    </div>
+                  </div>
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 border-2 border-[#ff0a54] rounded-full"></div>
                     Select your gender preferences (who you would like to see)
                   </li>
+                  <div className="flex justify-center">
+                    <div className="relative">
+                      <Image
+                        src="/img/get-started/IMG_6970.webp"
+                        alt="Email verification process showing inbox with verification code"
+                        width={400}
+                        height={300}
+                        className="rounded-lg border-2 border-[#ff0a54]/20 shadow-lg"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#ff0a54]/10 to-transparent rounded-lg"></div>
+                    </div>
+                  </div>
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 border-2 border-[#ff0a54] rounded-full"></div>
                     Select Campus/university name, course of study and level
                   </li>
+                  <div className="flex justify-center">
+                    <div className="relative">
+                      <Image
+                        src="/img/get-started/IMG_6971.webp"
+                        alt="Email verification process showing inbox with verification code"
+                        width={400}
+                        height={300}
+                        className="rounded-lg border-2 border-[#ff0a54]/20 shadow-lg"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#ff0a54]/10 to-transparent rounded-lg"></div>
+                    </div>
+                  </div>
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 border-2 border-[#ff0a54] rounded-full"></div>
                     Select your interest (you must make at least three (3)
                     selections)
                   </li>
                 </ul>
-                <div className="flex justify-center">
-                  <div className="relative">
-                    <Image
-                      src="/placeholder.svg?height=300&width=400"
-                      alt="Profile creation screen showing photo upload and personal information fields"
-                      width={400}
-                      height={300}
-                      className="rounded-lg border-2 border-[#ff0a54]/20 shadow-lg"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#ff0a54]/10 to-transparent rounded-lg"></div>
-                  </div>
-                </div>
               </CardContent>
             </Card>
 
@@ -370,10 +427,43 @@ export default function CatchMeAppGuide() {
           </p>
           <Button
             size="lg"
-            className="bg-[#ff0a54] text-white hover:bg-[#ff0a54]/90 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            className="bg-[#ff0a54] text-white hover:bg-[#ff0a54]/90 px-8 py-4 text-lg font-semibold shadow-lg"
           >
             Download TheCatchMeApp Now
           </Button>
+
+          <div className="flex flex-col lg:flex-row w-full gap-10 justify-center mt-6 ">
+            <Link
+              href={
+                "https://play.google.com/store/apps/details?id=com.boogie2k.catchmeappfrontend"
+              }
+              target="_blank"
+              className="flex flex-row bg-white py-2.5 px-3.5 gap-7   rounded-4xl justify-around shadow-lg shadow-black/50 self-center md:self-start  hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            >
+              <FontAwesomeIcon
+                style={{ width: 48, height: 48, color: "black" }}
+                icon={faPlay}
+              />
+              <div className="flex flex-col">
+                <p className="font-dmSans text-black">available on</p>
+                <p className="font-raleway text-black">Google Play</p>
+              </div>
+            </Link>
+            <Link
+              target="_blank"
+              href={"https://apps.apple.com/gb/app/thecatchmeapp/id6738162941"}
+              className="flex flex-row bg-white py-2.5 px-3.5 gap-7 rounded-4xl justify-around shadow-lg shadow-black/50 self-center md:self-start  hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            >
+              <FontAwesomeIcon
+                style={{ width: 48, height: 48, color: "black" }}
+                icon={faAppleAlt}
+              />
+              <div className="flex flex-col">
+                <p className="font-dmSans text-black">available on</p>
+                <p className="font-raleway text-black">App store</p>
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
