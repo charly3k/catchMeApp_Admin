@@ -56,6 +56,7 @@ export default function RootLayout({
         className={`${raleway.variable} ${dmSans.variable}  antialiased bg-lightWhite`}
       >
         <ToastComponent />
+
         {children}
       </body>
     </html>

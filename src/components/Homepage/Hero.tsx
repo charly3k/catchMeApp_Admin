@@ -1,19 +1,19 @@
 "use client";
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faAppleAlt } from "@fortawesome/free-solid-svg-icons";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { faPlay, faAppleAlt } from "@fortawesome/free-solid-svg-icons";
 //import CatchMe from "@/assets/CatchMe";
-import Link from "next/link";
+//import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { heroTexts } from "@/app/data";
-import Image from "next/image";
+//import Image from "next/image";
 const Hero = () => {
   return (
     <div className="font-raleway w-full text-black">
       {/* Main Wrapper */}
       <div className="h-screen w-full relative flex flex-row">
         {/* Background Wrapper  or left side content*/}
-        <div className="w-full xl:w-3/4 h-full xl:rounded-e-full relative overflow-hidden">
+        <div className="w-full  h-full  relative overflow-hidden">
           {/* Background Image with Opacity */}
           <div className="absolute inset-0 bg-hero bg-cover bg-center after:absolute after:inset-0 after:bg-black after:opacity-50"></div>
 
@@ -43,7 +43,7 @@ const Hero = () => {
         </div>
 
         {/* Right Side Content */}
-        <div className="hidden flex flex-col justify-between  xl:block xl:w-1/4 relative">
+        {/*    <div className="hidden flex flex-col justify-between  xl:block xl:w-1/4 relative">
           <div className="flex justify-between p-10 flex flex-col w-full gap-10 ">
             <Link
               href={
@@ -87,7 +87,7 @@ const Hero = () => {
               alt="img"
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -10,10 +10,12 @@ import Friendship from "@/components/Homepage/Friendship";
 import Conclusion from "@/components/Homepage/Conclusion";
 import { Fade } from "react-awesome-reveal";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 const Page = () => {
   return (
     <div>
+      <Navbar />
       <Hero />
 
       <Fade triggerOnce damping={2} direction="down">
