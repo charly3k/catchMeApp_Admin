@@ -72,7 +72,7 @@ const Users = () => {
 
   useEffect(() => {
     handleGetUsers();
-  }, [pageParams]);
+  }, [pageParams, handleGetUsers]);
 
   const router = useRouter();
 
