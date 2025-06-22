@@ -33,6 +33,7 @@ export type UserProfile = {
   smokingPreference: string | null; // Could specify possible values if known
   studentEmail: string | null;
   userBio: string | null;
+  userDeletionReason: string | null;
   userLocationResponse: {
     userLocation: {
       latitude: number;

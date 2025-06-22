@@ -18,6 +18,8 @@ const Page = () => {
     }
   };
 
+  console.log({ deletedUsers });
+
   const handleDeleteUser = async (id: string) => {
     const result = await deleteUser(id);
 
@@ -42,6 +44,9 @@ const Page = () => {
             </th>
             <th className="text-[#ff0a54] text-base font-normal font-['DM Sans'] p-3 text-left">
               Email
+            </th>
+            <th className="text-[#ff0a54] text-base font-normal font-['DM Sans'] p-3 text-left">
+              Reason
             </th>
             <th className="text-[#ff0a54] text-base font-normal font-['DM Sans'] p-3 text-left">
               Profile Picture
@@ -76,6 +81,12 @@ const Page = () => {
                     className="text-black text-base font-normal font-['DM Sans'] px-3 py-2 text-left underline cursor-pointer"
                   >
                     {item.email}
+                  </td>
+                  <td
+                    onClick={() => router.push(`/dashboard/users/${item.id}`)}
+                    className="text-black text-base font-normal font-['DM Sans'] px-3 py-2 text-left underline cursor-pointer"
+                  >
+                    {item.userDeletionReason}
                   </td>
                   <td className="px-3 py-3 text-left">
                     <img
