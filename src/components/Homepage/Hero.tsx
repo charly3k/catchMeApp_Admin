@@ -1,94 +1,81 @@
 "use client";
-import React from "react";
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//import { faPlay, faAppleAlt } from "@fortawesome/free-solid-svg-icons";
-//import CatchMe from "@/assets/CatchMe";
-//import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { heroTexts } from "@/app/data";
-//import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Sparkles } from "lucide-react";
+import CatchMe from "@/assets/CatchMe";
+
 const Hero = () => {
   return (
-    <div className="font-raleway w-full text-black">
-      {/* Main Wrapper */}
-      <div className="h-screen w-full relative flex flex-row">
-        {/* Background Wrapper  or left side content*/}
-        <div className="w-full  h-full  relative overflow-hidden">
-          {/* Background Image with Opacity */}
-          <div className="absolute inset-0 bg-hero bg-cover bg-center after:absolute after:inset-0 after:bg-black after:opacity-50"></div>
+    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
+      {/* Animated background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-[#ff0a54] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-72 h-72 bg-white rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse delay-1000"></div>
+        <div className="absolute -bottom-8 left-40 w-72 h-72 bg-[#ff0a54] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-2000"></div>
+      </div>
 
-          {/* Inner Content (Full Opacity) */}
-          <div className="relative z-10 p-10 text-white justify-between gap-20 flex flex-col">
-            <div className="flex flex-row items-center 4">
-              {/*     <CatchMe /> */}
-              <h1 className="text-4xl font-raleway text-folly">CatchMeApp</h1>
+      {/* Main content */}
+      <div className="relative z-10 flex flex-col justify-center min-h-screen px-6 md:px-12 lg:px-20">
+        <div className="max-w-6xl mx-auto">
+          {/* Logo/Brand */}
+          <div className="flex items-center gap-3 mb-8">
+            <div className="hidden sm:flex">
+              <CatchMe />
             </div>
 
-            <p className="text-6xl font-raleway">
-              Fill the empty space in your Heart
-            </p>
-            {/* 
-            <p className="">
-              Find your value match and build a connection, friendship, or
-              relationship with someone who has similar shared value as you
-            </p> */}
+            <h1 className="text-4xl md:text-5xl font-bold text-[#ff0a54] tracking-tight">
+              TheCatchMeApp
+            </h1>
+          </div>
+
+          {/* Main heading */}
+          <div className="mb-8">
+            <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+              Fill the empty
+              <span className="block text-[#ff0a54] relative">
+                space in your
+                <Sparkles className="absolute -top-4 -right-8 w-12 h-12 text-[#ff0a54] animate-pulse" />
+              </span>
+              <span className="block bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                Heart
+              </span>
+            </h2>
+          </div>
+
+          {/* Animated text */}
+          <div className="mb-4">
             <TypeAnimation
-              className="text-2xl font-dmSans"
+              className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed"
               sequence={heroTexts}
               speed={50}
-              style={{ fontSize: "1em" }}
-              repeat={Infinity}
+              repeat={Number.POSITIVE_INFINITY}
             />
+          </div>
+
+          {/* CTA Buttons */}
+
+          <div>
+            <Button
+              //   onClick={() => router.push("/get-started")}
+              size="lg"
+              className="bg-[#ff0a54] hover:bg-[#e00948] text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-2xl shadow-[#ff0a54]/25 transition-all duration-300 hover:scale-105"
+            >
+              Get Started
+            </Button>
+            {/* <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-6 text-lg font-semibold rounded-2xl transition-all duration-300 hover:scale-105"
+            >
+              Learn More
+            </Button> */}
           </div>
         </div>
-
-        {/* Right Side Content */}
-        {/*    <div className="hidden flex flex-col justify-between  xl:block xl:w-1/4 relative">
-          <div className="flex justify-between p-10 flex flex-col w-full gap-10 ">
-            <Link
-              href={
-                "https://play.google.com/store/apps/details?id=com.boogie2k.catchmeappfrontend"
-              }
-              target="_blank"
-              className="flex flex-row bg-white py-2.5 px-3.5 rounded-4xl justify-around shadow-lg shadow-black/50"
-            >
-              <FontAwesomeIcon
-                style={{ width: 48, height: 48 }}
-                icon={faPlay}
-              />
-              <div className="flex flex-col">
-                <p className="font-dmSans">available on</p>
-                <p>Google Play</p>
-              </div>
-            </Link>
-            <Link
-              target="_blank"
-              href={"https://apps.apple.com/gb/app/thecatchmeapp/id6738162941"}
-              className="flex flex-row bg-white py-2.5 px-3.5 rounded-4xl justify-around shadow-lg shadow-black/50"
-            >
-              <FontAwesomeIcon
-                style={{ width: 48, height: 48 }}
-                icon={faAppleAlt}
-              />
-              <div className="flex flex-col">
-                <p className="font-dmSans">available on</p>
-                <p>App store</p>
-              </div>
-            </Link>
-          </div>
-
-          <div className="overflow-hidden  absolute bottom-0 w-full">
-            <Image
-              className="rounded-full opacity-50  z-10"
-              src="/img/hero-girl.jpg"
-              width={250}
-              height={250}
-              // style={{ width: 250, height: 250 }}
-              alt="img"
-            />
-          </div>
-        </div> */}
       </div>
+
+      {/* Bottom gradient overlay */}
+      <div className="absolute inset-0 bg-hero bg-cover bg-center after:absolute after:inset-0 after:bg-black after:opacity-50"></div>
     </div>
   );
 };

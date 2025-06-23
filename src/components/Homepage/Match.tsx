@@ -1,44 +1,101 @@
-import React from "react";
 import { Fade } from "react-awesome-reveal";
+import Image from "next/image";
+import { MessageSquare, Users, Zap } from "lucide-react";
 
 const Match = () => {
   return (
-    <div className="flex flex-col lg:flex-row lg:px-0 px-10  gap-10 lg:pl-10">
-      <Fade
-        triggerOnce
-        direction="up"
-        damping={2}
-        className=" xl:w-2/4  lg:h-screen"
-      >
-        <div className="w-full flex-row flex justify-evenly h-full">
-          <img src="/img/match.png" style={{ height: "80%" }} alt="" />
-          <img
-            className="hidden xl:block"
-            src="/img/chat.png"
-            style={{ height: "80%" }}
-            alt=""
-          />
+    <div className="py-20 px-6 md:px-12 lg:px-20 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <Fade triggerOnce direction="left" damping={2}>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-l from-[#ff0a54]/10 to-transparent rounded-3xl"></div>
+              <div className="flex justify-center gap-6">
+                <div className="relative">
+                  <Image
+                    src="/img/match.png"
+                    width={300}
+                    height={600}
+                    alt="Match interface"
+                    className="rounded-3xl shadow-2xl"
+                  />
+                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-[#ff0a54] rounded-full flex items-center justify-center">
+                    <MessageSquare className="w-6 h-6 text-white" />
+                  </div>
+                </div>
+                <div className="hidden xl:block relative">
+                  <Image
+                    src="/img/chat.png"
+                    width={300}
+                    height={600}
+                    alt="Chat interface"
+                    className="rounded-3xl shadow-2xl"
+                  />
+                  <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center">
+                    <Zap className="w-4 h-4 text-[#ff0a54]" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Fade>
+
+          <Fade triggerOnce direction="right" damping={2}>
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 bg-[#ff0a54] rounded-xl">
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-[#ff0a54] font-semibold text-lg">
+                    Instant Connection
+                  </span>
+                </div>
+                <h3 className="text-4xl md:text-5xl font-bold text-black leading-tight">
+                  Match and <span className="text-[#ff0a54]">chat</span> with
+                  students
+                </h3>
+              </div>
+
+              <p className="text-gray-600 text-lg leading-relaxed">
+                Whether you are looking for a romantic relationship, a study
+                partner, or just someone to share meaningful conversations with,
+                our platform helps you find your ideal match based on values,
+                interests, and personality.
+              </p>
+
+              <div className="space-y-4">
+                <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-2xl">
+                  <div className="p-2 bg-[#ff0a54] rounded-lg mt-1">
+                    <MessageSquare className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-black mb-1">
+                      Smart Matching Algorithm
+                    </h4>
+                    <p className="text-gray-600 text-sm">
+                      Get paired with students who share your passions and goals
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-2xl">
+                  <div className="p-2 bg-[#ff0a54] rounded-lg mt-1">
+                    <Zap className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-black mb-1">
+                      Instant Messaging
+                    </h4>
+                    <p className="text-gray-600 text-sm">
+                      Start chatting immediately with seamless messaging system
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Fade>
         </div>
-      </Fade>
-      <Fade triggerOnce direction="up" damping={2} className=" lg:w-2/4  ">
-        <div className=" flex flex-col gap-10  items-center w-full  justify-flex-end">
-          <h4 className="font-raleway text-3xl text-black ">
-            Match and chat with students
-          </h4>
-          <p className="font-dmSans text-black">
-            Whether you are looking for a romantic relationship, a study
-            partner, or just someone to share meaningful conversations with, our
-            platform helps you find your ideal match based on values, interests,
-            and personality. With our smart matching algorithm, you will be
-            paired with other students who share your passions and goals,
-            ensuring more meaningful connections. Once matched, you can start
-            chatting instantly using our seamless messaging system, designed to
-            keep conversations engaging and natural. Catchme me is a safe space
-            and friendly environment where students can meet new people. Join
-            today and start making connections that matter!
-          </p>
-        </div>
-      </Fade>
+      </div>
+     
     </div>
   );
 };
