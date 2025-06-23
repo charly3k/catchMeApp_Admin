@@ -31,7 +31,7 @@ const Hero = () => {
 
           {/* Main heading */}
           <div className="mb-8">
-            <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+            <h2 className="text-5xl md:text-5xl lg:text-5xl font-bold text-white leading-tight mb-6">
               Fill the empty
               <span className="block text-[#ff0a54] relative">
                 space in your
