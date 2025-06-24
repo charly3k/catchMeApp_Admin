@@ -26,7 +26,7 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", href: "/", icon: Heart },
     { name: "Support", href: "/support", icon: HelpCircleIcon },
-    { name: "Get Started", href: "/get-started", icon: Book },
+    { name: "FAQs", href: "/faqs", icon: Book },
     /* { name: "Messages", href: "/messages", icon: MessageCircle },
     { name: "Profile", href: "/profile", icon: User }, */
   ];

@@ -4,8 +4,10 @@ import { heroTexts } from "@/app/data";
 import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
 import CatchMe from "@/assets/CatchMe";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
+  const router = useRouter();
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
       {/* Animated background elements */}
@@ -57,7 +59,7 @@ const Hero = () => {
 
           <div>
             <Button
-              //   onClick={() => router.push("/get-started")}
+              onClick={() => router.push("/get-started")}
               size="lg"
               className="bg-[#ff0a54] hover:bg-[#e00948] text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-2xl shadow-[#ff0a54]/25 transition-all duration-300 hover:scale-105"
             >
