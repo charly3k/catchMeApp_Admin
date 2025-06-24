@@ -7,7 +7,7 @@ const Match = () => {
     <div className="py-20 px-6 md:px-12 lg:px-20 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <Fade triggerOnce direction="left" damping={2}>
+          <Fade triggerOnce direction="up" damping={2}>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-l from-[#ff0a54]/10 to-transparent rounded-3xl"></div>
               <div className="flex justify-center gap-6">
@@ -39,7 +39,7 @@ const Match = () => {
             </div>
           </Fade>
 
-          <Fade triggerOnce direction="right" damping={2}>
+          <Fade triggerOnce direction="up" damping={2}>
             <div className="space-y-8">
               <div className="space-y-4">
                 <div className="flex items-center gap-3 mb-6">
@@ -95,7 +95,6 @@ const Match = () => {
           </Fade>
         </div>
       </div>
-     
     </div>
   );
 };
