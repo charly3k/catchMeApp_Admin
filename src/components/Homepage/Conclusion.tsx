@@ -24,7 +24,7 @@ const Conclusion = () => {
           </div>
           <h3 className="text-4xl md:text-5xl font-bold text-black leading-tight mb-6">
             WHY YOU SHOULD USE{" "}
-            <span className="text-[#ff0a54]">TheCATCHMEAPP</span> AS A STUDENT
+            <span className="text-[#ff0a54]">TheCatchMeApp</span> AS A STUDENT
           </h3>
           <div className="w-24 h-1 bg-[#ff0a54] mx-auto rounded-full"></div>
         </div>

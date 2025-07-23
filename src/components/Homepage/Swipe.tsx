@@ -26,9 +26,9 @@ const Swipe = () => {
               </div>
 
               <p className="text-gray-600 text-lg leading-relaxed">
-                CatchMeApp is a student community app designed exclusively for
-                UK universities, offering a fun and effortless way to meet new
-                people on your campus and beyond. Our smart matching system
+                TheCatchMeApp is a student community app designed exclusively
+                for UK universities, offering a fun and effortless way to meet
+                new people on your campus and beyond. Our smart matching system
                 recommends potential matches based on your interests, values,
                 and preferences.
               </p>
@@ -58,7 +58,7 @@ const Swipe = () => {
               <div className="flex justify-center gap-6">
                 <div className="relative">
                   <Image
-                    src="/img/swipe.png"
+                    src="/img/swipe.jpg"
                     width={300}
                     height={600}
                     alt="Swipe interface"
@@ -68,7 +68,7 @@ const Swipe = () => {
                 </div>
                 <div className="hidden xl:block relative">
                   <Image
-                    src="/img/swipe.png"
+                    src="/img/like.jpg"
                     width={300}
                     height={600}
                     alt="Swipe interface 2"

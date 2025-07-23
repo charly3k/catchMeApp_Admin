@@ -25,11 +25,11 @@ const Discover = () => {
               </div>
 
               <p className="text-gray-600 text-lg leading-relaxed">
-                CatchMeApp Discovery Page makes it easier than ever for students
-                to explore and connect with potential matches beyond just
-                swiping. This feature allows you to discover people in different
-                ways, ensuring that every interaction feels intentional and
-                relevant.
+                TheCatchMeApp Discovery Page makes it easier than ever for
+                students to explore and connect with potential matches beyond
+                just swiping. This feature allows you to discover people in
+                different ways, ensuring that every interaction feels
+                intentional and relevant.
               </p>
 
               <div className="grid gap-4">

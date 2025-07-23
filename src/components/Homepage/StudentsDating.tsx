@@ -23,10 +23,10 @@ const StudentsDating = () => {
             Dating as a student should be exciting and fulfilling, not another
             source of stress. With academic deadlines, exams, and social
             commitments, student life can already feel overwhelming, but finding
-            meaningful connections should not add to that pressure. CatchMeApp
-            is designed to make dating easy, enjoyable, and stress-free by
-            connecting students in a way that fits seamlessly into their busy
-            lives.
+            meaningful connections should not add to that pressure.
+            TheCatchMeApp is designed to make dating easy, enjoyable, and
+            stress-free by connecting students in a way that fits seamlessly
+            into their busy lives.
           </p>
         </div>
 
