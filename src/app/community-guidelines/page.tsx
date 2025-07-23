@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   ArrowLeft,
-  Mail,
   ExternalLink,
   Shield,
   AlertTriangle,
@@ -503,10 +502,7 @@ export default function CommunityGuidelinesPage() {
                 asChild
                 className="bg-[#ff0a54] hover:bg-[#e00948] text-white"
               >
-                <a href="mailto:support@thecatchmeapp.co">
-                  <Mail className="w-4 h-4 mr-2" />
-                  Contact Support Team
-                </a>
+                <Link href="/support">Contact Support</Link>
               </Button>
             </div>
           </section>
@@ -589,10 +585,7 @@ export default function CommunityGuidelinesPage() {
             welcoming for everyone.
           </p>
           <Button asChild className="bg-white text-[#ff0a54] hover:bg-gray-100">
-            <a href="mailto:support@thecatchmeapp.co">
-              <Mail className="w-4 h-4 mr-2" />
-              Report Safety Concern
-            </a>
+            <Link href="/support">Report Safety Concern</Link>
           </Button>
         </div>
       </div>

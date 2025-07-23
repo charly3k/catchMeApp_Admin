@@ -90,7 +90,7 @@ const Footer = () => {
                 <Heart className="w-6 h-6 text-white fill-white" />
               </div>
               <span className="text-2xl font-bold text-[#ff0a54]">
-                CatchMeApp
+                TheCatchMeApp
               </span>
             </div>
             <p className="text-gray-400 leading-relaxed">

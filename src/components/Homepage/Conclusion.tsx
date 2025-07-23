@@ -22,40 +22,40 @@ const Conclusion = () => {
               <Smartphone className="w-12 h-12 text-white" />
             </div>
           </div>
-          <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+          <h3 className="text-4xl md:text-5xl font-bold text-black leading-tight mb-6">
             WHY YOU SHOULD USE{" "}
-            <span className="text-[#ff0a54]">CATCHMEAPP</span> AS A STUDENT
+            <span className="text-[#ff0a54]">TheCATCHMEAPP</span> AS A STUDENT
           </h3>
           <div className="w-24 h-1 bg-[#ff0a54] mx-auto rounded-full"></div>
         </div>
 
-        <div className="bg-black/10 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white/20 mb-12">
+        <div className="bg-black backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white/20 mb-12">
           <p className="text-white font-bold text-lg leading-relaxed">
-            CatchMeApp makes connection with other students easy and convenient.
-            With smart filters, instant notifications, and a simple interface,
-            it helps you connect with like-minded students anytime, anywhere.
-            Enjoy CatchMeApp completely free! All features are accessible once
-            your account is verified, no subscriptions or in-app purchases
-            required.
+            TheCatchMeApp makes connection with other students easy and
+            convenient. With smart filters, instant notifications, and a simple
+            interface, it helps you connect with like-minded students anytime,
+            anywhere. Enjoy CatchMeApp completely free! All features are
+            accessible once your account is verified, no subscriptions or in-app
+            purchases required.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <div className="p-6 bg-black/10 backdrop-blur-lg rounded-2xl border border-white/20">
+          <div className="p-6 bg-black backdrop-blur-lg rounded-2xl border border-white/20">
             <Star className="w-8 h-8 text-[#ff0a54] mx-auto mb-4" />
             <h4 className="text-white font-bold mb-2">100% Free</h4>
             <p className="text-white font-bold text-sm">
               No hidden costs or subscriptions
             </p>
           </div>
-          <div className="p-6 bg-black/10 backdrop-blur-lg rounded-2xl border border-white/20">
+          <div className="p-6 bg-black backdrop-blur-lg rounded-2xl border border-white/20">
             <Download className="w-8 h-8 text-[#ff0a54] mx-auto mb-4" />
             <h4 className="text-white font-bold mb-2">Easy Setup</h4>
             <p className="text-white font-bold text-sm">
               Quick verification and you&apos;re ready
             </p>
           </div>
-          <div className="p-6 bg-black/10 backdrop-blur-lg rounded-2xl border border-white/20">
+          <div className="p-6 bg-black backdrop-blur-lg rounded-2xl border border-white/20">
             <Smartphone className="w-8 h-8 text-[#ff0a54] mx-auto mb-4" />
             <h4 className="text-white font-bold mb-2">Smart Features</h4>
             <p className="text-white font-bold text-sm">

@@ -180,11 +180,11 @@ export default function PrivacyPage() {
                   <ul className="list-disc list-inside text-yellow-800 text-sm space-y-1">
                     <li>
                       <strong>iPhone:</strong> Settings → Privacy → Location
-                      Services → Catchme
+                      Services → TheCatchMeApp
                     </li>
                     <li>
-                      <strong>Android:</strong> Settings → Location → Catchme →
-                      Permissions → Location
+                      <strong>Android:</strong> Settings → Location →
+                      TheCatchMeApp → Permissions → Location
                     </li>
                   </ul>
                 </div>
@@ -478,9 +478,9 @@ export default function PrivacyPage() {
                 years old to use Catchme.
               </p>
               <p className="text-gray-700 text-sm mb-0">
-                Catchme does not knowingly collect any information about or
-                market to children, minors or anyone under the age of 18. If we
-                become aware that someone under 18 has registered with us, we
+                TheCatchMeApp does not knowingly collect any information about
+                or market to children, minors or anyone under the age of 18. If
+                we become aware that someone under 18 has registered with us, we
                 will take steps to terminate that person&apos;s registration.
               </p>
             </div>
@@ -784,7 +784,7 @@ export default function PrivacyPage() {
             <p className="text-gray-700 mb-4">
               As Catchme evolves, we may revise this Privacy Policy from time to
               time. If we make a material change, we will notify you via email
-              or by posting a notice within Catchme.
+              or by posting a notice within TheCatchmeApp.
             </p>
             <p className="text-gray-700 mb-4">
               If you have any questions, please send an email to

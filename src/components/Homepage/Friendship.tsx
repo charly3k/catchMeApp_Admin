@@ -21,7 +21,7 @@ const Friendship = () => {
           <p className="text-gray-600 text-lg leading-relaxed">
             Making friends and building meaningful connections as a student is
             an essential part of both personal growth and an enjoyable
-            university experience. CatchMeApp goes beyond dating, providing a
+            university experience. TheCatchMeApp goes beyond dating, providing a
             platform where students can meet like-minded individuals, form
             lasting friendships, and engage in meaningful conversations.
           </p>

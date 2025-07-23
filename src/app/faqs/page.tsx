@@ -3,7 +3,6 @@
 import Link from "next/link";
 import {
   ArrowLeft,
-  Mail,
   ExternalLink,
   Plus,
   Minus,
@@ -183,10 +182,7 @@ export default function FAQsPage() {
               asChild
               className="bg-[#ff0a54] hover:bg-[#e00948] text-white"
             >
-              <a href="mailto:support@thecatchmeapp.co">
-                <Mail className="w-4 h-4 mr-2" />
-                Contact Support
-              </a>
+              <Link href="/support">Contact Support</Link>
             </Button>
           </div>
         </div>
@@ -232,10 +228,7 @@ export default function FAQsPage() {
                 asChild
                 className="bg-[#ff0a54] hover:bg-[#e00948] text-white"
               >
-                <a href="mailto:support@thecatchmeapp.co">
-                  <Mail className="w-4 h-4 mr-2" />
-                  Email Support
-                </a>
+                <Link href="/support">Support</Link>
               </Button>
               <Button
                 asChild
