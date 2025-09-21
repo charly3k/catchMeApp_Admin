@@ -4,18 +4,16 @@ import IncreaseLimitModal from "@/components/IncreaseLimitModal";
 import Modal from "@/components/Modal";
 import Sidebar from "@/components/Sidebar";
 //import { useEffect } from "react";
-import Cookies from "universal-cookie";
-
 export default function DashboardLayout({
   children, // will be a page or nested layout
 }: {
   children: React.ReactNode;
 }) {
-  const cookies = new Cookies();
+  //const cookies = new Cookies();
 
-  const authToken = cookies.get("authToken");
+  //  const authToken = cookies.get("authToken");
 
-  console.log({ authToken });
+  //  console.log({ authToken });
   /*   useEffect(() => {
     if (!authToken) {
       window.location.href = "/admin_auth/login";
