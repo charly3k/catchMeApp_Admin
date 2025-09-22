@@ -3,8 +3,9 @@ import Cookies from "universal-cookie";
 import { toast } from "react-toastify";
 
 export const adminLogin = async (email: string, password: string) => {
-  const today = new Date();
-  const twoWeeksFromToday = new Date(today);
+  //const today = new Date();
+  const expirationDate = new Date();
+  expirationDate.setDate(expirationDate.getDate() + 14); // Add 14 days from now
   try {
     const cookies = new Cookies();
 
@@ -27,15 +28,20 @@ export const adminLogin = async (email: string, password: string) => {
       //   return;
     }
 
-    console.log(result);
     cookies.set("authToken", result.data.accessToken, {
-      expires: new Date(twoWeeksFromToday.setDate(today.getDate() + 14)),
+      expires: expirationDate,
+      path: "/", // Ensure cookie is available across the entire site
+      sameSite: "lax", // Add security settings
     });
     cookies.set("adminID", result.data.adminDetails.id, {
-      expires: new Date(twoWeeksFromToday.setDate(today.getDate() + 14)),
+      expires: expirationDate,
+      path: "/", // Ensure cookie is available across the entire site
+      sameSite: "lax", // Add security settings
     });
     cookies.set("adminRole", result.data.adminDetails.access, {
-      expires: new Date(twoWeeksFromToday.setDate(today.getDate() + 14)),
+      expires: expirationDate,
+      path: "/", // Ensure cookie is available across the entire site
+      sameSite: "lax", // Add security settings
     });
 
     return result;

@@ -4,8 +4,10 @@ import { toast } from "react-toastify";
 
 export const superAdminLogin = async (email: string, password: string) => {
   const cookies = new Cookies();
-  const today = new Date();
-  const twoWeeksFromToday = new Date(today);
+  //const today = new Date();
+  //const twoWeeksFromToday = new Date(today);
+  const expirationDate = new Date();
+  expirationDate.setDate(expirationDate.getDate() + 14); // Add 14 days from now
   try {
     const response = await fetch(`${apiUrl}/super/admin/login`, {
       method: "POST",
@@ -30,13 +32,19 @@ export const superAdminLogin = async (email: string, password: string) => {
     }
 
     cookies.set("authToken", result.data.accessToken, {
-      expires: new Date(twoWeeksFromToday.setDate(today.getDate() + 14)),
+      expires: expirationDate,
+      path: "/", // Ensure cookie is available across the entire site
+      sameSite: "lax", // Add security settings
     });
     cookies.set("adminID", result.data.adminDetails.id, {
-      expires: new Date(twoWeeksFromToday.setDate(today.getDate() + 14)),
+      expires: expirationDate,
+      path: "/", // Ensure cookie is available across the entire site
+      sameSite: "lax", // Add security settings
     });
     cookies.set("adminRole", result.data.adminDetails.access, {
-      expires: new Date(twoWeeksFromToday.setDate(today.getDate() + 14)),
+      expires: expirationDate,
+      path: "/", // Ensure cookie is available across the entire site
+      sameSite: "lax", // Add security settings
     });
 
     toast(result.message, {
