@@ -25,7 +25,19 @@ const Hero = () => {
           {/* Logo/Brand */}
           <div className="flex items-center gap-3 mb-8">
             <div className="hidden sm:flex">
-              <Image alt="" width={100} height={100} src={CatchMeAppSvg} />
+              <Image
+                alt=""
+                width={100}
+                height={100}
+                className="bg-[#ff0a54] rounded-full object-cover"
+                style={{
+                  borderRadius: "50%",
+                  width: "80px",
+                  height: "80px",
+                  objectFit: "contain",
+                }}
+                src={CatchMeAppSvg}
+              />
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold text-[#ff0a54] tracking-tight">

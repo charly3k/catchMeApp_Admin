@@ -1,12 +1,13 @@
 "use client";
 
-import CatchMe from "@/assets/CatchMe";
 import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CatchMeAppSvg from "../../../public/img/CatchMeApp.svg";
+import Image from "next/image";
 
 type FormData = {
   from_name: string;
@@ -57,7 +58,20 @@ const Page = () => {
     <>
       <Navbar />
       <div className="flex flex-col  items-center  px-6 py-6">
-        <CatchMe />
+        <Image
+          // className="bg-[#ff0a54] rounded-full"
+          alt=""
+          width={100}
+          height={100}
+          className="bg-[#ff0a54] rounded-full object-cover"
+          style={{
+            borderRadius: "50%",
+            width: "100px",
+            height: "100px",
+            objectFit: "contain",
+          }}
+          src={CatchMeAppSvg}
+        />
 
         <div className="py-6">
           <h1 className="text-black text-2xl text-center mb-4">
