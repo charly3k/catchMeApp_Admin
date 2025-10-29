@@ -3,8 +3,10 @@ import { TypeAnimation } from "react-type-animation";
 import { heroTexts } from "@/app/data";
 import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
-import CatchMe from "@/assets/CatchMe";
+//import CatchMe from "@/assets/CatchMe";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import CatchMeAppSvg from "../../../public/img/CatchMeApp.svg";
 
 const Hero = () => {
   const router = useRouter();
@@ -23,7 +25,7 @@ const Hero = () => {
           {/* Logo/Brand */}
           <div className="flex items-center gap-3 mb-8">
             <div className="hidden sm:flex">
-              <CatchMe />
+              <Image alt="" width={100} height={100} src={CatchMeAppSvg} />
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold text-[#ff0a54] tracking-tight">
@@ -40,7 +42,7 @@ const Hero = () => {
                 <Sparkles className="absolute -top-4 -right-8 w-12 h-12 text-[#ff0a54] animate-pulse" />
               </span>
               <span className="block bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                Heart
+                Life
               </span>
             </h2>
           </div>

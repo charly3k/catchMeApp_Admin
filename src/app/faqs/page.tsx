@@ -20,12 +20,12 @@ const faqData = [
     icon: HelpCircle,
     questions: [
       {
-        question: "What is CatchMeApp and what does it do?",
+        question: "What is TheCatchMeApp and what does it do?",
         answer:
-          "CatchMeApp is a mobile app designed specifically for students at universities and colleges to connect, build friendships, and potentially find romantic relationships within their academic community.",
+          "TheCatchMeApp is a mobile app designed specifically for students at universities and colleges to connect, build friendships, and potentially find romantic relationships within their academic community.",
       },
       {
-        question: "How do I sign up for CatchMeApp?",
+        question: "How do I sign up for TheCatchMeApp?",
         answer:
           "Download the app from the App Store or Google Play store. Open the app and choose to register using your email address and password or a social media account (FACEBOOK).",
       },
@@ -165,7 +165,7 @@ export default function FAQsPage() {
             Frequently Asked <span className="text-[#ff0a54]">Questions</span>
           </h1>
           <p className="text-xl text-gray-300">
-            Find answers to common questions about CatchMeApp
+            Find answers to common questions about TheCatchMeApp
           </p>
         </div>
       </div>
