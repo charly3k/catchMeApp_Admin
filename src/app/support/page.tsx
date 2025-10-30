@@ -6,7 +6,7 @@ import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CatchMeAppSvg from "../../../public/img/CatchMeApp.svg";
+import CatchMeAppSvg from "../../../public/img/Logo.svg";
 import Image from "next/image";
 
 type FormData = {
@@ -61,14 +61,14 @@ const Page = () => {
         <Image
           // className="bg-[#ff0a54] rounded-full"
           alt=""
-          width={100}
-          height={100}
-          className="bg-[#ff0a54] rounded-full object-cover"
+          width={80}
+          height={80}
+          //  className="bg-[#ff0a54] rounded-full object-cover"
           style={{
             borderRadius: "50%",
-            width: "100px",
+            /*   width: "100px",
             height: "100px",
-            objectFit: "contain",
+            objectFit: "contain", */
           }}
           src={CatchMeAppSvg}
         />

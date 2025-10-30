@@ -6,7 +6,7 @@ import { Sparkles } from "lucide-react";
 //import CatchMe from "@/assets/CatchMe";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import CatchMeAppSvg from "../../../public/img/CatchMeApp.svg";
+import CatchMeAppSvg from "../../../public/img/Logo.svg";
 
 const Hero = () => {
   const router = useRouter();
@@ -27,14 +27,14 @@ const Hero = () => {
             <div className="hidden sm:flex">
               <Image
                 alt=""
-                width={100}
-                height={100}
-                className="bg-[#ff0a54] rounded-full object-cover"
+                width={60}
+                height={60}
+                //   className="bg-[#ff0a54] rounded-full object-cover"
                 style={{
                   borderRadius: "50%",
-                  width: "80px",
-                  height: "80px",
-                  objectFit: "contain",
+                  //width: "200px",
+                  //height: "200px",
+                  //objectFit: "contain",
                 }}
                 src={CatchMeAppSvg}
               />
