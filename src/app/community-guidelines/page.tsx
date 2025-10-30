@@ -36,12 +36,12 @@ export default function CommunityGuidelinesPage() {
         <div className="prose prose-lg max-w-none">
           <div className="bg-[#ff0a54]/5 border-l-4 border-[#ff0a54] p-6 rounded-r-lg mb-8">
             <p className="text-gray-700 mb-0">
-              Catchme is a space to make kind connections in a safe, inclusive,
-              and respectful way. In order to enhance healthy relationships, we
-              hold our members accountable for the way they treat each other.
-              Our Community Guidelines help keep our members safe by making it
-              clear what content and conduct is not acceptable (on our platform
-              and off).
+              TheCatchMeApp is a space to make kind connections in a safe,
+              inclusive, and respectful way. In order to enhance healthy
+              relationships, we hold our members accountable for the way they
+              treat each other. Our Community Guidelines help keep our members
+              safe by making it clear what content and conduct is not acceptable
+              (on our platform and off).
             </p>
           </div>
 
@@ -95,7 +95,9 @@ export default function CommunityGuidelinesPage() {
                   Age Requirements
                 </h3>
                 <ul className="list-disc list-inside text-red-800 space-y-2">
-                  <li>You need to be at least 18 years old to join Catchme</li>
+                  <li>
+                    You need to be at least 18 years old to join TheCatchMeApp
+                  </li>
                   <li>
                     Creating a profile that intentionally misrepresents you as
                     being under 18 is not allowed
@@ -233,7 +235,8 @@ export default function CommunityGuidelinesPage() {
                 </h3>
                 <p className="text-yellow-800 mb-0">
                   Our platform is not a marketplace. We don&apos;t allow using
-                  Catchme for unsolicited commercial or promotional purposes.
+                  TheCatchMeApp for unsolicited commercial or promotional
+                  purposes.
                 </p>
               </div>
 
@@ -271,11 +274,11 @@ export default function CommunityGuidelinesPage() {
                   Identity-Based Hate
                 </h3>
                 <p className="text-blue-800 mb-4">
-                  We aim to foster a diverse and inclusive community on Catchme.
-                  We prohibit content or behavior that promotes or condones
-                  hate, dehumanization, degradation, or contempt against
-                  marginalized or minoritized communities based on protected
-                  attributes:
+                  We aim to foster a diverse and inclusive community on
+                  TheCatchMeApp. We prohibit content or behavior that promotes
+                  or condones hate, dehumanization, degradation, or contempt
+                  against marginalized or minoritized communities based on
+                  protected attributes:
                 </p>
                 <ul className="list-disc list-inside text-blue-800 space-y-1 text-sm">
                   <li>Race/ethnicity</li>
@@ -293,8 +296,8 @@ export default function CommunityGuidelinesPage() {
                   Inauthentic Profiles
                 </h3>
                 <p className="text-green-800 mb-4">
-                  Catchme celebrates authenticity, and we expect all our members
-                  to represent themselves accurately on their profile.
+                  TheCatchMeApp celebrates authenticity, and we expect all our
+                  members to represent themselves accurately on their profile.
                 </p>
                 <p className="text-green-800 text-sm mb-0">
                   We don&apos;t allow impersonation or misrepresentation on our
@@ -322,7 +325,7 @@ export default function CommunityGuidelinesPage() {
                   Scams and Theft
                 </h3>
                 <p className="text-orange-800 mb-0">
-                  Catchme prohibits any scam or theft activity intended to
+                  TheCatchMeApp prohibits any scam or theft activity intended to
                   defraud or manipulate members out of financial or material
                   resources. This includes requesting financial support, lying
                   about your intentions for financial gain, or faking romantic
@@ -335,7 +338,7 @@ export default function CommunityGuidelinesPage() {
                   Sexual Harassment
                 </h3>
                 <p className="text-pink-800 mb-4">
-                  Catchme prohibits sexual harassment. We consider sexual
+                  TheCatchMeApp prohibits sexual harassment. We consider sexual
                   harassment to be any non-physical, unwanted, and unwelcome
                   sexual behaviors between students/members.
                 </p>
@@ -388,10 +391,10 @@ export default function CommunityGuidelinesPage() {
 
             <div className="bg-[#ff0a54]/5 border border-[#ff0a54]/20 rounded-lg p-6 mb-6">
               <p className="text-gray-700 mb-4">
-                <strong>Safety is a top priority at Catchme.</strong> We use a
-                combination of human moderators and automated systems to monitor
-                and review Catchme accounts for content that may be against our
-                Community Guidelines, against our
+                <strong>Safety is a top priority at TheCatchMeApp.</strong> We
+                use a combination of human moderators and automated systems to
+                monitor and review Catchme accounts for content that may be
+                against our Community Guidelines, against our
                 <Link
                   href="/terms"
                   className="text-[#ff0a54] hover:underline font-semibold ml-1"
@@ -408,9 +411,9 @@ export default function CommunityGuidelinesPage() {
                   How to Report
                 </h3>
                 <p className="text-green-800 mb-4">
-                  Our members play a critical role in the safety of Catchme by
-                  reporting content or behavior that may violate our Community
-                  Guidelines.
+                  Our members play a critical role in the safety of
+                  TheCatchMeApp by reporting content or behavior that may
+                  violate our Community Guidelines.
                 </p>
                 <p className="text-green-800 text-sm mb-0">
                   If anything happens that makes you feel uncomfortable or
@@ -447,8 +450,8 @@ export default function CommunityGuidelinesPage() {
               and referenced in our Community Guidelines. If you behave in a way
               that goes against TheCatchMeApp&apos;s Community Guidelines,
               values, or otherwise act in any way we believe to be potentially
-              harmful to Catchme or its members, we may take a range of actions
-              on your account.
+              harmful to TheCatchMeApp or its members, we may take a range of
+              actions on your account.
             </p>
 
             <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-6">
@@ -462,7 +465,7 @@ export default function CommunityGuidelinesPage() {
               </p>
               <ul className="list-disc list-inside text-red-800 space-y-1">
                 <li>Issue a warning</li>
-                <li>Ban the offending member from Catchme App</li>
+                <li>Ban the offending member from TheCatchMeApp</li>
               </ul>
             </div>
 
@@ -471,7 +474,7 @@ export default function CommunityGuidelinesPage() {
                 Off-Platform Conduct
               </h3>
               <p className="text-blue-800 mb-0">
-                Your treatment towards others outside of the Catchme app can
+                Your treatment towards others outside of the TheCatchMeApp can
                 also result in action against your account. If we&apos;re made
                 aware of harm between members on dates, meetups, via text
                 message or other platforms, or relevant alleged criminal

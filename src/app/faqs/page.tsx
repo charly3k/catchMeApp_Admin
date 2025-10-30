@@ -27,7 +27,7 @@ const faqData = [
       {
         question: "How do I sign up for TheCatchMeApp?",
         answer:
-          "Download the app from the App Store or Google Play store. Open the app and choose to register using your email address and password or a social media account (FACEBOOK).",
+          "Download the app from the App Store or Google Play store. Open the app and choose to register using your email address and password or sign up with your Google or Apple account. Follow the prompts to complete the registration process.",
       },
       {
         question:
@@ -91,7 +91,7 @@ const faqData = [
       {
         question: "How does the app protect my privacy?",
         answer:
-          "CatchMeApp takes user privacy seriously. We implement secure data storage practices and encryption protocols to protect your information.",
+          "TheCatchMeApp takes user privacy seriously. We implement secure data storage practices and encryption protocols to protect your information.",
       },
     ],
   },
