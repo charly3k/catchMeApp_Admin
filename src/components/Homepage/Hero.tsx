@@ -1,6 +1,6 @@
 "use client";
-import { TypeAnimation } from "react-type-animation";
-import { heroTexts } from "@/app/data";
+/* import { TypeAnimation } from "react-type-animation";
+import { heroTexts } from "@/app/data"; */
 import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
 //import CatchMe from "@/assets/CatchMe";
