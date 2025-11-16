@@ -60,14 +60,10 @@ const Hero = () => {
           </div>
 
           {/* Animated text */}
-          <div className="mb-4">
-            <TypeAnimation
-              className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed"
-              sequence={heroTexts}
-              speed={50}
-              repeat={Number.POSITIVE_INFINITY}
-            />
-          </div>
+          <p className="mb-4 text-xl md:text-2xl text-gray-300 font-light leading-relaxed">
+            Find your value match, friend, study budy or study group or exchange
+            student group on TheCatchMeApp only.
+          </p>
 
           {/* CTA Buttons */}
 
