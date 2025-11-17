@@ -11,6 +11,7 @@ import Conclusion from "@/components/Homepage/Conclusion";
 import { Fade } from "react-awesome-reveal";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import Review from "@/components/Homepage/Reviews";
 
 const Page = () => {
   return (
@@ -31,6 +32,9 @@ const Page = () => {
       </Fade>
       <Fade triggerOnce damping={2} direction="up">
         <Friendship />
+      </Fade>
+      <Fade triggerOnce damping={2} direction="up">
+        <Review />
       </Fade>
 
       <Conclusion />
