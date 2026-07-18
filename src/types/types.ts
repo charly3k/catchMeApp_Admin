@@ -75,3 +75,59 @@ export type userAuditTrail = {
   school: string;
   schoolEmail: string;
 };
+
+// Event API response types
+export type EventData = {
+  id: number;
+  title: string;
+  description: string;
+  imageUrl: string;
+  venue: string;
+  externalLink: string;
+  schoolName: string;
+  startTime: string;
+  endTime: string;
+  createdAt: string;
+  reactionCount: number;
+  commentCount: number;
+  attendeeCount: number;
+  maxAttendees: number;
+  isCancelled: boolean;
+  commentLocked: boolean;
+  creatorId: number;
+  creatorFirstName: string;
+  creatorLastName: string;
+  creatorProfilePhoto: string;
+  shareLink: string;
+};
+
+export type PaginationInfo = {
+  page: number;
+  size: number;
+  totalElements: number;
+  totalPages: number;
+  hasNext: boolean;
+  nextPageUrl: string;
+  hasPrevious: boolean;
+  prevPageUrl: string;
+  moreAvailable: boolean;
+};
+
+export type EventApiResponse = {
+  requestId: string;
+  timestamp: string;
+  statusCode: number;
+  status: string;
+  message: string;
+  userFriendlyMessage: string;
+  data: EventData;
+  errors: string[];
+  userId: string;
+  pagination: PaginationInfo;
+  path: string;
+  processingTimeMs: number;
+  servedFromCache: boolean;
+  truncated: boolean;
+  truncationReason: string;
+  baseResponseType: string;
+};
