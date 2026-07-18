@@ -14,6 +14,7 @@ import Navbar from "@/components/Navbar";
 import Review from "@/components/Homepage/Reviews";
 
 const Page = () => {
+  //
   return (
     <div>
       <Navbar />
