@@ -1,0 +1,23 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "GX8Y24LNA2.com.boogie2k.catchmeappfrontend",
+        "paths": [
+          "/event/*"
+        ]
+      }
+    ]
+  },
+  "activitycontinuation": {
+    "apps": [
+      "GX8Y24LNA2.com.boogie2k.catchmeappfrontend"
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "GX8Y24LNA2.com.boogie2k.catchmeappfrontend"
+    ]
+  }
+}
