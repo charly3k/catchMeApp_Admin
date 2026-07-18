@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.boogie2k.catchmeappfrontend",
+      "sha256_cert_fingerprints": [
+        "B9:6D:6D:DE:71:03:5F:F7:D9:C8:43:DB:7B:89:8B:EF:DB:B8:83:1C:DD:0A:55:B8:3B:41:31:18:F1:E2:96:F6"
+      ]
+    }
+  }
+]
